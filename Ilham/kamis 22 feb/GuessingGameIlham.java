@@ -72,8 +72,6 @@ public class GuessingGameIlham {
 			ronde++;
 		}
 
-		if (tebakanBenar == 10) ? rating = "hackers" ? (tebakanBenar == 9) ? rating = "professionals" ? (tebakanBenar == 8) ? rating = "advanced" ? rating = "amateurs"
-
 		// cek rating
 		switch (tebakanBenar) {
 		 	case 10: rating = "hackers";
