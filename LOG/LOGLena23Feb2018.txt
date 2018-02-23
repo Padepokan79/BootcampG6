@@ -1,1 +1,5 @@
 -update file PigLikeDiceGameLena.java
+-tambah file ArrayNo1Lena.java
+-tambah file ArrayNo2Lena.java
+-tambah file ArrayNo3Lena.java
+-tambah file ArrayNo4Lena.java

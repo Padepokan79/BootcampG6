@@ -1,3 +1,7 @@
+/* @author  : lenawidiani
+ * @version : Feb 23, 2018
+ */
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -67,7 +71,7 @@ public class PigLikeDiceGameLena{
 					}
 					j++;
 
-				}while(playerScore != 1 && lempar.equalsIgnoreCase("y") && playerTotalScore<100);
+				}while(playerScore != 1 && lempar.equalsIgnoreCase("y") && (playerTotalScore+playerTempScore)<100);
 
 				//mendapatkan total skor pemain
 				playerTotalScore = playerTotalScore+playerTempScore;
