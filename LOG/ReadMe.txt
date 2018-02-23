@@ -1,0 +1,1 @@
+Folder ini berisi LOG untuk setiap COMMIT
