@@ -1,0 +1,5 @@
+-Menambahkan Folder LOG
+-ReadMe.txt
+-Mengerjakan exercise 25
+-Mengerjakan exercise 26
+-Mengerjakan exercise 27
