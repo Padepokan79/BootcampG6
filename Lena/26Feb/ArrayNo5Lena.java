@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class ArrayNo4Lena{
+public class ArrayNo5Lena{
 	public static void main(String[] args) {
 		Scanner keyboard= new Scanner(System.in);
 
@@ -8,27 +8,30 @@ public class ArrayNo4Lena{
 		int[] arr2 = new int[10];
 		int[] arr3 = {2,39,47,14,36,56,57,49,43,79};
 		int[] arr4 = new int[10];
-		int angka,posisi;
+		int[] arrTemp = new int[arr1.length - 1];
+		int angka,posisi,index=0;
 		boolean isfound= false;
 
-		System.out.println("\nNo.4 Terima nilai dan ubah untuk suatu posisi pada arr1 ");
+		System.out.println("\nNo.5 Hapus suatu posisi dari arr1 ");
 		System.out.println("============================================================================");
 		System.out.println("arr1 before: ");
 		for(int num : arr1){
 			System.out.print(num+"  ");
 		}
 
-		System.out.print("\nMasukkan sebuah bilangan: ");
-		angka=keyboard.nextInt();
-		System.out.print("Masukkan posisi yang akan diubah: ");
+		System.out.print("\nMasukkan posisi yang akan dihapus: ");
 		posisi=keyboard.nextInt();
 
 		if(posisi<=arr1.length){
 			for (int i=0; i<arr1.length ;i++ ) {
-				if((posisi-1)==i){
-					arr1[i]=angka;
+				if((posisi-1)!=i){
+					arrTemp[index]=arr1[i];
+					index++;
 				}
 			}
+
+			arr1=arrTemp;
+
 			System.out.println("arr1 after: ");
 			for(int num : arr1){
 				System.out.print(num+"  ");
