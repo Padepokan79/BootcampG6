@@ -1,0 +1,6 @@
+Folder 23Feb
+-Update file ArrayNo4Lena
+
+Folder 26Feb
+-Tambah file ArrayNo5Lena s/d ArrayNo14Lena
+-Tambah file SortingAngkaLena

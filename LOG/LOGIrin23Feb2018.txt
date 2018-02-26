@@ -1,0 +1,5 @@
+-tugas PigDicesIrin.java
+-tugas TesArray1Irin.java
+-tugas TesArray2Irin.java
+-tugas TesArray3Irin.java
+-tugas TesArray4Irin.java
