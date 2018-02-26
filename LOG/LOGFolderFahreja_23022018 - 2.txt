@@ -1,0 +1,6 @@
+-add file ArrayIntro.java
+-add file ArrayLinearSearch.java
+-add file HitungArrayFahreja.java
+-add file AdaTidak.java
+-add file CariPosisi.java
+-add file UbahTambah.java
