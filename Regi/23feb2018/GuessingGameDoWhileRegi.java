@@ -1,14 +1,14 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class GuessingGameRegi {
+public class GuessingGameDoWhileRegi {
 	public static void main( String[] args ) {
 		Scanner keyboard = new Scanner(System.in);
 		Random rand = new Random();
 		int jawaban, guess, chance, ronde = 1, rondeMenang = 0;
 		boolean benar;
 
-		while ( ronde <= 10 ) {
+		do {
 			chance = 1;
 			benar = false;
 			
@@ -21,7 +21,7 @@ public class GuessingGameRegi {
 			System.out.println( "\nYou must guess what it is in three tries." );
 
 			// while untuk chance
-			while ( benar == false && chance <= 3 ) {
+			do {
 				System.out.print( "\nEnter a guess: " );
 				guess = keyboard.nextInt();
 
@@ -43,7 +43,7 @@ public class GuessingGameRegi {
 				}
 
 				chance ++;
-			}
+			} while ( benar == false && chance <= 3 );
 		
 			if ( benar == false ) {
 				System.out.println( "\nThe correct number was: " + jawaban );
@@ -51,7 +51,7 @@ public class GuessingGameRegi {
 			}
 			
 			ronde ++;
-		}
+		} while ( ronde <= 10 );
 
 		System.out.println( "\n===========================================" );
 
