@@ -4,3 +4,4 @@ Folder 23Feb
 Folder 26Feb
 -Tambah file ArrayNo5Lena s/d ArrayNo14Lena
 -Tambah file SortingAngkaLena
+-Tambah file SortingAngkaKe2Lena
