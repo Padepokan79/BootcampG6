@@ -1,0 +1,7 @@
+1. Mengoreksi kondisi jawaban salah di Program "GuessingGameRegi" folder 22feb2018
+2. Menambahkan exercise 29, 30, 31 ke folder 22feb2018
+3. Menambahkan program "GuessingGameRegiDoWhile" ke folder 23feb2018
+4. Menambahkan program "PigLikeDiceGameRegi" ke folder 23feb2018
+5. Menambahkan exercise 48 & 49 beserta study drillsnya ke folder 23feb2018
+6. Mengoreksi kondisi "not found" di program "Soal2" folder 23feb2018
+7. Menambahkan program "Soal4" ke folder 23feb2018
