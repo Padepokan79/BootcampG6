@@ -1,0 +1,11 @@
+-add file UrutanArray.java
+-add file TukarNilai.java
+-add file SisipArray.java
+-add file NilaiMinimum.java
+-add file NilaiMaximum.java
+-add file NilaiDuplikasi.java
+-add file MengurutNilai.java
+-add file JumlahArray.java
+-add file HapusArray.java
+-add file DuplikasiDuaArray.java
+-add file CopyArray.java
