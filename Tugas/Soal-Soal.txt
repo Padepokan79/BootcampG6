@@ -59,3 +59,66 @@ inputan = 4
  	- copy bilangan prima ke sebuah array baru, bilPrima.
    	- copy bilangan yang habis bagi ke array baru lainnya, bilHabisBagi.
    Kemudian tampilkan ketiga array tersebut.
+
+
+Soal No.7
+
+Andi mengadakan sebuah pesta, andi membuat syarat siapa saja yang boleh masuk atau ikut kedalam pesta tersebut.
+Tamu harus mengisi data sebelum masuk yang kemudian di cocok kan dengan syarat yang telah ditentukan.
+data yang perlu di isi:
+1. Masukkan nama anda?
+2. apakah anda memiliki undangan?
+3. Apakah anda membawa sebuah hadiah?
+4. Berapa umur anda
+5. Jenis Kelamin
+6. Penmpilan (0.0 - 10.0)
+berikut syarat-syaratnya untuk bisa masuk:
+1. memiliki undangan
+atau
+2. jika tidak memiliki undangan
+	-> harus membawa hadiah
+	-> dan maksimal umur 20
+atau	
+3. jika tidak memiliki undangan dan tidak membawa hadiah
+	-> harus perempuan
+	-> dan maksimal umur 20
+	-> penampilan >= 8
+
+Selain itu tidak bisa masuk
+
+
+Soal No.8 
+buat sebuah tampilkan # membentuk sebuah tangga, seperti contoh berikut: 
+
+contoh 1:
+input angka : 5  // di input user
+
+    #
+   ##
+  ###
+ ####
+#####
+
+contoh 2:
+input angka : 3  // di input user
+
+  #
+ ##
+###
+
+
+Soal No.9
+
+Tampung sejumlah angka kedalam array, (jumlah angka di tentukan oleh user/inputan), 
+kemudian tampilkan kembali angka/bilangan yang tadi di input dan jumlahkan seluruh angka pada array tersebut.
+
+contoh :
+
+jumlah angka yang ingin dimasukkan : 3 // input user
+
+angka 1 : 4		// input user
+angka 2 : 20	// input user
+angka 3 : 23	// input user
+
+4 , 20 , 23
+jumlah = 47
