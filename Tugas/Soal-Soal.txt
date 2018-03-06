@@ -16,7 +16,6 @@ Soal - soal latihan.
             u
            
           
-         
         
 	   
 3. Buatlah program untuk menampilkan isi array dalam bentuk persegi seperti berikut, isi array random (0-9), panjang array 9. Contoh :
