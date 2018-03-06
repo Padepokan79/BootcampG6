@@ -5,10 +5,20 @@ public class GajiPNSYudhis {
 		
 		// Inisialisasi variable
 		Scanner inputMenu = new Scanner(System.in); // Input khusus menu
+		Scanner inputTunjangan = new Scanner(System.in); // Input khusus tunjangan
 		Scanner input = new Scanner(System.in);
 
+		// Variable 
+		// Ilham
 		int golongan = 0, masaKerja = 0, jumlahAnak = 0, besarTunjanganLainnya = 0, gajiPokok = 0;
+		double tunjKawin = 0, tunjAnak = 0, tunjBeras = 0, tunjJabatan = 0;
+		double gajiKotor = 0, biayaJabatan = 0, penghasilanNetto = 0, pTKP = 0, pKP = 0, pKPLv1 = 50000000, pKPLv2 = 200000000, pKPLv3 = 250000000, pPH = 0;
+		double taperum = 0, iwp = 0, takeHomePay = 0, iuranPensiun = 0;
 		String nama = "-", nip = "-", jenisKelamin = "-", kodeGolongan = "-", statusKawin = "-", jenisPNS = "-", tunjanganLainnya, namaTunjanganLainnya = "-";
+
+		boolean bNama = false, bNIP = false, bJK = false, bGolongan = false, bMasaKerja = false, bStatKawin = false, bJenis = false;
+
+		final int hrgBeras = 12500;
 
 		// Gaji Golongan 1
 		int [] gol1A = {1486500, 1486500, 1533400, 1533400, 1581700, 1581700, 1631500, 1631500, 1682900, 1682900, 1735900, 1735900,
@@ -24,7 +34,8 @@ public class GajiPNSYudhis {
 						2124300, 2124300, 2191200, 2191200, 2260200, 2260200, 2331400, 2331400, 2404800, 2404800, 2480500, 2480500, 
 						2558700};
 
-		// Gaji Golongan 2 
+		// Gaji Golongan 2  
+		// Khairin
 		int [] gol2A = {1926000, 1956300, 1956300, 2017900, 2017900, 2081500, 2081500, 2147000, 2147000, 2214700, 2214700, 2284400, 2284400, 
 						2356400, 2356400, 2430600, 2430600, 2507100, 2507100, 2586100, 2586100, 2667500, 2667500, 2751600, 2751600, 2838200, 2838200, 
 						2927600, 2927600, 3019800, 3019800, 3114900, 3114900, 3213100};
@@ -38,7 +49,8 @@ public class GajiPNSYudhis {
 	    				2752300, 2752300, 2838900, 2838900, 2928300, 2928300, 3020600, 3020600, 3115700, 3115700, 3213800, 3213800, 3315100, 3315100, 
 	    				3419500, 3419500, 3527200, 3527200, 3638200};
 		
-		// Gaji Golongan 3
+		// Gaji Golongan 3 
+	    // Ilham
 		int [] gol3A = {2456700, 2456700, 2534000, 2534000, 2613800, 2613800, 2696200, 2696200, 2781100, 2781100, 2868700, 2868700, 2959000, 2959000, 
 						3052200, 3052200, 3148300, 3148300, 3247500, 3247500, 3349800, 3349800, 3455300, 3455300, 3564100, 3564100, 3676400, 3676400, 
 						3792100, 3792100, 3911600, 3911600, 4034800};
@@ -53,6 +65,7 @@ public class GajiPNSYudhis {
 						4294000, 4294000, 4429300, 4429300, 4568800};
 
 		// Gaji Golongan 4
+		// Ilham & Khairin
 	    int [] gol4A = {2899500, 2899500, 2990800, 2990800, 3085000, 3085000, 3182100, 3182100, 3282400, 3282400, 3385700, 3385700, 3492400, 3492400, 
 	    				3602400, 3602400, 3715800, 3715800, 3832800, 3832800, 3953600, 3953600, 4078100, 4078100, 4206500, 4206500, 4339000, 4339000, 
 	    				4475700, 4475700, 4616600, 4616600, 4762000};
@@ -92,15 +105,18 @@ public class GajiPNSYudhis {
 
 					System.out.print("Masukkan nama : "); nama = input.nextLine(); 
 
-					while ( !(nama.length() < 50 && nama.matches("[A-Z a-z]*")) ) {
+					while ( !(nama.length() <= 50 && nama.matches("[A-Z a-z]*")) ) {
 						System.out.println("Nama harus alpabhet atau kurang dari 50 karakter.");
 						System.out.print("Masukkan nama : "); nama = input.nextLine(); 	
 					}
 
+					bNama = true;
+
 					break;
 
 				case 2 : 
-					// Input NIP
+					// Input NIP 
+					// Khairin
 
 					System.out.print("Masukkan 12 sampai 18 karakter angka NIP  : "); nip = input.nextLine();
 
@@ -109,10 +125,13 @@ public class GajiPNSYudhis {
 						System.out.print("Masukkan NIP : "); nip = input.next();
 					}
 
+					bNIP = true;
+
 					break;
 
 				case 3 : 
-					// Input Jenis Kelamin
+					// Input Jenis Kelamin 
+					// Ilham
 
 					String pilJenisKelamin;
 					System.out.println("Masukkan jenis kelamin: \n1. Pria \n2. Wanita ");
@@ -136,10 +155,13 @@ public class GajiPNSYudhis {
 						jenisKelamin = "Wanita";
 					}
 
+					bJK = true;
+
 					break;
 
 				case 4 : 
-					// Input Golongan dan Kode Golongan
+					// Input Golongan dan Kode Golongan 
+					// Ilham
 					
 					String pilGolongan;
 					System.out.print("Masukkan golongan (1 - 4): ");
@@ -177,10 +199,13 @@ public class GajiPNSYudhis {
 						kodeGolongan = input.next();	
 					}
 
+					bGolongan = true;
+
 					break;
 
 				case 5 : 
-					// Input Masa Kerja
+					// Input Masa Kerja 
+					// Ilham
 
 					System.out.print("Masukkan Masa Kerja (dalam tahun): ");
 					masaKerja = input.nextInt();
@@ -190,6 +215,8 @@ public class GajiPNSYudhis {
 						System.out.print("Masukkan Masa Kerja (dalam tahun): ");
 						masaKerja = input.nextInt();						
 					}
+
+					bMasaKerja = true;
 
 					break;
 
@@ -236,10 +263,13 @@ public class GajiPNSYudhis {
 
 					jumlahAnak = Integer.valueOf(banyakAnak);
 
+					bStatKawin = true;
+
 					break;
 
 				case 7 : 
-					// Jenis PNS
+					// Jenis PNS 
+					// Khairin
 					
 					System.out.println("Pilih jenis PNS:");
 					System.out.println("1. Pejabat");
@@ -271,17 +301,19 @@ public class GajiPNSYudhis {
 						jenisPNS = "Lainnya";
 					}
 
+					bJenis = true;
+
 					break;
 
 				case 8 : 
 					// Tunjangan Lainnya
 
-					System.out.print("Nama tunjangan lainnya : "); namaTunjanganLainnya = input.nextLine();
-					System.out.print("Besar tunjangan lainnya : "); tunjanganLainnya = input.next();
+					System.out.print("Nama tunjangan lainnya : "); namaTunjanganLainnya = inputTunjangan.nextLine();
+					System.out.print("Besar tunjangan lainnya : "); tunjanganLainnya = inputTunjangan.next();
 
 					while ( !(tunjanganLainnya.matches("[0-9]*")) ) {
 						System.out.println("\nBesar tunjangan harus berupa angka.");
-						System.out.print("Besar tunjangan lainnya : "); tunjanganLainnya = input.next();
+						System.out.print("Besar tunjangan lainnya : "); tunjanganLainnya = inputTunjangan.next();
 					} 
 
 					besarTunjanganLainnya = Integer.valueOf(tunjanganLainnya);
@@ -289,227 +321,340 @@ public class GajiPNSYudhis {
 					break;
 
 				case 9 :
-					// Penghitungan gaji pokok
+					// Tampilan SLIP GAJI
 
-					switch (golongan) {
-						case 1 :
-							if (kodeGolongan.equals("A")) {
-								if (masaKerja > 27) {
-									gajiPokok = gol1A[27];
-								} else {
-									gajiPokok = gol1A[masaKerja];
-								}
-							} else if (kodeGolongan.equals("B")) {
-								if (masaKerja > 27) {
-									gajiPokok = gol1B[27];
-								} else {
-									gajiPokok = gol1B[masaKerja];
-								}
-							} else if (kodeGolongan.equals("C")) {
-								if (masaKerja > 27) {
-									gajiPokok = gol1C[27];
-								} else {
-									gajiPokok = gol1C[masaKerja];
-								}
-							} else {
-								if (masaKerja > 27) {
-									gajiPokok = gol1D[27];
-								} else {
-									gajiPokok = gol1D[masaKerja];
-								}
-							}
+					if (bNama && bNIP && bJK && bGolongan && bMasaKerja && bStatKawin && bJenis) {
+						// Penghitungan gaji pokok / basic salary
 
-							break;
-
-						case 2 :
-							if (kodeGolongan.equals("A")) {
-								if (masaKerja > 33) {
-									gajiPokok = gol2A[33];
-								} else {
-									gajiPokok = gol2A[masaKerja];
-								}
-							} else if (kodeGolongan.equals("B")) {
-								if (masaKerja > 33) {
-									gajiPokok = gol2B[33];
-								} else {
-									gajiPokok = gol2B[masaKerja];
-								}
-							} else if (kodeGolongan.equals("C")) {
-								if (masaKerja > 33) {
-									gajiPokok = gol2C[33];
-								} else {
-									gajiPokok = gol2C[masaKerja];
-								}
-							} else {
-								if (masaKerja > 33) {
-									gajiPokok = gol2D[33];
-								} else {
-									gajiPokok = gol2D[masaKerja];
-								}
-							}
-
-							break;
-
-						case 3 :
-							if (kodeGolongan.equals("A")) {
-								if (masaKerja > 32) {
-									gajiPokok = gol3A[32];
-								} else {
-									gajiPokok = gol3A[masaKerja];
-								}
-							} else if (kodeGolongan.equals("B")) {
-								if (masaKerja > 32) {
-									gajiPokok = gol3B[32];
-								} else {
-									gajiPokok = gol3B[masaKerja];
-								}
-							} else if (kodeGolongan.equals("C")) {
-								if (masaKerja > 32) {
-									gajiPokok = gol3C[32];
-								} else {
-									gajiPokok = gol3C[masaKerja];
-								}
-							} else {
-								if (masaKerja > 32) {
-									gajiPokok = gol3D[32];
-								} else {
-									gajiPokok = gol3D[masaKerja];
-								}
-							}
-
-							break;
-
-						case 4 :
-							if (kodeGolongan.equals("A")) {
-								if (masaKerja > 32) {
-									gajiPokok = gol4A[32];
-								} else {
-									gajiPokok = gol4A[masaKerja];
-								}
-							} else if (kodeGolongan.equals("B")) {
-								if (masaKerja > 32) {
-									gajiPokok = gol4B[32];
-								} else {
-									gajiPokok = gol4B[masaKerja];
-								}
-							} else if (kodeGolongan.equals("C")) {
-								if (masaKerja > 32) {
-									gajiPokok = gol4C[32];
-								} else {
-									gajiPokok = gol4C[masaKerja];
-								}
-							} else if (kodeGolongan.equals("D")) {
-								if (masaKerja > 32) {
-									gajiPokok = gol4D[32];
-								} else {
-									gajiPokok = gol4D[masaKerja];
-								}
-							} else {
-								if (masaKerja > 32) {
-									gajiPokok = gol4E[32];
-								} else {
-									gajiPokok = gol4E[masaKerja];
-								}
-							}
-
-							break;
-					}
-
-					double tunjKawin = 0;
-					double tunjAnak = 0.02 * gajiPokok * jumlahAnak;
-					double tunjberas = 0;
-					double tunjJabatan = 0;
-					double tunjLainnya = besarTunjanganLainnya;
-					double tunjangan = tunjKawin + tunjAnak + tunjberas + tunjJabatan + tunjLainnya;
-
-					// tunjangan tambahan (Umum, Struktural, Fungsional)
-					if (jenisPNS.equalsIgnoreCase("Pejabat")) {
-						tunjJabatan = 1000000;
-					}
-					else if (jenisPNS.equalsIgnoreCase("Pelayan Masyarakat")) {
-						tunjJabatan = 500000;
-					} else {
 						switch (golongan) {
 							case 1 :
-								tunjJabatan = 175000;
+								if (kodeGolongan.equals("A")) {
+									if (masaKerja > 27) {
+										gajiPokok = gol1A[27];
+									} else {
+										gajiPokok = gol1A[masaKerja];
+									}
+								} else if (kodeGolongan.equals("B")) {
+									if (masaKerja > 27) {
+										gajiPokok = gol1B[27];
+									} else {
+										gajiPokok = gol1B[masaKerja];
+									}
+								} else if (kodeGolongan.equals("C")) {
+									if (masaKerja > 27) {
+										gajiPokok = gol1C[27];
+									} else {
+										gajiPokok = gol1C[masaKerja];
+									}
+								} else {
+									if (masaKerja > 27) {
+										gajiPokok = gol1D[27];
+									} else {
+										gajiPokok = gol1D[masaKerja];
+									}
+								}
+
 								break;
+
 							case 2 :
-								tunjJabatan = 180000;
+								if (kodeGolongan.equals("A")) {
+									if (masaKerja > 33) {
+										gajiPokok = gol2A[33];
+									} else {
+										gajiPokok = gol2A[masaKerja];
+									}
+								} else if (kodeGolongan.equals("B")) {
+									if (masaKerja > 33) {
+										gajiPokok = gol2B[33];
+									} else {
+										gajiPokok = gol2B[masaKerja];
+									}
+								} else if (kodeGolongan.equals("C")) {
+									if (masaKerja > 33) {
+										gajiPokok = gol2C[33];
+									} else {
+										gajiPokok = gol2C[masaKerja];
+									}
+								} else {
+									if (masaKerja > 33) {
+										gajiPokok = gol2D[33];
+									} else {
+										gajiPokok = gol2D[masaKerja];
+									}
+								}
+
 								break;
+
 							case 3 :
-								tunjJabatan = 18500;
+								if (kodeGolongan.equals("A")) {
+									if (masaKerja > 32) {
+										gajiPokok = gol3A[32];
+									} else {
+										gajiPokok = gol3A[masaKerja];
+									}
+								} else if (kodeGolongan.equals("B")) {
+									if (masaKerja > 32) {
+										gajiPokok = gol3B[32];
+									} else {
+										gajiPokok = gol3B[masaKerja];
+									}
+								} else if (kodeGolongan.equals("C")) {
+									if (masaKerja > 32) {
+										gajiPokok = gol3C[32];
+									} else {
+										gajiPokok = gol3C[masaKerja];
+									}
+								} else {
+									if (masaKerja > 32) {
+										gajiPokok = gol3D[32];
+									} else {
+										gajiPokok = gol3D[masaKerja];
+									}
+								}
+
 								break;
+
 							case 4 :
-								tunjJabatan = 190000;
+								if (kodeGolongan.equals("A")) {
+									if (masaKerja > 32) {
+										gajiPokok = gol4A[32];
+									} else {
+										gajiPokok = gol4A[masaKerja];
+									}
+								} else if (kodeGolongan.equals("B")) {
+									if (masaKerja > 32) {
+										gajiPokok = gol4B[32];
+									} else {
+										gajiPokok = gol4B[masaKerja];
+									}
+								} else if (kodeGolongan.equals("C")) {
+									if (masaKerja > 32) {
+										gajiPokok = gol4C[32];
+									} else {
+										gajiPokok = gol4C[masaKerja];
+									}
+								} else if (kodeGolongan.equals("D")) {
+									if (masaKerja > 32) {
+										gajiPokok = gol4D[32];
+									} else {
+										gajiPokok = gol4D[masaKerja];
+									}
+								} else {
+									if (masaKerja > 32) {
+										gajiPokok = gol4E[32];
+									} else {
+										gajiPokok = gol4E[masaKerja];
+									}
+								}
+
 								break;
-							default :
-								tunjJabatan = 0;
-								break;
-						}	
+						}
+
+						// Penghitungan tunjangan kawin
+						// Khairin
+
+						if (statusKawin.equals("Menikah")) {
+							tunjKawin = 0.1 * gajiPokok;
+						}
+						
+
+						// Penghitungan tunjangan Anak 
+						// Khairin
+
+						if (jumlahAnak >= 2) {
+							tunjAnak = (0.02 * gajiPokok) * 2;
+						} else if (jumlahAnak == 1) {
+							tunjAnak = 0.02 * gajiPokok;
+						}
+
+						// Penghitungan tunjangan beras 
+						// Khairin
+
+						if (statusKawin.equals("Menikah")) {
+							if (jumlahAnak >= 2) {
+								tunjBeras = (2 + 2) * 10 * hrgBeras;
+							} else if (jumlahAnak == 1) {
+								tunjBeras = (2 + 1) * 10 * hrgBeras;
+							} else {
+								tunjBeras = (2) * 10 * hrgBeras;
+							}
+						} else {
+							if (jumlahAnak >= 2) {
+								tunjBeras = (1 + 2) * 10 * hrgBeras;
+							} else if (jumlahAnak == 1) {
+								tunjBeras = (1 + 1) * 10 * hrgBeras;
+							} else {
+								tunjBeras = (1) * 10 * hrgBeras;
+							}
+						}
+
+						// Penghitungan tunjangan jabatan 
+						// Khairin
+
+						if (jenisPNS.equalsIgnoreCase("Pejabat")) {
+							tunjJabatan = 1000000;
+						} else if (jenisPNS.equalsIgnoreCase("Pelayan Masyarakat")) {
+							tunjJabatan = 500000;
+						} else {
+							switch (golongan) {
+								case 1 :
+									tunjJabatan = 175000;
+									break;
+								case 2 :
+									tunjJabatan = 180000;
+									break;
+								case 3 :
+									tunjJabatan = 18500;
+									break;
+								case 4 :
+									tunjJabatan = 190000;
+									break;
+								default :
+									tunjJabatan = 0;
+									break;
+							}	
+						}
+
+						// Penghitungan Bruto Salary
+						// Khairin
+
+						gajiKotor = gajiPokok + tunjKawin + tunjAnak + tunjBeras + tunjJabatan + besarTunjanganLainnya;
+
+						// Penghitungan Biaya Jabatan
+						// Khairin
+
+						biayaJabatan = 0.5 * gajiKotor;
+
+						// Penghitungan Iuran Pensiun
+						// Khairin
+
+						iuranPensiun = 4.75 * (gajiKotor + tunjKawin + tunjAnak);
+
+						// Penghitungan Penghasilan Netto / Netto Salary untuk PPH
+						// Khairin
+
+						penghasilanNetto = gajiKotor - biayaJabatan - iuranPensiun;
+
+						// Penghitungan PTKP 
+						// Khairin
+
+						if (statusKawin.equals("Menikah")){
+							if(jumlahAnak >= 3){
+								pTKP = 48000000; 
+							} 
+							else if(jumlahAnak == 2){
+								pTKP = 45000000;
+							}
+							else if(jumlahAnak == 1){
+								pTKP = 42000000;
+							}
+							else if(jumlahAnak == 0){
+								pTKP = 39000000;
+							}
+						} else if (statusKawin.equals("Belum Menikah") || statusKawin.equals("Cerai")){
+							if(jumlahAnak >= 3){
+								pTKP = 45000000; 
+							}
+							else if(jumlahAnak == 2){
+								pTKP = 42000000;
+							}
+							else if(jumlahAnak == 1){
+								pTKP = 39000000;
+							}
+							else if(jumlahAnak == 0){
+								pTKP = 36000000;
+							}
+						}
+ 
+						// Penghitungan PKP
+						// Khairin
+
+						pKP = (penghasilanNetto * 12) - pTKP;
+
+						// Penghitungan PPH 
+						// Ilham
+
+						if (pKP > 0) {
+							if (pKP <= pKPLv1) {
+								pPH = (0.5 * pKP) / 12;
+							} else if (pKP > pKPLv1 && pKP <= (pKPLv1 + pKPLv2)) {
+								pPH = ((0.5 * pKPLv1) + (0.15 * pKP)) / 12;
+							} else if (pKP > pKPLv2 && pKP <= (pKPLv1 + pKPLv2 + pKPLv3)) {
+								pPH = ((0.5 * pKPLv1) + (0.15 * pKPLv2) + (0.25 * pKP)) / 12;
+							} else {
+								pPH = ((0.15 * pKPLv1) + (0.15 * pKPLv2) + (0.25 * pKPLv3) + (0.30 * pKP)) / 12;
+							}
+						}
+
+						// Potongan IWP
+						// Ilham
+
+						iwp = 0.1 * (gajiPokok + tunjKawin + tunjAnak);
+
+						// Potongan Taperum
+						// Ilham
+
+						switch (golongan) {
+							case 1 :
+	                        	taperum = 3000;
+	                            break;
+	                        case 2 :
+	                            taperum = 5000;
+	                            break;
+	                        case 3 :
+	                            taperum = 7000;
+	                            break;
+	                        case 4 :
+	                            taperum = 10000;
+	                            break;
+	                        default :
+	                            taperum = 0;
+	                        	break;
+	                    }
+
+	                    // Penghitungan Take Home Pay
+	                    takeHomePay = (gajiPokok + tunjKawin + tunjAnak + tunjBeras + tunjJabatan + besarTunjanganLainnya + pPH) - (iwp + taperum + pPH);
+
+	                    // Tampilan SLIP GAJI
+						System.out.println("\nSLIP GAJI\n");
+						System.out.println("Nama : " + nama);
+						System.out.println("NIP  : " + nip);
+						System.out.println("\nBasic Salary            : " + gajiPokok); 
+						System.out.println("Tunjangan / Allowance");
+						System.out.println("\tTunjangan Istri / Suami : " + (int) tunjKawin);
+						System.out.println("\tTunjangan Anak          : " + (int) tunjAnak);
+						System.out.println("\tTunjangan Beras         : " + (int) tunjBeras);
+						System.out.println("\tTunjangan Jabatan       : " + (int) tunjJabatan);
+
+						// Tampilan tunjangan lainnya
+
+						if (namaTunjanganLainnya.equals("-")) {
+							System.out.println("\tTunjangan Lainnya   : 0");
+						} else {
+							System.out.println("\tTunjangan Lainnya ");
+							System.out.println("\t\t" + namaTunjanganLainnya + " : " + (int) besarTunjanganLainnya);
+						}
+
+						// Tampilan Bruto Salary
+						System.out.println("Bruto Salary              \t: " + (int) (gajiPokok + tunjKawin + tunjAnak + tunjBeras + tunjJabatan + besarTunjanganLainnya + pPH));
+						System.out.println("\tTunjangan PPH           : " + (int) pPH);
+
+						System.out.println("Potongan");
+						System.out.println("\tPotongan IWP            : " + (int) iwp);
+						System.out.println("\tPotongan Taperum        : " + (int) taperum);
+						System.out.println("Take Home Pay             \t: " + (int) takeHomePay);
+
+	                    // Keluar program
+	                    System.exit(0);
+					} else {
+						System.out.println("Mohon lengkapi data diatas.");
 					}
-
-					// BRUTO SALARY
-					double gajiKotor = gajiPokok + tunjangan;
-
-					// PAJAK PENGHASILAN/PPH SALARY
-					double biayaJabatan = 0.05 * gajiKotor;
-					double iuranPensiun = 0.0475 * (gajiKotor + tunjKawin + tunjAnak);
-					double pengurang = biayaJabatan - iuranPensiun;
-					double penghasilanNetto = gajiKotor - pengurang;
-					double penghasilanNetto12 = penghasilanNetto * 12;
-					double pTKP = 0;
-
-					if (statusKawin.equals("Menikah")){
-						if(jumlahAnak >= 3){
-							pTKP = 48000000; 
-						}
-						else if(jumlahAnak == 2){
-							pTKP = 45000000;
-						}
-						else if(jumlahAnak == 1){
-							pTKP = 42000000;
-						}
-						else if(jumlahAnak == 0){
-							pTKP = 39000000;
-						}
-
-						tunjberas = 10 * (2 + jumlahAnak) * 12500;
-						tunjKawin = 0.1 * gajiPokok;
-					}
-					if (statusKawin.equals("Belum Menikah") && statusKawin.equals("Cerai")){
-						if(jumlahAnak >= 3){
-							pTKP = 45000000; 
-						}
-						else if(jumlahAnak == 2){
-							pTKP = 42000000;
-						}
-						else if(jumlahAnak == 1){
-							pTKP = 39000000;
-						}
-						else if(jumlahAnak == 0){
-							pTKP = 36000000;
-						}
-
-						tunjberas = 10 * (1 + jumlahAnak) * 12500;
-					}
-
-					double pKP = penghasilanNetto12 - pTKP;
-
-					System.out.println("\nSLIP GAJI");
-					System.out.println("Nama : " + nama);
-					System.out.println("NIP : " + nip);
-					System.out.println("\nGaji Pokok : " + gajiPokok);
-					System.out.println("Tunjangan Suami / Istri : " + tunjKawin);
-					System.out.println("Tunjangan Anak : " + tunjAnak);
-					System.out.println("Tunjangan Jabatan : " + tunjJabatan);
-					System.out.println("Tunjangan Lain : ");
-					System.out.println("\nNama Tunjangan : " + namaTunjanganLainnya);
-					System.out.println("\nBesar Tunjangan : " + besarTunjanganLainnya);
-					System.out.println("Tunjangan Beras : " + tunjberas);
 
 					break;
 
 				case 0 :
+					System.exit(0);
+
 					break;
 
 				default :
