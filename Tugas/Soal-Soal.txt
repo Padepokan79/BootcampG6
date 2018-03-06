@@ -122,3 +122,8 @@ angka 3 : 23	// input user
 
 4 , 20 , 23
 jumlah = 47
+
+Soal No.10
+{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+inputan di rubah dengan dengan array yang di geser sebanyak 3 index ke kiri
