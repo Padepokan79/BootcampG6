@@ -123,7 +123,53 @@ angka 3 : 23	// input user
 4 , 20 , 23
 jumlah = 47
 
-Soal No.10
+Soal no 10
+
+Original Array : {0,0,80,49,0,13,57,0,0,61,0,72,0,34,26}
+
+urutkan dari kecil ke besar dan simpan angka 0 di akhir array
+
+hasil Array : 13, 26, 34, 49, 57, 61, 72, 80, 0, 0, 0, 0, 0, 0, 0
+
+
+Soal no 11
+
+Given value
+
+contoh array : 0 1 2 3 4 5 6 7 8 9 10
+
+(contoh : 10)
+
+masukan nlai : 10
+
+hasil : 10 adalah kombinasi dari
+0 dan 10, 1 dan 9, 2 dan 8, 3 dan 7, 4 dan 6, 5 dan 5
+
+
+Soal no 12
+
+Grade Histogram
+
+Buat tampilan seperti ini
+
+ 0 -  9 : *
+10 - 19	: **
+20 - 29	: ***
+30 - 39 : ****
+40 - 49 : *****
+50 - 59 : ******
+
+
+					*
+				*	*
+			*	*	*
+		*	*	*	*
+	*	*	*	*	*
+ *	*	*	*	*	*
+0-9   10-19   20-29   30-39   40-49   50-59
+
+Soal No 13
+
 {A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
 
 inputan di rubah dengan dengan array yang di geser sebanyak 3 index ke kiri
