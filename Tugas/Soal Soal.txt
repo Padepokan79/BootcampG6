@@ -1,3 +1,25 @@
 Soal - soal latihan.
 
-1.
+1. Buatlah program untuk menampilkan bilangan prima hingga batas yg ditentukan. Contoh :
+	Batas : 20
+	1 2 3 4 7 11 13 17 19
+
+2. Buatlah program untuk menampilkan kalimat dalam bentuk segitiga hingga batas segitiga yg ditentukan. Contoh :
+	Batas segitiga : 10
+	Kalimat : Komandan Bersatu
+
+	         K
+	        o m
+	       a n d
+	      a n   B
+             e r s a t
+            u
+           
+          
+         
+        
+	   
+3. Buatlah program untuk menampilkan isi array dalam bentuk persegi seperti berikut, isi array random (0-9), panjang array 9. Contoh :
+	7 4 9
+	3 0 7
+	6 4 9	  
