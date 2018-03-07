@@ -2,7 +2,7 @@ Soal - soal latihan.
 
 1. Buatlah program untuk menampilkan bilangan prima hingga batas yg ditentukan. Contoh :
 	Batas : 20
-	1 2 3 4 7 11 13 17 19
+	1 2 3 4 5 7 11 13 17 19
 
 2. Buatlah program untuk menampilkan kalimat dalam bentuk segitiga hingga batas segitiga yg ditentukan. Contoh :
 	Batas segitiga : 10
@@ -21,9 +21,9 @@ Soal - soal latihan.
 3. Buatlah program untuk menampilkan isi array dalam bentuk persegi seperti berikut, isi array random (0-9), panjang array 9. Contoh :
 	7 4 9
 	3 0 7
-	6 4 9	  
+	6 4 9	 
 
-4. buatlah gambar seperti di bawah ini menggunakan looping, array dan if statement
+4. buatlah gambar seperti di bawah ini menggunakan looping dan if statement
      *
     * *
    *   *
@@ -33,6 +33,7 @@ Soal - soal latihan.
    *   *
     * *
      *
+
 5. Buatlah segitiga pascal, dengan menerima sebuah inputan.
 Ps: inputan yang dapat dimasukkan maksimal 5.
 
@@ -87,7 +88,7 @@ atau
 Selain itu tidak bisa masuk
 
 
-Soal No.8 
+Soal No.8
 buat sebuah tampilkan # membentuk sebuah tangga, seperti contoh berikut: 
 
 contoh 1:
