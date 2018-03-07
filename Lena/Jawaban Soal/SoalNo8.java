@@ -6,12 +6,13 @@ public class SoalNo8{
 
 		int angka;
 
-		System.out.print("Input Angka: ");
+		System.out.println("8. Buatlah sebuah tampilan # membentuk tangga.\n");
+		System.out.print(">> Input Angka: ");
 		angka = input.nextInt();
 
 		for(int i = 0 ; i < angka ; i++){
 			for(int j = 0 ; j < angka ; j++){
-				if(j >= i){
+				if(i+j >= angka-1){
 					System.out.print("#");
 				}else{
 					System.out.print(" ");
