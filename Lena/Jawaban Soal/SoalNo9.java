@@ -6,13 +6,15 @@ public class SoalNo9{
 		int batas, angka, sum=0;
 		int [] arr;
 
-		System.out.print("Jumlah angka yang ingin dimasukkan: ");
+		System.out.println("9. Tampung sejumlah angka kedalam array, (jumlah angka di tentukan oleh user),");  
+        System.out.println("   kemudian tampilkan kembali angka yang di input \n   dan jumlahkan seluruh angka pada array tersebut.\n");
+		System.out.print(">> Jumlah angka yang ingin dimasukkan: ");
 		batas = input.nextInt();
 
 		arr = new int[batas];
 
 		for(int i=0; i<batas ; i++){
-			System.out.print("angka "+(i+1)+ " : ");
+			System.out.print(">> Angka ke "+(i+1)+ " : ");
 			angka = input.nextInt();
 
 			arr[i] = angka;
@@ -24,6 +26,6 @@ public class SoalNo9{
 		for(int i : arr){
 			System.out.print(i + ", ");
 		}
-		System.out.println("jumlah: "+sum);
+		System.out.println("Jumlah: "+sum);
 	}
 }

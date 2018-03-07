@@ -1,0 +1,5 @@
+Folder Tugas:
+- soal-soal.txt : update soal no 6
+
+Folder Lena\Jawaban Soal:
+- tambah dan update file2 soalNo1.java - soalNo16.java

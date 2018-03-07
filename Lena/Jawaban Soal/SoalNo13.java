@@ -6,7 +6,9 @@ public class SoalNo13{
 						   "S","T","U","V","W","X","Y","Z"};
 		String [] arrTemp = new String [array.length];
 
-		System.out.print("Array before: ");
+		System.out.println("13. Inputan dirubah dengan dengan array yang di geser sebanyak 3 index ke kiri.\n");
+
+		System.out.println("Array before: ");
 		for (String huruf : array){
 			System.out.print(huruf+" ");
 		}

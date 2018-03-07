@@ -6,18 +6,18 @@ public class SoalNo1{
 
 		int batas, counter;
 
-		System.out.println("1. Buatlah bilangan prima hingga batas yang ditentukan.");
-		System.out.print("Batas: ");
+		System.out.println("1. Buatlah bilangan prima hingga batas yang ditentukan.\n");
+		System.out.print(">> Batas: ");
 		batas = input.nextInt();
 
 
-		for(int i = 1 ; i <= batas ; ++i){
+		for(int i = 1 ; i <= batas ; i++){
 
 			counter = 0;
 
-			for(int j = 1 ; j <= i ; ++j){
+			for(int j = 1 ; j <= i ; j++){
 				if(i%j == 0){
-					++counter;
+					counter++;
 				}
 			}
 
