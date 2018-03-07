@@ -8,22 +8,20 @@ class LatSoal2Yudhis{
 		System.out.print("Batas segitiga : "); int batas = inpa.nextInt();
 		System.out.print("Kalimat : "); String kata = inpb.nextLine();
 
-		int pjgkata = kata.length();
+		int pjgKata = kata.length();
 		int pointer = 0;
 
 		System.out.println();
 
-		for (int i = 1; i <= batas; i++) {
+		for (int i = 1; i <= batas; i++) { 
 			for (int k = batas-1; k >= i; k--) { // Membuat spasi
 				System.out.print(" ");
 			}
 			for (int j = 1; j <= i; j++) { // Menampilkan indeks berurut
-				if (pointer < pjgkata) {
+				if (pointer < pjgKata) {
 					System.out.print(kata.substring(pointer, pointer+1) + " ");
 					pointer+=1;
-				} else {
-					break;
-				}
+				} 
 			}
 			System.out.println();
 		}
