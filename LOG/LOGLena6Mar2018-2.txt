@@ -1,0 +1,12 @@
+
+Folder 6Mar
+
+- Tambah file PerhitunganGajiPNSLena
+100% dan sudah diperbaiki
+
+Folder Tugas
+- Tambah soal ke file Soal-Soal.txt
+
+Folder Jawaban Soal
+- Tambah file SoalNo1.java, SoalNo3.java, SoalNo8.java
+	      SoalNo9.java, SoalNo12.java, SoalNo13.java
