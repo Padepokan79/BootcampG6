@@ -13,7 +13,6 @@ class LatSoal1Yudhis{
 			for (int j = 2; j < i; j++) { // Pengulangan pembagi
 				if (i % j == 0) {
 					prima = false;
-					break;
 				}
 			}
 			if (prima == true) { // Kondisi apabila bilangan tersebut bil. prima
