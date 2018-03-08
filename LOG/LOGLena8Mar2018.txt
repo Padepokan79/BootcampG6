@@ -1,0 +1,2 @@
+folder: testquiz\lena
+- tambah file examno1.java - examno5.java
