@@ -1,0 +1,11 @@
+1. Buatlah program pengecekkan jawaban siswa Roni dan Dino yang benar dan tampilkan nilainya (banyak jawaban benar/jumlah jawaban*100)!
+String[] jawaban = {"A", "C", "B", "D", "C", "D", "B", "B", "A", "A"};
+String[] Roni = {"B", "D", "B", "D", "C", "D", "B", "B", "D", "A"};
+String[] Dino = {"A", "D", "B", "D", "C", "D", "A", "B", "D", "A"};
+
+2. Tampilkan hanya bilangan negatif
+int[] numbers = {3, -4, 2, 1, 0, -8, -12, 11, 200, -34, 21};
+
+3. Buatlah matrix menggunakan array
+dengan output: 2 6 8
+               6 8 10
