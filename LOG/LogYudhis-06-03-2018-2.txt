@@ -1,0 +1,14 @@
+- Membuat folder 6mar2018/LatSoal/
+- Membuat folder Yudhis/jawabanSoal/
+- Memperbarui 2mar2018/LatSoal/GajiPNSYudhis.java
+- Memperbarui Tugas/Soal-Soal.txt
+- Mengunggah GajiPNSYudhis.java
+- Mengunggah LatSoal1Yudhis.java
+- Mengunggah LatSoal2Yudhis.java
+- Mengunggah LatSoal3Yudhis.java
+- Mengunggah jawabanSoal/jawabanSoal7.java
+- Mengunggah jawabanSoal/jawabanSoal8.java
+- Mengunggah jawabanSoal/jawabanSoal9.java
+- Mengunggah jawabanSoal/jawabanSoal14.java
+- Mengunggah jawabanSoal/jawabanSoal15.java
+- Mengunggah jawabanSoal/jawabanSoal16.java

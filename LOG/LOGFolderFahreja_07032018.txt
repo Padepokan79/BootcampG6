@@ -1,0 +1,11 @@
+-add file HitungGajiPns.java
+-add file NomberSatu.java
+-add file NomberDua.java
+-add file NomberTiga.java
+-add file NomberEmpat.java
+-add file NomberTujuh.java
+-add file NomberDelapan.java
+-add file NomberSembilan.java
+-add file NomberSepuluh.java
+-add file NomberSebelas.java
+-add file NomberTigaBelas.java
