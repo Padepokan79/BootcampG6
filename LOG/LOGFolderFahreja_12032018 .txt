@@ -1,0 +1,43 @@
+-add folder 09 Maret
+	file AnekaKacamata.java
+	file Bank.java
+	file CekPerson.java
+	file Film.java
+	file HitungPersegi.java
+	file JenisJenis.java
+	file Kacamata.java
+	file Kamera.java
+	file Karyawan.java
+	file Kasur.java
+	file KetKacamata.java
+	file MacamMotor.java
+	file Mie.java
+	file Motor.java
+	file Nasabah.java
+	file Persegi.java
+	file Televisi.java
+	file TestKaryawan.java
+	file TesStudent.java
+
+-add folder 12 Maret
+	file Balok.java
+	file BangunRuang.java
+	file Both.java
+	file Gaming.java
+	file Harian.java
+	file Hitung.java
+	file Jarak.java
+	file Kubus.java
+	file Laki.java
+	file Laptop.java
+	file Mobil.java
+	file Person.java
+	file Student.java
+	file Tabung.java
+	file Tas.java
+	file Teacher.java
+	file TestLaptop.java
+	file TestPerson.java
+	file TestTas.java
+	file Touch.java
+	file Wanita.java
