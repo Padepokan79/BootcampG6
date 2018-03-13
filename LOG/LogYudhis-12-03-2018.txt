@@ -1,0 +1,14 @@
+- Membuat folder 12mar2018
+- Membuat folder 12mar2018/LatSoal
+- Mengunggah project folder LatSoal/BangunRuang
+- Mengunggah project folder LatSoal/Bank79
+- Mengunggah project folder LatSoal/Box
+- Mengunggah project folder LatSoal/Chapter31
+- Mengunggah project folder LatSoal/Dongeng
+- Mengunggah project folder LatSoal/Ngasal
+- Mengunggah project folder LatSoal/Pasar
+- Mengunggah project folder LatSoal/Persegi
+- Mengunggah project folder LatSoal/Person
+- Mengunggah project folder LatSoal/PersenTeacherStudent
+- Mengunggah project folder LatSoal/Sekitar
+- Mengunggah project folder LatSoal/TestQuiz
