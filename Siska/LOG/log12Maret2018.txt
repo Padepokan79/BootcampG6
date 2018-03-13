@@ -1,0 +1,11 @@
+Menambahkan Person.java
+Menambahkan Siswa.java
+Menambahkan Persegi.java
+Menambahkan Kubus.java
+Menambahkan TestPersegi.java
+Menambahkan testPerson.java 
+Mengerjakan Exercise 31
+-Menambahkan Car.java
+-Menambahkan Cars.java
+-Menambahkan Miles.java
+-Menambahkan MilesPerGallon.java

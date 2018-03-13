@@ -1,0 +1,5 @@
+- Membuat folder 13mar2018
+- Membuat folder 13mar2018/LatSoal
+- Mengunggah project folder LatSoal/PersonTeacherStudent
+- Mengunggah project folder LatSoal/MakeCircle
+- Mengunggah project folder LatSoal/BankBaru

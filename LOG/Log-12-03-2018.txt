@@ -1,1 +1,1 @@
-- Tambah file Object Class
+- Tambah file Object Class (OOP)
