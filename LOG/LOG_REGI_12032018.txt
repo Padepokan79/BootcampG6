@@ -1,0 +1,7 @@
+1. Membuat class Teacher menjadi subclass dari Person
+2. Membuat class Kain dengan subclass KainBatik, KainKebaya, KainSutera
+3. Membuat class Olahraga dengan subclass Futsal, Dayung, Paralayang
+4. Mengerjakan Exercise 1 dan 2 (class Car dan class MilesPerGallon)
+5. Mengerjakan latihan soal bangun ruang(class BangunRUang dgn subclass Kubus, Balok, Tabung)
+6. Menambahkan file di folder 09maret2018
+7. Menambahkan file class Persegi, BrushPen, Gitar, Solenoid, GuntingRambut, Karyawan, Student, BotolMinum, Person
