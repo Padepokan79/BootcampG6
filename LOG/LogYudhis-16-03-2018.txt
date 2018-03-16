@@ -1,0 +1,16 @@
+- Membuat folder 14mar2018/LatSoal
+- Membuat folder 15mar2018/LatSoal
+- Membuat folder 16mar2018/LatSoal
+- Mengunggah project folder 14mar2018/LatSoal/TheDiscountSystem
+- Mengunggah project folder 14mar2018/Chapter35
+- Mengunggah project folder 14mar2018/Chapter35Exercise
+- Mengunggah project folder 14mar2018/Chapter35Review
+- Mengunggah project folder 14mar2018/Chapter51
+- Mengunggah project folder 14mar2018/Chapter53
+- Mengunggah project folder 14mar2018/Chapter53Exercise
+- Mengunggah project folder 15mar2018/LatSoal/TheDiscountSystem
+- Mengunggah project folder 16mar2018/LatSoal/TestArrayList
+- Mengunggah project folder 16mar2018/LatSoal/KartikaSariList
+- Mengunggah project folder 16mar2018/LatSoal/KeretaApi
+- Mengunggah project folder 16mar2018/LatSoal/PenjualBuah
+
