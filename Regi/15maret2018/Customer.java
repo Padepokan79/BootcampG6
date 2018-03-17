@@ -14,7 +14,7 @@ public class Customer {
     
     // Method
     public String toString() {
-        return "\nCustomer ( " + "name = " + name + ", member = " + member + ", memberType = " + memberType + " )";
+        return "\nCustomer Name = " + name + ", Member Type = " + memberType;
     }
 
 	public String getName() {

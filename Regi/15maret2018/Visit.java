@@ -1,21 +1,22 @@
 package TheDiscountSystem;
+
 import java.util.Date;
 
 public class Visit implements DiscountRate, TaxRate {
 	
 	// Variable
-	private Customer name;
-    private Date date;
+	private Customer customer;
+	private Date date;
     private double serviceExpense;
     private double productExpense;
 
     // Constructor
     public Visit(String name, Date date) {
-        this.date = date;
+    	this.setDate(date);
     }
 
-    public String getCustomerName() {
-        return name.getName();
+    public String getName() {
+        return customer.getName();
     }
 
     public double getServiceExpense() {
@@ -33,12 +34,16 @@ public class Visit implements DiscountRate, TaxRate {
     public void setProductExpense(double productExpense) {
         this.productExpense = this.productExpense + productExpense;
     }
+    
+//    public String toString() {
+//		return "Total Expense on " + date + " : " + getTotalExpense();
+//	}
 
     public double getServiceDiscRate(String type) {
     	double disc = 0;
     	if(type.equalsIgnoreCase("premium")) {
     		disc = disc + serviceDiscountPremium;
-    	}
+    	}	
     	else if (type.equalsIgnoreCase("gold")) {
 			disc = disc + serviceDiscountGold;
 		}
@@ -64,9 +69,6 @@ public class Visit implements DiscountRate, TaxRate {
     
     public double getTaxRate(String type) {
     	double tax = 0;
-    	if(type.equalsIgnoreCase("non member")) {
-    		tax = tax + taxNonMember;
-    	}
     	if(type.equalsIgnoreCase("premium")) {
     		tax = tax + taxPremium;
     	}
@@ -76,23 +78,22 @@ public class Visit implements DiscountRate, TaxRate {
     	else if(type.equalsIgnoreCase("silver")) {
     		tax = tax + taxSilver;
     	}
+    	else {
+    		tax = tax + taxNonMember;
+    	}
     	return tax;
     }
     
-//    public double getTotalDisc() {
-//    	return 
-//    }
-//    
-//    public double getTotalTax() {
-//    	
-//    }
-//    
-    public double getTotalExpense() {
-        return serviceExpense + productExpense;
-    }
-    
     public String toString() {
-        return "" ;
+        return "Detail expense on date " + date;
     }
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
 }
