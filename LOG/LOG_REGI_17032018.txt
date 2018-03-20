@@ -1,0 +1,10 @@
+Mereplace 3 file hasil koreksi di folder 15maret2018
+
+- Customer
+- TestDiscountRate
+- Visit
+
+Menambahkan 2 file baru ke folder 16maret2018
+
+- Buah
+- TestBuah
