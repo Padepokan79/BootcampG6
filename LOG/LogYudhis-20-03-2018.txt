@@ -1,7 +1,6 @@
 - Membuat folder 20mar2018
 - Membuat folder 20mar2018/LatSoal
 - Mengunggah project folder LatSoal/BankAsingHashMap
-- Mengunggah project folder LatSoal/HapusPrimaHashMap
 - Mengunggah project folder LatSoal/JualanGalon
 - Mengunggah project folder LatSoal/NilaiMahasiswaHashMap
 - Mengunggah project folder LatSoal/PenjualanMartabak
