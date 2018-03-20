@@ -1,0 +1,38 @@
+Menambahkan folder 14maret2018
+- Box
+- BoxTester
+- Exercise1
+- Jam
+- JamTester
+- Pantry
+- PantryTester
+- PantryTester2
+- PantryTester3
+- PantryTester4
+
+Menambahkan folder 15maret2018
+- BookSG
+- Customer
+- DiscountRate
+- FoodSG
+- GoodsSGA
+- Store
+- Taxable
+- TaxRate
+- ToiletrySG
+- ToySG
+- Visit
+
+Menambahkan folder 16maret2018
+- AlmondCrispyCheese
+- ArrayListExample
+- Book
+- CoklatKoin
+- Kereta
+- Makanan
+- Student
+- TestBelanjaKartikaSari
+- TestCollection3
+- TestCollection4
+- TestCollection5
+- TestKereta
