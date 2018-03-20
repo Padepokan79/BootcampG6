@@ -1,0 +1,44 @@
+Soal 1
+
+Tiket Pertandingan Bola
+- Harga Normal 	= 35.000/orang
+- Harga VIP		= 50.000/orang
+- Harga VVIP	= 70.000/orang
+
+Kapasitas Stadion = 100 orang
+- Kapasitas normal	= 50 orang
+- Kapasitas VIP 	= 25 orang
+- Kapasitas VVIP 	= 25 orang
+
+sabtu tiket naik 20% dari hari biasa
+minggu tiket naik 50% dari hari biasa
+
+Hitung pendapatan perhari
+hitung pendapatan perbulan
+
+Contoh: 
+Dalam Sebulan terdapat 4 pertandingan:
+	Pertandingan 1 terjadi pada hari rabu
+	Pertandingan 2 terjadi pada hari kamis
+	Pertandingan 3 terjadi pada hari sabtu
+	Pertandingan 4 terjadi pada hari minggu
+	
+	
+Soal 2
+4,3,2,4,2,6,2,5,5,7,5,5,7,5,3,5,3,3,23,4,6,4,3,4,4,2,2
+
+Masukan angka yang dicari :
+(inputan) 6
+
+Yang lebih dari 6(inputan) ada 2, yaitu :
+7, 23
+
+Soal 3
+30 nilai random 1-1000
+-urutkan isi arraylist tersebut dari nilai kecil ke besar
+-hapus bilangan primanya
+-tampilkan before afternya
+-tampilkan juga list bilangan primanya
+
+Soal 4 dan 5
+Credit Card
