@@ -1,0 +1,34 @@
+
+public interface GajiPokok {
+	double 	JUNIORPG01 = 1,
+			JUNIORPG23 = 1.2,
+			JUNIORPG3LEBIH = 1.5,
+			MIDDLEPG02 = 1.7,
+			MIDDLEPG34 = 1.8,
+			MIDDLEPG4LEBIH = 2.1,
+			SENIORPG02 = 2.5,
+			SENIORPG34 = 2.7,
+			SENIORPG4LEBIH = 2.8;
+	
+	double 	JUNIORSA01 = 1.2,
+			JUNIORSA23 = 1.3,
+			JUNIORSA3LEBIH = 1.6,
+			MIDDLESA02 = 1.8,
+			MIDDLESA34 = 1.9,
+			MIDDLESA4LEBIH = 2.2,
+			SENIORSA02 = 2.7,
+			SENIORSA34 = 2.9,
+			SENIORSA4LEBIH = 3;
+	
+	double 	JUNIORTS01 = 1.1,
+			JUNIORTS23 = 1.2,
+			JUNIORTS3LEBIH = 1.5,
+			MIDDLETS02 = 1.8,
+			MIDDLETS34 = 1.9,
+			MIDDLETS4LEBIH = 2.1,
+			SENIORTS02 = 2.6,
+			SENIORTS34 = 2.7,
+			SENIORTS4LEBIH = 2.8;
+	
+	double getPerhitunganGajiPokok();
+}
