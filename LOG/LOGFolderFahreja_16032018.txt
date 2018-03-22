@@ -1,0 +1,40 @@
+-add folder 14 Maret
+	file Box.java
+	file Jam.java
+	file Pantry.java
+	file PantryTester.java
+	file PantryTester2.java
+	file PantryTester3.java
+	file PantryTest3.java
+	file TestBox.java
+
+-add folder 15 Maret
+	file BookSG.java
+	file Customer.java
+	file DiscountRate.java
+	file FoodSG.java
+	file GoodsSGA.java
+	file TextRate.java
+	file Taxable.java
+	file TestDiscount.java
+	file ToiletSG.java
+	file ToysSG.java
+	file Visit.java
+
+add folder 16 Maret
+	file ArrayListExample.java
+	file Book2.java
+	file Gurilem.java
+	file Kereta.java
+	file Makanan.java
+	file PenjualBuah.java
+	file Risol.java
+	file Student2.java
+	file TestBuah.java
+	file TestCollection1.java
+	file TestCollection2.java
+	file TestCollection3.java
+	file TestCollection4.java
+	file TestCollection5.java
+	file TestKartika.java
+	file TestKereta.java

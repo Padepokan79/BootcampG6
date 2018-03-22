@@ -1,0 +1,8 @@
+- Membuat folder 19mar2018
+- Membuat folder 19mar2018/LatSoal
+- Mengunggah project folder LatSoal/BankAsing
+- Mengunggah project folder LatSoal/NilaiMahasiswa
+- Mengunggah project folder LatSoal/CariAngkaArrayList
+- Mengunggah project folder LatSoal/InsentifKaryawan
+- Mengunggah project folder LatSoal/TiketStadion
+- Mengunggah project folder LatSoal/TiketPertandinganBola

@@ -1,0 +1,24 @@
+1. YogyakartaMalang.java
+jarak dari Yogyakarta - Malang 350 Km jika Bedu berangkat dari Yogya ke Malang pukul 06.00 pagi dengan kecepatan 60 Km/jam Pada waktu dan rute yang sama Budi berangkat dari Malang menuju Yogya dengan mengendarai mobil kecepatan 80 Km/jam. Pada jarak keberapa dan pukul berapa berpapasan?
+
+
+2. MencariAngka.java
+{ 4, 3, 2, 4, 2, 6, 2, 5, 5, 7, 5, 3, 5, 3, 3, 23, 4, 6, 4, 3, 4, 4, 2, 2 }
+Masukan angka yang dicari:
+2
+Angka 2 ada 5, ditemukan pada posisi
+3, 5, 7, 23, 24
+
+
+3. PenghasilanPekerja.java
+Seorang pekerja dibayar Rp. 120000 perhari Ia bekerja 10 bulan 24 hari dalam setahun Berapa penghasilannya dalam setahun?
+Kec hari jumat Rp 80000
+
+4. TestInsentifCreditCard.java dan CreditCard.java
+Seorang karyawan bank memiliki insentif berbeda untuk setiap credit card yang dijualnya:
+Visa Gold = 10000
+Master Titanium = 15000
+Visa Platinum = 20000
+Master Worldmiles = 25000
+Setiap bulan karyawan tersebut bisa menjual Visa Gold (15), Master Titanium (8), Visa Platinum (17), Master Worldmiles (4) Berapa jumlah insentif karyawan tsb selama setahun jika bulan maret ada potongan untuk insentif 20%
+Buat objek credit card dan insentif harus private.

@@ -1,0 +1,10 @@
+-add folder 19 Maret
+	file AssosiasiDagang.java
+	file BarangDagang.java
+	file CekAngka.java
+	file CekTiketGBLA.java
+	file GajiPekerja.java
+	file NilaiRandom.java
+	file Pedagang.java
+	file Pekerja.java
+	file TiketBola.java
