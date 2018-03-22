@@ -1,0 +1,11 @@
+Menambahkan Program Karyawan di folder 22maret2018
+
+- Bonus.java
+- Karyawan.java
+- PG.java
+- Potongan.java
+- SA.java
+- Tester.java
+- TestKaryawan.java
+- Tunjangan.java
+- UMK.java
