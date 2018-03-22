@@ -1,4 +1,4 @@
-
+//Soal kang regi no. 1
 public class CreditCard {
 	String tipeKartu;
 	int iuranTahunan;
