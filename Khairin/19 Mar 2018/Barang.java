@@ -1,3 +1,4 @@
+//SOAL Teh Lena no.1
 
 public class Barang {
 	String namaBarang;

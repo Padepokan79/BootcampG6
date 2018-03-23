@@ -1,4 +1,4 @@
-
+//Soal ilham
 public class Martabak {
 	String namaMartabak;
 	private double hargaMartabak;
