@@ -1,0 +1,12 @@
+-add folder Hitung Gaji Karyawan
+	file Bonus.java
+	file Lembur.java
+	file Pegawai.java
+	file PerHitunganPPH.java
+	file Potongan.java
+	file Programmer.java
+	file SistemAnalis.java
+	file Tester.java
+	file TestGaji.java
+	file TunjanganKeluarga.java
+	file Validasi.java
