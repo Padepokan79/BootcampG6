@@ -1,0 +1,138 @@
+Soal 1 :
+
+penjualan tiket stadion GLBA
+
+kapasitas stadion adalah 38.000
+harga tiket dijual berdasarkan kategori :
+
+        kategori 1 = 50.000
+        kategori 2 = 100.000
+
+pada pertandingan pertama terjual = 15.000 tiket kategori 1
+                                  = 10.000 tiket kategori 2
+pada pertandingan kedua terjual   = 18.000 tiket kategori 1
+                                  = 12.000 tiket kategori 2
+pada pertandingan ketiga terjual  = 17.000 tiket kategori 1
+                                  =  8.000 tiket kategori 2
+pada pertandingan keempat terjual = 18.000 tiket kategori 1
+                                  = 10.000 tiket kategori 2
+pada pertandingan kelima terjual  = 10.000 tiket kategori 1
+                                  =  4.000 tiket kategori 2
+
+berapakaha pendapatan yang di dapatkan dari penjualan tiket setiap pertandingan dan
+berapa total pendapatan dari 5 pertandingan tersebut
+
+Soal 2 :
+4,3,2,4,2,6,2,5,5,7,5,5,7,5,3,5,3,3,23,4,6,4,3,4,4,2,2
+
+Masukan angka yang dicari :
+(inputan) 6
+
+Yang lebih dari 6(inputan) ada 2, yaitu :
+7, 23
+
+Soal 3:
+Sebuah asosiasi pedagang ingin mencatat barang dagangan dan pedagan yang menjualnya
+
+ada 2 kelas :
+
+kelas pedagang = nama, alamat, barang
+kelas barang = nama, harga jual, harga beli
+
+- data diasumsikan sendiri (1 data pedagang dengan 5 data barang)
+- cari juga keuntungan untuk setiap pedagang
+- gunakan array list untuk menyimpan objek barang pada pedagang
+- tampilkan data pedagang, barang dan keuntungan.
+
+Soal 4 :
+Seorang pekerja dibayar Rp.120.000 perhari ia bekerja 10 bulan 24 hari dalam sehatun
+berapa penghasilan dalam setahun
+
+Soal 5 :
+30 nilai random 1-1000
+-urutkan isi arraylist tersebut dari nilai kecil ke besar
+-hapus bilangan primanya
+-tampilkan before afternya
+-tampilkan juga list bilangan primanya
+
+HasHMap :
+
+Soal 1
+Sebuah asosiasi pedagang ingin mencatat barang dagangan dan pedagan yang menjualnya
+
+ada 2 kelas :
+
+kelas pedagang = nama, alamat, barang
+kelas barang = nama, harga jual, harga beli
+
+- data diasumsikan sendiri (1 data pedagang dengan 5 data barang)
+- cari juga keuntungan untuk setiap pedagang
+- gunakan array list untuk menyimpan objek barang pada pedagang
+- tampilkan data pedagang, barang dan keuntungan.
+
+Soal 2
+4,3,2,4,2,6,2,5,5,7,5,3,5,3,3,23,4,6,4,3,4,4,2,2
+
+Masukan Angka yang dicari:
+2
+
+Angka 2 ada 5, ditemukan pada posisi :
+3,5,7,23,24
+
+Soal 3
+Sebuah pom bensin dalam seminggu dapat menjual :
+		Premium				Pertalite
+hari Senin 	120 liter			50 liter
+hari Selasa	100 liter			15 liter
+hari Rabu	50 liter			13 liter
+hari Kamis	30 liter			4 liter
+hari Jumat	20 liter			20 liter
+hari Sabtu	150 liter			55 liter
+hari Minggu	110 liter			60 liter
+
+Apabila satu liter premium berharga 6000 rupiah dan pertalite lebih mahal 2000 rupiah dari premium.
+Berapa keuntungan yang di peroleh dalam seminggu pom bensin tersebut ?
+
+Soal 4 :
+Seorang tukang isi ulang galon berbagai merk, menjual :
+Sega, setiap hari 12 galon, dengan harga 4000/galon
+Ron 89, setiap hari 8 galon, dengan harga 4700/galon
+Le Man, Setiap hari 17 galon, dengan harga 5400/galon
+
+Setiap hari toko buka namun tutup pada hari minggu, berpa keuntungan penjualan dalam seminggu ?
+Berapa galon Le Man yang terisi ulang selama hari rabu-minggu
+
+Soal 5 :
+Tiket pertandingan bola
+Harga Normal 	: 35.000 batas 50 orang
+Harga Vip	: 50.000 batas 25 orang
+Harga VVip	: 70.000 batas 25 orang
+Sabtu tiket naik 20% dari hari biasa
+Minggu tiket naik 50% dari hari biasa
+Jumlah kursi penonton 100 orang
+hitung jumlah pendapatan tergantung hari yang diinputkan oleh user 
+hitung bila ada lebih dari satu pertandingan dalam satu bulan
+
+Soal 6 :
+Jara dari Yogyakarta - Malang 350km. jika bedu berangkat dari yogya ke malang
+pukul 06.00 pagi dengan kecepatan 60 km/jam
+Pada waktu dan rute yang sama budi berangkat dari malang menuju yoyga dengan mengendarai mobil
+kecepatan 80km/jam .
+Pada jarak keberapa dan pukul berapa berpapasan ?
+
+Soal 7 :
+Sebuah bank asing memiliki 4 jenis credit card
+
+dengan masing" iuran tahunan :
+-Visa Gold 	   =   300.000
+-Master Titanium   =   500.000
+-Visa Platinum 	   =   750.000
+-Master Worldmiles = 1.000.000
+
+ayah punya 1 kartu master wordmiles dan 1 visa platinum
+ibu punya 1 kartu visa gold dan 1 visa platinum
+anaknya punya 1 kartu master titanium
+hitung total iuran tahunan yang harus di bayar oleh keluarga tersebut di tahun ke 5
+tapi di tahun ketiga ada potongan 10% untuk semua jenis kartu
+(iuran tahunan harus private)
+buat objek credit card
