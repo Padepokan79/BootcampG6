@@ -1,0 +1,3 @@
+- Update program penggajian
+	- Mengubah variable local menjadi menggunakan HashMap
+	- Menambah informasi Posisi  dan tingkatan pada output slip gaji
