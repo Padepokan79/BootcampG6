@@ -1,3 +1,4 @@
+//SOAL teh lena no.1
 import java.util.ArrayList;
 
 /*Buat sebuah arraylist yang menampung 30 nilai random 1-1000

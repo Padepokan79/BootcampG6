@@ -1,0 +1,3 @@
+- Membuat folder 22mar2018
+- Membuat folder 22mar2018/LatSoal
+- Mengunggah project folder LatSoal/GajiKaryawan

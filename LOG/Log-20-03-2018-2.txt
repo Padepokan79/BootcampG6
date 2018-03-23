@@ -1,0 +1,8 @@
+- Membuat Latihan HashMap
+
+	- Asosiasi Pedagang
+	- CreditCard 1 & 2
+	- Penjualan Martabak
+	- Penjualan Pom Bensin
+	- Mencari nilai yang lebih besar pada array
+	- Penjualan Tiket GBLA
