@@ -1,0 +1,15 @@
+Mengerjakan Program GajiPNS
+
+Menambahkan Folder GajiPNS di folder 23maret2018
+
+Folder GajiPNS berisi:
+- GajiGolongan.java
+- Iuran.java
+- Pegawai.java
+- PNS.java
+- PNSPejabat.java
+- PNSPelayanMasyarakat.java
+- PNSUmum.java
+- Potongan.java
+- TestPNS.java
+- Tunjangan.java
