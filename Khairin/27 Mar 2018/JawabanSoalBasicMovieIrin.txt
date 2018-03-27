@@ -1,0 +1,51 @@
+NO. 1
+select mov_title, mov_year from movie;
+
+NO. 2
+select mov_title, mov_year 
+from movie
+where mov_title='American Beauty';
+
+NO. 3
+select mov_title, mov_year 
+from movie
+where mov_year=1999;
+
+NO. 4
+select mov_title, mov_year 
+from movie
+where mov_year<1998;
+
+NO. 5
+select rev_name
+from reviewer
+union 
+(select mov_title from movie);
+
+NO. 6
+select reviewer.rev_name, rating.rev_stars 
+from reviewer, rating
+where
+reviewer.rev_id = rating.rev_id and
+rating.rev_id >= 7;
+
+NO. 7
+select mov_title
+from movie
+where mov_id not in (select mov_id from rating);
+
+NO. 8
+select mov_title, mov_id
+from movie
+where mov_id=905 or mov_id=907 or mov_id=917;
+
+NO. 9
+select * 
+from movie
+where mov_title = 'Boogie Nights';
+
+NO. 10
+select id_number 
+from actor
+where act_fname='Woody' and act_lname='Allen';
+
