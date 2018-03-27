@@ -1,0 +1,20 @@
+/* @author : lenawidiani
+ * @dibuat : 26 Maret 2018
+ * 
+ */
+
+public interface Tunjangan {
+	int HARGA_BERAS = 12500;
+	int TOTAL_BERAS_PERBULAN = 10;
+	
+	int BESAR_TUNJANGAN_STRUKTURAL = 1000000;
+	int BESAR_TUNJANGAN_FUNGSIONAL = 500000;
+	int[] BESAR_TUNJANGAN_UMUM = {175000, 180000, 185000, 190000};
+	
+	int MAX_JUMLAH_ANAK_TUNJANGAN = 2;
+	
+	double PERSEN_TUNJANGAN_MENIKAH = 0.1;
+	double PERSEN_TUNJANGAN_ANAK = 0.02;
+	
+	
+}
