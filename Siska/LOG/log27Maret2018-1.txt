@@ -1,0 +1,10 @@
+Menambahkan file 
+-MainGajiPNS.java
+-Pegawai.java
+-PegawaiPNS.java
+-PotonganTaperum.java
+-TunjanganBeras.java
+-TunjanganUmum.java
+-TunjanganYangDipadat.java
+-UntukPPH.java
+-Jawaban w3resource.txt yg basic
