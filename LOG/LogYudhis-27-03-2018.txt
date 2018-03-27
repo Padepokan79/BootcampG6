@@ -1,0 +1,5 @@
+- Membuat folder 27mar2018
+- Membuat folder 27mar2018/LatSoal
+- Mengunggah project folder LatSoal/GajiPNS
+- Memperbarui 6mar2018/LatSoal/GajiPNSYudhis.java
+- Mengunggah 27mar2018/LatSoal/ExerciseMovieDatabase.txt

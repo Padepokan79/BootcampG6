@@ -612,7 +612,7 @@ public class GajiPNSYudhis {
 									tunjJabatan = 180000;
 									break;
 								case 3 :
-									tunjJabatan = 18500;
+									tunjJabatan = 185000;
 									break;
 								case 4 :
 									tunjJabatan = 190000;
@@ -643,32 +643,32 @@ public class GajiPNSYudhis {
 
 						penghasilanNetto = gajiKotor - biayaJabatan - iuranPensiun;
 
-						// Penghitungan PTKP 
+							// Penghitungan PTKP 
 
-						if (statusKawin.equals("Menikah")){
-							if(jumlahAnak >= 3){
-								pTKP = pTKP + (4 * pTKPanggotaKeluarga); 
-							} 
-							else if(jumlahAnak == 2){
-								pTKP = pTKP + (3 * pTKPanggotaKeluarga);
+							if (statusKawin.equals("Menikah")){
+								if(jumlahAnak >= 3){
+									pTKP = pTKP + (4 * pTKPanggotaKeluarga); 
+								} 
+								else if(jumlahAnak == 2){
+									pTKP = pTKP + (3 * pTKPanggotaKeluarga);
+								}
+								else if(jumlahAnak == 1){
+									pTKP = pTKP + (2 * pTKPanggotaKeluarga);
+								}
+								else if(jumlahAnak == 0){
+									pTKP = pTKP + (1 * pTKPanggotaKeluarga);;
+								}
+							} else if (statusKawin.equals("Belum Menikah") || statusKawin.equals("Cerai")){
+								if(jumlahAnak >= 3){
+									pTKP = pTKP + (3 * pTKPanggotaKeluarga); 
+								}
+								else if(jumlahAnak == 2){
+									pTKP = pTKP + (2 * pTKPanggotaKeluarga);
+								}
+								else if(jumlahAnak == 1){
+									pTKP = pTKP + (1 * pTKPanggotaKeluarga);;
+								}
 							}
-							else if(jumlahAnak == 1){
-								pTKP = pTKP + (2 * pTKPanggotaKeluarga);
-							}
-							else if(jumlahAnak == 0){
-								pTKP = pTKP + (1 * pTKPanggotaKeluarga);;
-							}
-						} else if (statusKawin.equals("Belum Menikah") || statusKawin.equals("Cerai")){
-							if(jumlahAnak >= 3){
-								pTKP = pTKP + (3 * pTKPanggotaKeluarga); 
-							}
-							else if(jumlahAnak == 2){
-								pTKP = pTKP + (2 * pTKPanggotaKeluarga);
-							}
-							else if(jumlahAnak == 1){
-								pTKP = pTKP + (1 * pTKPanggotaKeluarga);;
-							}
-						}
  
 						// Penghitungan PKP
 						// Khairin
@@ -686,7 +686,7 @@ public class GajiPNSYudhis {
 							} else if (pKP > pKPLv2 && pKP <= (pKPLv1 + pKPLv2 + pKPLv3)) {
 								pPH = ((0.5 * pKPLv1) + (0.15 * pKPLv2) + (0.25 * pKP)) / 12;
 							} else {
-								pPH = ((0.15 * pKPLv1) + (0.15 * pKPLv2) + (0.25 * pKPLv3) + (0.30 * pKP)) / 12;
+								pPH = ((0.5 * pKPLv1) + (0.15 * pKPLv2) + (0.25 * pKPLv3) + (0.30 * pKP)) / 12;
 							}
 						}
 
