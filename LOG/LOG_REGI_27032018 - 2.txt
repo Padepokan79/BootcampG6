@@ -1,0 +1,3 @@
+- Mengerjakan BASIC exercises on movie Database
+
+- Menambahkan File BASIC exercises on movie Database.txt di folder 27maret2018
