@@ -1,0 +1,13 @@
+Add folder PNS 27 Maret
+	-add file CekValidasi.java
+	-add file Fungsional.java
+	-add file Golongan.java
+	-add file HitungGajiPns.java
+	-add file PehitunganPPH.java
+	-add file Pns.java
+	-add file PotonganLain.java
+	-add file Struktural.java
+	-add file TunjanganBeras.java
+	-add file TunjanganKeluarga.java
+	-add file TunjanganMenikah.java
+	-add file Umum.java
