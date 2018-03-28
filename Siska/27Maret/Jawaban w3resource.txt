@@ -39,4 +39,12 @@ from rating);
 
 8. find the titles of the movies with ID 905, 907, 917
 
-select 
+select mov_title
+from movie
+where mov_id in (905, 907, 917);
+
+9. find the list of all those movies with year which include the words Boogie Nights.
+
+select mov_title, mov_year
+from movie
+where mov_title in ('Boogie Nights');
