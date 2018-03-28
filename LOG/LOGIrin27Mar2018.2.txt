@@ -1,0 +1,2 @@
+-Mengerjakkan soal SQL Basic Movie
+-Menambahkan file note jawaban soal SQL pada folder 27 Mar 2018 folder Khairin

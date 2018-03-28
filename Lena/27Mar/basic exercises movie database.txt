@@ -1,0 +1,40 @@
+1.  select mov_title, mov_year
+    from movie;
+
+2.  select mov_year
+    from movie
+    where mov_title = "American Beauty";
+
+3.  select mov_title 
+    from movie
+    where mov_year = 1999;
+
+4.  select mov_title 
+    from movie
+    where mov_year < 1998;
+
+5.  select movie.mov_title , reviewer.rev_name 
+    from movie, reviewer, rating
+    where movie.mov_id = rating.mov_id
+    AND rating.rev_id = reviewer.rev_id;
+
+6.  select reviewer.rev_name 
+    from reviewer, rating
+    where rating.rev_id = reviewer.rev_id
+    AND rating.rev_stars >= 7;
+
+7.  select mov_title
+    from movie
+    where mov_id not in (select mov_id from rating);
+
+8.  select mov_title
+    from movie
+    where mov_id in (905, 907, 917);
+
+9.  select mov_title, mov_year
+    from movie
+    where mov_title = 'Boogie Nights';
+
+10. select act_id 
+    from actor
+    where act_fname = 'Woody' and act_lname = 'Allen';
