@@ -1,0 +1,7 @@
+1. select actor
+   from actor, movie_cast, movie
+   where actor.act_id = movie_cast.act_id
+   and movie_cast.mov_id = movie.mov_id
+   and movie.mov_title = 'Annie Hall';
+
+2.
