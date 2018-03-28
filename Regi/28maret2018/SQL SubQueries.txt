@@ -1,0 +1,31 @@
+No 1
+
+SELECT actor.act_id, actor.act_fname, actor.act_lname, actor.act_gender, movie_cast.role, movie.mov_title
+FROM actor, movie_cast, movie
+WHERE actor.act_id = movie_cast.act_id
+AND movie.mov_id = movie_cast.mov_id
+AND movie.mov_title = 'Annie Hall';
+
+No 2
+
+SELECT director.dir_fname, director.dir_lname
+FROM director, movie_direction, movie_cast, movie
+WHERE director.dir_id = movie_direction.dir_id
+AND movie.mov_id = movie_cast.mov_id
+AND movie_cast.mov_id = movie_direction.mov_id
+AND movie.mov_title = 'Eyes Wide Shut';
+
+No 3
+
+SELECT movie.mov_id, movie.mov_title, movie.mov_year, movie.mov_time, movie.mov_lang
+FROM movie
+WHERE NOT movie.mov_lang = 'English';
+
+No 4
+
+SELECT movie.mov_title, movie.mov_year, movie.mov_dt_rel, director.dir_fname, actor.act_fname
+FROM movie, director
+WHERE reviewer.rev_name IS NULL
+AND movie.mov_id = movie_direction.mov_id
+AND director.dir_id = movie_direction.dir_id
+AND 
