@@ -1,0 +1,146 @@
+Irin
+
+	Carilah daftar pegawai dengan penghasilan bersih sebulan kurang dari 2.5 juta.
+		SELECT fgj.NIP, fgj.NAMA, fgj.TGLLHR AS 'Tanggal Lahir', stawin_tbl.nmstawin AS 'Status Kawin', fgj.JANAK AS 'Jumlah Anak', pangkat_tbl.NMPANGKAT AS 'Nama Pangkat', fgj.BERSIH AS 'Gaji Bersih'
+		FROM fgaji_01 AS fgj
+		INNER JOIN stawin_tbl ON fgj.KDSTAWIN = stawin_tbl.kdstawin
+		INNER JOIN pangkat_tbl ON fgj.KDPANGKAT = pangkat_tbl.KDPANGKAT
+		WHERE fgj.BERSIH < 2500000
+		ORDER BY fgj.BERSIH ASC
+		LIMIT 100
+		
+	Tampilkan pegawai dengan kode pangkat 2c yang bekerja kurang dari 10 tahun
+	dan pegawai dengan kode pangkat 1D yang bekerja lebih dari 10 tahun.
+	Urutkan kode pangkat dari yang terkecil
+		SELECT mstpegawai.NIP, mstpegawai.NAMA, mstpegawai.KDPANGKAT, pangkat_tbl.NMPANGKAT, mstpegawai.MASKER
+		FROM mstpegawai
+		INNER JOIN pangkat_tbl ON mstpegawai.KDPANGKAT = pangkat_tbl.KDPANGKAT
+		WHERE mstpegawai.KDPANGKAT = '2C' AND mstpegawai.MASKER < 10 OR mstpegawai.KDPANGKAT = '1D' AND mstpegawai.MASKER > 10
+		ORDER BY mstpegawai.KDPANGKAT ASC
+		LIMIT 100
+	
+	Tampilkan nama pegawai Wanita dan status kawinnya serta jabatannya (nama pankat)
+	urutkan nama pegawainya sesuai abjad
+		SELECT mstpegawai.NAMA, stawin_tbl.nmstawin, pangkat_tbl.NMPANGKAT
+		FROM mstpegawai
+		INNER JOIN stawin_tbl ON mstpegawai.KDSTAWIN = stawin_tbl.kdstawin
+		INNER JOIN pangkat_tbl ON mstpegawai.KDPANGKAT = pangkat_tbl.KDPANGKAT
+		WHERE mstpegawai.KDJENKEL = 2
+		LIMIT 100
+		
+Siska
+	Tampilkan NIP, NAMA, status nikah, satkername, skpd name , nama kepala skpd
+	* nama pegawai di urut asc, limit 100
+		SELECT fgj.NIP, fgj.NAMA, pangkat_tbl.NMPANGKAT, satker_tbl.NMSATKER, skpd_tbl.NMSKPD, skpd_tbl.NMKEPALA
+		FROM mstpegawai AS fgj
+		INNER JOIN pangkat_tbl ON fgj.KDPANGKAT = pangkat_tbl.KDPANGKAT
+		INNER JOIN stawin_tbl ON fgj.KDSTAWIN = stawin_tbl.kdstawin
+		INNER JOIN satker_tbl ON fgj.KDSATKER = satker_tbl.KDSATKER
+		INNER JOIN skpd_tbl ON satker_tbl.KDSKPD = skpd_tbl.KDSKPD
+		ORDER BY fgj.NAMA ASC
+		LIMIT 100;
+	
+	Tampilkan
+	NIP, nama, status pangkat, nama satker, gaji bersih, 
+	* yang sudah menikah, pangkat 4A, limit 100, nama diurutkan ASC
+		SELECT fgj.NIP, fgj.NAMA, pangkat_tbl.NMPANGKAT, satker_tbl.NMSATKER, fgj.BERSIH
+		FROM fgaji_01 AS fgj
+		INNER JOIN pangkat_tbl ON fgj.KDPANGKAT = pangkat_tbl.KDPANGKAT
+		INNER JOIN stawin_tbl ON fgj.KDSTAWIN = stawin_tbl.kdstawin
+		INNER JOIN satker_tbl ON fgj.KDSATKER = satker_tbl.KDSATKER
+		WHERE stawin_tbl.nmstawin = 'KAWIN' AND fgj.KDPANGKAT = '4A'
+		ORDER BY fgj.NAMA ASC
+		LIMIT 100;
+		
+	Tampilkan 3 yang dapat potongan terbanyak NIP, Nama Pegawai, SKPDname, GAPOK, Potongan, Gaji Bersih,
+	* potongan di urut dari yang terbesar
+		SELECT fgj.NIP, fgj.NAMA, skpd_tbl.NMSKPD, fgj.GAPOK, fgj.POTONGAN, fgj.BERSIH
+		FROM fgaji_01 AS fgj
+		INNER JOIN skpd_tbl ON fgj.KDSKPD = skpd_tbl.KDSKPD
+		ORDER BY fgj.POTONGAN DESC
+		LIMIT 3;
+
+Regi
+	Tampilkan NIP, nama pegawai, nama pangkat, uraian eselon,
+	(uraian eselon selain "NON ESELON),
+	Urutkan ASC berdasarkan nama pegawai yang mengandung kata "ani"
+	limit 10 (LEFT JOIN)
+		SELECT fgj.NIP, fgj.NAMA, eselon_tbl.URAIAN
+		FROM fgaji_01 AS fgj
+		LEFT JOIN eselon_tbl ON fgj.KDESELON = eselon_tbl.KDESELON
+		WHERE fgj.NAMA LIKE '%ani%' AND eselon_tbl.URAIAN != 'NON ESELON'
+		ORDER BY fgj.NAMA ASC
+		LIMIT 10;
+	
+	Tampilkan NIP, nama pegawai, uraian eselon, status pegawai, gapok
+	gapoknya antara 2jt - 2,5jt, urut asc berdasarkan nama (left join) limit 10
+		SELECT fgj.NIP, fgj.NAMA, eselon_tbl.URAIAN, stapeg_tbl.NMSTAPEG, fgj.GAPOK
+		FROM fgaji_01 AS fgj
+		LEFT JOIN eselon_tbl ON fgj.KDESELON = eselon_tbl.KDESELON
+		LEFT JOIN stapeg_tbl ON fgj.KDSTAPEG = stapeg_tbl.KDSTAPEG
+		WHERE fgj.GAPOK < 2500000 AND fgj.GAPOK > 2000000
+		ORDER BY fgj.NAMA ASC
+		LIMIT 10;
+	
+	Tampilkan NIP, nama pegawai, nama guru, nama istri/suami, (nama pegawai & 
+	nama istri/suami sama sama berawalan huruf A
+		SELECT fgj.NIP, fgj.NAMA, guru_tbl.NMGURU, keluarga.NMKEL AS 'Nama Istri/Suami'
+		FROM mstpegawai AS fgj, hubkel_tbl, guru_tbl, keluarga
+		WHERE fgj.KDGURU = guru_tbl.KDGURU
+			AND fgj.NIP = keluarga.NIP
+			AND fgj.KDSTAWIN = '2' 
+			AND keluarga.KDHUBKEL = hubkel_tbl.KDHUBKEL 
+			AND hubkel_tbl.NMHUBKEL = 'ISTERI / SUAMI'
+			AND fgj.NAMA LIKE 'A%'
+			AND keluarga.NMKEL LIKE 'A%'
+		LIMIT 100;
+
+Lena
+	Tampilkan nip, nama, pangkat, dan pendidikannya untuk pegawai
+	yang memiliki pendidikan akhir SLTA dan Diploma limit 100
+		SELECT pg.NIP, pg.NAMA, pangkat_tbl.NMPANGKAT, pg.PENDIDIKAN
+		FROM mstpegawai AS pg
+		INNER JOIN pangkat_tbl ON pg.KDPANGKAT = pangkat_tbl.KDPANGKAT
+		WHERE pg.PENDIDIKAN = 'SLTA' OR pg.PENDIDIKAN LIKE 'DIPLOMA%'
+		limit 100;
+		
+	Tampilkan nip, nama, jenis pegawai, dan data potonya, bagi pergawai
+	yang sudah memilikinya
+		SELECT pg.NIP, pg.NAMA, stapeg_tbl.NMSTAPEG, photo.gambar
+		FROM mstpegawai AS pg
+		INNER JOIN stapeg_tbl ON pg.KDSTAPEG = stapeg_tbl.KDSTAPEG
+		INNER JOIN photo ON pg.NIP = photo.nip
+		WHERE photo.gambar IS NOT NULL
+		Order BY photo.gambar DESC
+		limit 3;
+
+	Tampilkan nip, nama pegawai, jumlah dan keterangan hutangnya
+	- urutkan dari yang terbesar
+	- limit 100
+	- Cari tabel yang ada data pendidikannya SLTA & Diploma
+		SELECT pg.NIP, pg.NAMA, hutang.JMLHUTANG, hutang_tbl.NMHUTANG, pg.PENDIDIKAN
+		FROM mstpegawai AS pg
+		INNER JOIN hutang ON pg.NIP = hutang.NIP
+		INNER JOIN hutang_tbl ON hutang.KDHUTANG = hutang_tbl.KDHUTANG
+		WHERE pg.PENDIDIKAN = 'SLTA' OR pg.PENDIDIKAN = 'Diploma%'
+		Order BY hutang.JMLHUTANG DESC
+		limit 100;
+
+Yudhis
+	Tampilkan Nama Pegawai, dan gaji bersihnya untuk pegawai yang berada
+	di satuan kerja sekretariat dinas perkerjaan umum dan penataan ruang 
+	yang sudah menikah dan memiliki 2 anak atau lebih.
+		
+Kang Hendra
+	Tampilkan NIP, Nama Pegawai, Status Pegawai, Kode Pangkat, Nama Pangkat, 
+	Nama Istri atau SUAMI, Gaji Bersih
+		////////		
+		SELECT gj.NIP, gj.NAMA AS 'Nama Pegawai', stapeg_tbl.NMSTAPEG AS 'Status Pegawai', gj.KDPANGKAT AS 'Kode Pegawai', pangkat_tbl.NMPANGKAT AS 'Nama Pangkat', keluarga.NMKEL AS 'Nama Istri Atau Suami', gj.BERSIH AS 'Gaji Bersih'
+		FROM fgaji_01 as gj, keluarga, hubkel_tbl, pangkat_tbl, stapeg_tbl
+		WHERE gj.KDSTAPEG = stapeg_tbl.NMSTAPEG
+			AND gj.KDPANGKAT = pangkat_tbl.KDPANGKAT
+			AND gj.NIP = keluarga.NIP
+			AND gj.KDSTAWIN = '2' 
+			AND keluarga.KDHUBKEL = hubkel_tbl.KDHUBKEL 
+			AND hubkel_tbl.NMHUBKEL = 'ISTERI / SUAMI'
+		limit 100;
