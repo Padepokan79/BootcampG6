@@ -1,0 +1,62 @@
+Question
+No.1
+Write a query in SQL to list all the information of the actors who played a role 
+in the movie 'Annie Hall'.
+
+No.2
+Write a query in SQL to find the name of the director (first and last names) who directed
+a movie that casted a role for 'Eyes Wide Shut'. (using subquery)
+
+No.3
+Write a query in SQL to list all the movies which released in the country other than UK
+
+No.4
+Write a query in SQL to find the movie title, year, date of release, director 
+and actor for those movies which reviewer is unknown
+
+No.5
+Write a query in SQL to find the titles of all movies directed by the director whose 
+first and last name are Woddy Allen.
+
+
+Answer
+
+No.1
+SELECT a.act_id,a.act_fname,a.act_lname,a.act_gender,mc.role, m.mov_title
+FROM Actor AS a, Movie_Cast AS mc, Movie AS m
+WHERE a.act_id = mc.act_id
+	AND mc.mov_id =m.mov_id
+	AND m.mov_title = 'Annie Hall' 
+
+No.2
+SELECT d.dir_fname, d.dir_lname, m.mov_title
+FROM Director AS d, Movie_Direction AS md, Movie AS m
+WHERE d.dir_id = md.dir_id
+	AND md.mov_id = m.mov_id
+	AND m.mov_title = 'Eyes Wide Shut ' 
+
+No.3
+SELECT *
+FROM Movie AS m
+WHERE mov_rel_country != 'UK'
+
+No.4
+SELECT m.mov_title, m.mov_year, m.mov_dt_rel, 
+  d.dir_fname, a.act_fname, v.rev_name
+FROM Actor AS a, Movie_Cast AS mc, Director AS d, 
+  Movie_Direction AS md, Movie AS m, Rating AS r, 
+  Reviewer AS v
+WHERE a.act_id = mc.act_id
+  AND mc.mov_id = m.mov_id
+  AND d.dir_id = md.dir_id
+  AND md.mov_id = m.mov_id
+  AND m.mov_id = r.mov_id
+  AND r.rev_id = v.rev_id
+  AND v.rev_name IS NULL;
+
+No.5
+SELECT m.mov_title, d.dir_fname, d.dir_lname
+FROM Director AS d, Movie_Direction AS md, Movie AS m
+WHERE d.dir_id = md.dir_id
+  AND md.mov_id = m.mov_id
+  AND d.dir_fname = 'Woody' AND d.dir_lname = 'Allen'

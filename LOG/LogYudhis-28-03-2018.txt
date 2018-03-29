@@ -1,0 +1,4 @@
+- Membuat folder 28mar2018
+- Membuat folder 28mar2018/LatSoal
+- Mengunggah LatSoal/ExerciseMovieDatabaseSubQueries.txt
+- Mengunggah LatSoal/LatQuery.txt

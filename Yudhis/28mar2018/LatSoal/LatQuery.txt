@@ -1,0 +1,172 @@
+Soal Khairin :
+1. Tampilkan 5 teratas nama-nama customer yang memesan Product dengan CategoryID=3. Tamplikan fields berikut :
+	CustomerName, OrderID, ProductID, ProductName, CategoryID
+	
+	Lalu hapus row dengan OrderID=10368 dan urutkan nilai ProductID dari yang terkecil.
+
+SELECT TOP 5 Customers.CustomerName, Orders.OrderID, Products.ProductID, Products.ProductName, Categories.CategoryID
+FROM Customers, Orders, OrderDetails, Products, Categories
+WHERE OrderDetails.OrderID=Orders.OrderID
+	AND OrderDetails.ProductID=Products.ProductID
+    	AND Orders.CustomerID=Customers.CustomerID
+    	AND Products.CategoryID=Categories.CategoryID
+	AND Categories.CategoryID=3
+    	AND NOT Orders.OrderID=10368
+ORDER BY Products.ProductID ASC;
+
+2. Tampilkan nama pembeli dengan pembelian quantity kurang dari 50 dan urutkan nama pembelinya.
+
+SELECT DISTINCT Customers.CustomerName
+FROM Customers, OrderDetails, Orders
+WHERE OrderDetails.OrderID=Orders.OrderID
+	AND Orders.CustomerID=Customers.CustomerID
+ 	AND OrderDetails.Quantity < 50
+ORDER BY Customers.CustomerName ASC;
+
+
+Soal Lena :
+1. Tampilkan top 10 pengiriman oleh United Package yang memiliki Quantity order produk terbanyak. 
+	Tampilkan no order, nama customer, dikirim ke alamat dan kota mana, serta nama produk dan quantity nya.
+
+SELECT Orders.OrderID, Customers.CustomerName, Customers.Address, Customers.City, Products.ProductName, OrderDetails.Quantity
+FROM OrderDetails, Orders, Customers, Products, Shippers
+WHERE OrderDetails.OrderID=Orders.OrderID
+	AND Orders.CustomerID=Customers.CustomerID
+    	AND OrderDetails.ProductID=Products.ProductID
+    	AND Orders.ShipperID=Shippers.ShipperID
+    	AND Shippers.ShipperName='United Package'
+ORDER BY OrderDetails.Quantity DESC
+LIMIT 10;
+
+2. Tampilkan jumlah order yang ditangani untuk pengiriman ke benua amerika.
+
+SELECT COUNT (OrderID)
+FROM Customers, Orders, Employees
+WHERE Orders.CustomerID=Customers.CustomerID
+	AND Orders.EmployeeID=Employees.EmployeeID
+	AND (Customers.Country='Argentina'
+   		OR Customers.Country='Brazil'
+    		OR Customers.Country='Canada'
+    		OR Customers.Country='Mexico'
+    		OR Customers.Country='USA'
+    		OR Customers.Country='Venezuela')
+	AND Employees.FirstName='Laura';
+
+
+Soal Siska :
+1. Tampilkan CustomerName, OrderDate, ProductName, ShippersName, yang berasal dari USA.
+
+SELECT Customers.CustomerName, Orders.OrderDate, Products.ProductName, Shippers.ShipperName
+FROM Customers, Orders, OrderDetails, Products, Shippers
+WHERE Orders.CustomerID=Customers.CustomerID
+	AND Orders.OrderID=OrderDetails.OrderID
+    	AND OrderDetails.ProductID=Products.ProductID
+    	AND Orders.ShipperID=Shippers.ShipperID
+	AND Customers.Country='USA';
+
+2. Tampilkan customer name yang membeli 5 product dengan harga yang paling mahal.
+
+SELECT Products.Price, Products.ProductName, Orders.OrderID, Customers.CustomerName
+FROM Products, Orders, OrderDetails, Customers
+WHERE OrderDetails.ProductID=Products.ProductID
+	AND OrderDetails.OrderID=Orders.OrderID
+	AND Orders.CustomerID=Customers.CustomerID
+ORDER BY Products.Price DESC
+LIMIT 5;
+
+
+Soal Regi :
+1. Coba tampilkan ProductName dan SupplierName, Price dengan Price diatas 50, urutkan dari yang terbesar. Limit = 6.
+
+SELECT Products.ProductName, Suppliers.SupplierName
+FROM Products, Suppliers
+WHERE Products.SupplierID=Suppliers.SupplierID
+	AND Products.Price > 50
+LIMIT 6;
+
+2. Coba tampilkan OrderID, CustomerName, ProductName, Quantity, ShipperName dimana ShipperName nya 'United Package'
+	dan Quantitynya < 5 urut dari terbesar. Limit = 100.
+
+SELECT Orders.OrderID, Customers.CustomerName, Products.ProductName, OrderDetails.Quantity, Shippers.ShipperName
+FROM Orders, OrderDetails, Customers, Products, Shippers
+WHERE Orders.OrderID=OrderDetails.OrderID
+	AND Orders.CustomerID=Customers.CustomerID
+    	AND OrderDetails.ProductID=Products.ProductID
+    	AND Orders.ShipperID=Shippers.ShipperID
+    	AND Shippers.ShipperName='United Package'	
+	AND OrderDetails.Quantity < 5
+ORDER BY OrderDetails.Quantity DESC
+LIMIT 100;
+
+
+Soal Ilham :
+1. Tampilkan nama product yang supplier nya berasal dari negara japan, urut sesuai nama produk. ASC.
+
+SELECT Products.ProductName, Suppliers.SupplierName, Suppliers.Country
+FROM Products, Suppliers
+WHERE Products.SupplierID=Suppliers.SupplierID
+	AND Suppliers.Country='Japan'
+ORDER BY Products.ProductName ASC;
+
+2. Tampilkan nama produk dan harganya yang memiliki kategori seafood urut berdasarkan nama produk. ASC.
+
+SELECT Products.ProductName, Products.Price, Categories.CategoryName
+FROM Categories, Products
+WHERE Categories.CategoryID=Products.CategoryID
+	AND Categories.CategoryName='Seafood'
+ORDER BY Products.ProductName ASC;
+
+3. Tampilkan nama kustomer, tanggal order, nama produk, nama supplier, kategori produk berdasarkan
+	kategori makanan = Beverages.
+
+SELECT Customers.CustomerName, Orders.OrderDate, Products.ProductName, Suppliers.SupplierName, Categories.CategoryName
+FROM Products, Categories, Orders, OrderDetails, Customers, Suppliers
+WHERE Products.CategoryID=Categories.CategoryID
+    	AND OrderDetails.OrderID=Orders.OrderID
+    	AND OrderDetails.ProductID=Products.ProductID
+    	AND Orders.CustomerID=Customers.CustomerID
+   	AND Products.SupplierID=Suppliers.SupplierID
+	AND Categories.CategoryName='Beverages';
+
+
+Soal Fahreja :
+1. Tampilkan customerName, productName, quantity, description. 10 Quantity terendah.
+
+SELECT Customers.CustomerName, Products.ProductName, OrderDetails.Quantity, Categories.Description
+FROM OrderDetails, Orders, Customers, Products, Categories
+WHERE OrderDetails.OrderID=Orders.OrderID
+	AND Orders.CustomerID=Customers.CustomerID
+    	AND OrderDetails.ProductID=Products.ProductID
+   	AND Categories.CategoryID=Products.CategoryID
+ORDER BY OrderDetails.Quantity ASC
+LIMIT 10;
+
+2. Tampilkan productName, EmployeeFirstName, SupplierName, Phone
+
+SELECT DISTINCT Products.ProductName, Employees.FirstName, Suppliers.SupplierName, Suppliers.Phone
+FROM Employees, Orders, OrderDetails, Products, Suppliers
+WHERE Employees.EmployeeID=Orders.EmployeeID
+	AND Orders.OrderID=OrderDetails.OrderID
+	AND OrderDetails.ProductID=Products.ProductID
+    	AND Products.SupplierID=Suppliers.SupplierID
+	AND Employees.FirstName='Andrew'
+ORDER BY Products.ProductName;
+
+Soal Yudhis :
+1. Tampilkan nama produk, nama supplier, asal negara supplier, unit produk dengan kategori Grains/Cereals.
+
+SELECT Products.ProductName, Suppliers.SupplierName, Suppliers.Country, Products.Unit
+FROM Products, Suppliers, Categories
+WHERE Products.SupplierID=Suppliers.SupplierID
+	AND Products.CategoryID=Categories.CategoryID
+	AND Categories.CategoryName='Grains/Cereals'
+
+2. Tampilkan nama employee, nama produk, dan nama shipper dengan kuantitas terbanyak 3 teratas.
+
+SELECT TOP 3 Employees.FirstName, Employees.LastName, Products.ProductName, Shippers.ShipperName, OrderDetails.Quantity
+FROM OrderDetails, Orders, Products, Shippers, Employees
+WHERE OrderDetails.OrderID=Orders.OrderID
+	AND OrderDetails.ProductID=Products.ProductID
+    	AND Orders.EmployeeID=Employees.EmployeeID
+    	AND Orders.ShipperID=Shippers.ShipperID
+ORDER BY OrderDetails.Quantity DESC;
