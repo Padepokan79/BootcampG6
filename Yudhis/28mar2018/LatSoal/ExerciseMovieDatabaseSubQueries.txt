@@ -1,0 +1,44 @@
+1. SELECT actor.*
+	FROM actor, movie_cast, movie
+	WHERE actor.act_id=movie_cast.act_id AND movie_cast.mov_id=movie.mov_id AND movie.mov_title='Annie Hall';
+
+2. SELECT director.dir_fname AS FirstName, director.dir_lname AS LastName
+	FROM director, movie_direction, movie_cast, movie
+	WHERE director.dir_id=movie_direction.dir_id 
+		AND movie_direction.mov_id=movie_cast.mov_id
+		AND movie_cast.mov_id=movie.mov_id
+		AND movie.mov_title='Eyes Wide Shut';
+
+3. SELECT *
+	FROM movie
+	WHERE NOT mov_rel_country='UK';
+
+4. SELECT movie.mov_title, movie.mov_year, movie.mov_dt_rel, director.dir_fname, director.dir_lname, act_fname, act_lname
+	FROM reviewer, rating, movie, director, movie_direction, movie_cast, actor
+	WHERE reviewer.rev_id=rating.rev_id
+		AND rating.mov_id=movie.mov_id
+		AND movie.mov_id=movie_direction.mov_id
+		AND movie_direction.dir_id=director.dir_id
+		AND movie_cast.mov_id=movie.mov_id
+		AND movie_cast.act_id=actor.act_id
+		AND rev_name IS NULL;
+
+5. SELECT movie.*
+	FROM director, movie_direction, movie
+	WHERE movie_direction.mov_id=movie.mov_id
+		AND director.dir_id=movie_direction.dir_id
+		AND director.dir_fname='Woody'
+		AND director.dir_lname='Allen';
+
+6. SELECT movie.mov_year, rating.rev_stars
+	FROM rating, movie
+	WHERE rating.mov_id=movie.mov_id
+		AND rating.rev_stars > 3
+	ORDER BY rating.rev_stars ASC;
+
+7. SELECT movie.mov_title
+	FROM rating, movie
+	WHERE rating.mov_id=movie.mov_id
+		AND rating.num_o_ratings IS NULL;
+
+8. 
