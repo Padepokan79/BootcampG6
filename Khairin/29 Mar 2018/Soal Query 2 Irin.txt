@@ -1,0 +1,212 @@
+SOAL IRIN
+1. carilah daftar pegawai dengan penghasilan bersih 
+sebulan kurang dari 2,5jt tampilkan : nip, nama, 
+tanggal lahir, status kawin, jumlah anak, nama pangkat, 
+ph. bersih
+
+select fgaji_01.NIP, fgaji_01.NAMA, fgaji_01.TGLLHR, stawin_tbl.nmstawin, fgaji_01.JANAK, pangkat_tbl.NMPANGKAT, fgaji_01.BERSIH
+from fgaji_01
+left join pangkat_tbl on fgaji_01.KDPANGKAT = fgaji_01.KDPANGKAT
+left join stawin_tbl on fgaji_01.KDSTAWIN = stawin_tbl.kdstawin
+where fgaji_01.BERSIH < 2500000
+limit 100;
+
+2. tampilkan pegawai dengan kode pangkat 2c yang bekerja 
+kurang dari 10 tahun dan pegawai dengan kode pangkat 1d 
+yang bekerja lebih dari 10 tahun. urutkan kode pangkat 
+dari yang terkecil tampilan: nip, nama, kode pangkat, 
+nama pangkat, masa kerja
+
+select fgaji_01.NIP, fgaji_01.NAMA, fgaji_01.KDPANGKAT, pangkat_tbl.NMPANGKAT, fgaji_01.MASKER
+from fgaji_01
+left join pangkat_tbl on fgaji_01.KDPANGKAT = fgaji_01.KDPANGKAT
+where (pangkat_tbl.KDPANGKAT = '2C' and fgaji_01.MASKER < 10)
+and (pangkat_tbl.KDPANGKAT = '1D' and fgaji_01.MASKER > 10)
+limit 100;
+
+3. tampilkan nama pegawai wanita dan status kawinnya 
+serta nama pangkatnya dan urutkan nama pegawainya sesuai 
+abjad!
+
+select fgaji_01.NAMA, stawin_tbl.nmstawin, pangkat_tbl.NMPANGKAT
+from fgaji_01
+left join pangkat_tbl on fgaji_01.KDPANGKAT = pangkat_tbl.KDPANGKAT
+left join stawin_tbl on fgaji_01.KDSTAWIN = stawin_tbl.kdstawin
+order by fgaji_01.NAMA asc
+limit 100;
+
+
+SOAL KANG HENDRA
+
+select fgaji_01.NIP, fgaji_01.NAMA, stapeg_tbl.NMSTAPEG, pangkat_tbl.KDPANGKAT, pangkat_tbl.NMPANGKAT, a.NMKEL as NamaIstriatauSuami, fgaji_01.BERSIH  
+from fgaji_01 
+left join stapeg_tbl on fgaji_01.KDSTAPEG = stapeg_tbl.KDSTAPEG
+left join pangkat_tbl on fgaji_01.KDPANGKAT = pangkat_tbl.KDPANGKAT
+left join keluarga a on fgaji_01.NIP = a.NIP
+keluarga b
+where fgaji_01.NIP = keluarga.NIP
+and a.KDHUBKEL = b.KDHUBKEL
+limit 100; 
+
+SOAL SISKA
+
+1. NIP, Nama, Status, satkername, skpdname, nama kepala skpd
+nama pegawai diurut asc
+limit 100
+
+select fgaji_01.NIP, fgaji_01.NAMA, stawin_tbl.nmstawin, satker_tbl.NMSATKER, skpd_tbl.NMSKPD, skpd_tbl.NMKEPALA
+from fgaji_01
+left join stawin_tbl on fgaji_01.KDSTAWIN = stawin_tbl.kdstawin
+left join satker_tbl on fgaji_01.KDSATKER = satker_tbl.KDSATKER
+left join skpd_tbl on fgaji_01.KDSKPD = skpd_tbl.KDSKPD
+order by fgaji_01.NAMA asc
+limit 100;
+
+2. tampilkan nip, nama pegawai, status, pangkat, namasatker,
+gajibersih
+yang sudah menikah, pangkat 4A, limit 100 nama diurutkan
+asc!
+
+select fgaji_01.NIP, fgaji_01.NAMA, stawin_tbl.nmstawin, pangkat_tbl.NMPANGKAT, satker_tbl.NMSATKER, fgaji_01.BERSIH
+from fgaji_01
+left join stawin_tbl on fgaji_01.KDSTAWIN = stawin_tbl.kdstawin
+left join pangkat_tbl on fgaji_01.KDPANGKAT = pangkat_tbl.KDPANGKAT
+left join satker_tbl on fgaji_01.KDSATKER = satker_tbl.KDSATKER
+where stawin_tbl.kdstawin = 2
+and pangkat_tbl.KDPANGKAT = '4A'
+order by fgaji_01.NAMA asc
+limit 100;
+
+3. tampilkan 3 yang dapat potongan terbanyak 
+nip, namapegawai, skpdname, gapok, potongan, gajibersih
+*potongan diurut dari yang terbesar
+
+select fgaji_01.NIP, fgaji_01.NAMA, skpd_tbl.NMSKPD, fgaji_01.GAPOK, fgaji_01.POTONGAN, fgaji_01.BERSIH
+from fgaji_01
+left join stawin_tbl on fgaji_01.KDSTAWIN = stawin_tbl.kdstawin
+left join skpd_tbl on fgaji_01.KDSKPD = skpd_tbl.KDSKPD
+order by fgaji_01.POTONGAN desc
+limit 3;
+
+SOAL REGI
+1. Tampilkan NIP, Nama Pegawai, Nama Pangkat, Uraian Eselon 
+(uraian eselon selain "NON ESELON") Urutkan ASC berdasar nama 
+pegawai yang mengandung kata "ani" (gunakan inner join) limit 10
+
+select fgaji_01.NIP, fgaji_01.NAMA, pangkat_tbl.NMPANGKAT, eselon_tbl.URAIAN
+from fgaji_01
+inner join pangkat_tbl on fgaji_01.KDPANGKAT = pangkat_tbl.KDPANGKAT 
+inner join eselon_tbl on fgaji_01.KDESELON = eselon_tbl.KDESELON
+where eselon_tbl.URAIAN != 'NON ESELON'
+and fgaji_01.NAMA like '%ani%' 
+limit 10;
+
+2. Tampilkan NIP, Nama Pegawai, Uraian Eselon, Status Pegawai, 
+Gapok. Gapok 2000000 - 2500000. Urutkan ASC berdasar nama pegawai 
+(Gunakan Left Join ) limit 10
+
+select fgaji_01.NIP, fgaji_01.NAMA, pangkat_tbl.NMPANGKAT, eselon_tbl.URAIAN, stawin_tbl.nmstawin, fgaji_01.GAPOK
+from fgaji_01
+left join pangkat_tbl on fgaji_01.KDPANGKAT = pangkat_tbl.KDPANGKAT 
+left join eselon_tbl on fgaji_01.KDESELON = eselon_tbl.KDESELON
+left join stawin_tbl on fgaji_01.KDSTAWIN = stawin_tbl.kdstawin
+where fgaji_01.GAPOK >= 2000000 
+and fgaji_01.GAPOK <= 2500000
+order by fgaji_01.NAMA asc
+limit 10;
+
+3. Tampilkan NIP, Nama Pegawai, Nama Guru, Nama Istri/Suami
+(Nama pegawai & nama istri/suami sama-sama berawalan huruf A.
+limit 10
+
+select fgaji_01.NIP, fgaji_01.NAMA, guru_tbl.NMGURU, kela.NMKEL
+from fgaji_01, keluarga kela, keluarga kelb
+left join guru_tbl on guru_tbl.KDGURU = fgaji_01.KDGURU
+left join kela on fgaji_01.NIP = kela.NIP
+where kela.KDHUBKEL = kelb.KDHUBKEL
+and kela.NMKEL like 'a%'
+limit 10;
+
+SOAL LENA
+1. Tampilkan NIP, nama, pangkat, dan pendidikannya, untuk pegawai 
+yang memiliki pendidikan akhir SLTA dan Diploma Limit 100
+
+select mstpegawai.NIP, mstpegawai.NAMA, pangkat_tbl.NMPANGKAT, mstpegawai.PENDIDIKAN
+from mstpegawai
+left join pangkat_tbl on pangkat_tbl.KDPANGKAT = mstpegawai.KDPANGKAT
+where mstpegawai.PENDIDIKAN = 'SLTA'
+or mstpegawai.PENDIDIKAN = 'DIPLOMA (D3)' 
+limit 100;
+
+2. Tampilkan nip, nama, jenis pegawai, dan data fotonya, bagi 
+pegawai yang sudah memilikinya
+
+select mstpegawai.NIP, mstpegawai.NAMA, photopeg.gambar
+from mstpegawai
+left join photopeg on mstpegawai.NIP = photopeg.nip
+where photopeg.gambar is not null
+limit 100;
+
+3. Tampilkan NIP, nama pegawai, jumlah dan keterangan hutangnya, 
+urutkan dari yg terbesar cari tabel yg ada data pendidikannya, SLTA dan Diploma
+limit = 100
+
+select mstpegawai.NIP, mstpegawai.NAMA, mstpegawai.PENDIDIKAN, hutang.JMLHUTANG, hutang_tbl.NMHUTANG
+from mstpegawai
+left join hutang on hutang.NIP = mstpegawai.NIP  
+left join hutang_tbl on hutang_tbl.KDHUTANG = hutang.KDHUTANG  
+where mstpegawai.PENDIDIKAN = 'SLTA'
+or mstpegawai.PENDIDIKAN = 'DIPLOMA (D3)'
+order by hutang.JMLHUTANG desc 
+limit 100;
+
+
+SOAL YUDHIS
+1. Tampilkan nama pegawai, dan gaji bersihnya, untuk pegawai yg berada 
+di satuan kerja sekretariat dinas pekerjaan umum dan  penataan 
+ruang, yg sudah menikah dan memiliki 2 anak atau lebih
+
+select distinct fgaji.NAMA, fgaji.BERSIH
+from fgaji
+left join satker_tbl on fgaji.KDSATKER = satker_tbl.KDSATKER
+where fgaji.KDSTAWIN = 2
+and fgaji.JANAK >= 2
+limit 100;
+
+2. Tampilkan NIP, nama, status kawin, status pegawai, pangkat, nama 
+guru, untuk pegawai yg belum menikah, dan laki laki yg  bertugas 
+sbg pembina utama muda
+
+
+
+3. Tampilkan nip, nama, status kawin, status pegawai, pangkat, nama 
+guru, untuk pegawai perempuan yg merupakan anggota dprd yg  sudah 
+memiliki anak
+
+
+SOAL FAHREJA
+1. tampilkan nip, nama, rp. eselon, untuk kode A4
+nip, nama, kode eselon, rp, limit 100
+
+2. tampilkan nama dan tanggal lahir anak ke dua dari nip 
+"195604081985031005"
+
+3. tampilkan nip, nama hub keluarga, nama keluarga, nip suami/istri
+berdasarkan nip suami istri yang terisi
+
+SOAL ILHAM
+1. tampilkan nama pegawai yang memiliki jumlah hutang kurang dari
+1000000 dengan kategori hutang kelebihan bayar gaji maks 50, urut
+berdasarkan jumlah hutang terkecil
+nama pegawai, jumlah hutang
+
+2. tampilkan data pegawai yang memiliki status cerai 
+nip, nama, tgl cerai limit 50
+
+3. tampilkan nama pegawai yang memiliki status pegawai 
+pegawai tetap (PNS) sudah menikah
+limit 50
+
+
+
+
