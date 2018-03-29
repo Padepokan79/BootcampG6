@@ -1,0 +1,37 @@
+No.1
+SELECT movie.mov_title, movie.mov_year
+FROM movie
+
+No.2
+SELECT movie.mov_year
+FROM movie
+WHERE movie.mov_title = 'American Beauty';
+
+No.3
+SELECT movie.mov_title, movie.mov_year
+FROM movie
+WHERE movie.mov_year = '1999';
+
+No.4
+SELECT movie.mov_title, movie.mov_year
+FROM movie
+WHERE movie.mov_year < '1998';
+
+No.5
+
+SELECT reviewer.rev_name
+FROM reviewer
+UNION
+SELECT movie.mov_title
+FROM movie;
+
+No.6
+
+SELECT reviewer.rev_name
+FROM reviewer, rating
+WHERE rating.rev_id=reviewer.rev_id and rating.rev_stars > '7.00';
+
+No.7
+SELECT movie.mov_title
+FROM movie
+WHERE movie.mov_id ='905' OR movie.mov_id = '907' OR movie.mov_id ='917';

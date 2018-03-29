@@ -1,0 +1,144 @@
+Soal Lena
+1. Tampilkan top 10 pengiriman oleh united package yang memiliki quantity order produk terbanyak. Tampilkan no order, nama customer, 
+dikirim ke alamat dan kota mana, serta nama produk dan quantity nya.
+
+2. Tampilkan jumlah order yang ditangani oleh laura untuk pengiriman ke benua Amerika
+
+SELECT count(orders.orderid) 
+from orders, employees, customers
+where orders.employeeid = employees.employeeid
+and orders.customerid = customers.customerid
+and employees.firstname = 'Laura'
+and (customers.country = 'Canada' or customers.country= 'Mexico' or customers.country= 'Argentina' or customers.country= 'Venezuela' or customers.country='Brazil' or customers.country='USA');
+
+Jawaban : 10
+        
+Soal Siska
+3. Tampilkan customername, orderdate, productname, shippername yang berasal dari USA
+
+SELECT customers.customername, orders.orderdate, products.productname, shippers.shippername 
+from orders, customers, shippers, products, orderdetails
+where customers.country = 'USA'
+and orders.customerid = customers.customerid
+and orders.shipperid = shippers.shipperid
+and orders.customerid = customers.customerid
+and orderdetails.productid = products.productid
+and orderdetails.orderid = orders.orderid;
+
+Records : 76        
+
+4. Tampilkan customer name yang membeli 5 product dengan harga paling mahal
+ 
+SELECT customers.customername, products.productname, products.price  
+FROM Customers, Products, Orderdetails, Orders
+where orderdetails.productid = products.productid
+and orderdetails.orderid = orders.orderid
+and customers.customerid = orders.customerid
+ORDER BY products.price desc
+limit 5;
+
+Soal Regi 
+5. Coba tampilkan productname, suppliername, price. Price diatas 50 urutkan dari yang terbesar limit = 6
+
+SELECT top 6 Products.productname, suppliers.suppliername, products.price
+FROM Products, Suppliers
+Where Products.supplierid = suppliers.supplierid and products.price >50
+order by products.price desc;
+
+
+6. Coba tampilkan orderid, customername, productname, quantity, shipper name dimana shipper name 'united package' 
+dan quantity < 5 urut dari terbesar limit 100
+
+SELECT top 100 Orders.orderid, Customers.customername, products.productname, orderdetails.Quantity, Shippers.ShipperName
+FROM Products, Orders, Customers, orderdetails, Shippers
+Where orderdetails.orderid = Orders.orderid and orderdetails.productid = products.productid and 
+Orders.shipperid = Shippers.shipperid and Shippers.shippername = 'United Package' and orderdetails.Quantity < 5
+and Orders.customerid = customers.customerid
+
+order by orderdetails.Quantity desc;
+
+Soal Ilham 
+7.Tampilkan Nama Product yang suppliernya berasal dari negara jepang urut sesuai nama product (ASC)
+Nama Produk Nama Supplier Negara
+
+SELECT Products.productname, suppliers.suppliername, suppliers.country
+FROM Products, Suppliers
+Where Products.supplierid = suppliers.supplierid and suppliers.country = 'Japan'
+order by Products.productname asc;
+
+8. Tampilkan nama produk dan harganya yang memiliki kategori seafood urut berdasar nama produk (ASc)
+Nama produk harga Kategori
+
+SELECT Products.productname, Products.price, Categories.CategoryName
+FROM Products, Suppliers, Categories
+Where Products.CategoryID = Categories.CategoryID and Categories.CategoryName = 'Seafood  '
+order by Products.productname asc;
+
+9. Tampilkan nama customer, tanggal order, nama produk, nama supplier, kategori produk berdasar 
+kategori makananan = beverages
+
+SELECT customers.customername, orders.orderdate, products.productname, suppliers.suppliername, categories.categoryname  
+FROM Customers, Products, Orderdetails, Orders, suppliers, categories
+where orderdetails.productid = products.productid
+and orderdetails.orderid = orders.orderid
+and customers.customerid = orders.customerid
+and products.supplierid = suppliers.supplierid
+and categories.categoryname = 'Beverages';
+
+Records 518        
+
+Soal Fahreja
+10. Tampilkan Customername productname quantity description 10 quantity terendah
+
+SELECT TOP 10 customers.customername, products.productname, orderdetails.quantity, categories.description  
+FROM Customers, Products, Categories, Orderdetails, Orders
+where customers.customerid = orders.customerid
+and orderdetails.orderid = orders.orderid
+and orderdetails.productid = products.productid
+and products.categoryid = categories.categoryid
+order by orderdetails.quantity;
+
+Records : 13
+
+11. Tampilkan productname employee firstname suppliername phone urutkan namaproduk dan nama employee andrew (asc)
+
+SELECT products.productname, employees.firstname, suppliers.suppliername, suppliers.phone FROM employees, suppliers, Products, Orderdetails, Orders
+where orderdetails.productid = products.productid
+and orderdetails.orderid = orders.orderid
+and products.supplierid = suppliers.supplierid
+and orders.employeeid = employees.employeeid
+and employees.firstname = 'Andrew'
+order by products.productname asc;
+
+Records : 49
+
+Soal Yudhis
+12. Tampilkan namaproduk suppliername asal negara supplier unitproduk. unit produk dg kategori grains/cereals
+
+SELECT products.productname, suppliers.suppliername, suppliers.country, products.unit 
+FROM suppliers, Products, Categories
+where products.supplierid = suppliers.supplierid
+and products.categoryid = categories.categoryid
+and categories.categoryname = 'Grains/Cereals';
+
+Records : 7
+
+13. Tampilkan employeename, namaproduk, dan nama shipper dg quantitas terbanyak 3 teratas
+
+SELECT employees.firstname, employees.lastname, products.productname, shippers.shippername 
+FROM shippers, products, orders, orderdetails, employees
+where orders.shipperid = shippers.shipperid
+and orders.orderid = orderdetails.orderid
+and orderdetails.productid = products.productid
+and orders.employeeid = employees.employeeid
+order by orderdetails.quantity desc
+limit 3;
+
+Soal Irin
+14. Tampilkan 5 teratas nama nama customer yang memesan product dengan categoryid = 3. tampilkan fields berikut;
+customername orderid productid productname categoryid
+
+*hapus row dengan orderid 10368 dan urutkan nilai dari yang terkecil
+
+15. tampilkan nama pembeli dengan pembelian quantity kurang dari 50 dan urutkan nama pembelinya
+ 

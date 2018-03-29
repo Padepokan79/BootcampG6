@@ -1,0 +1,5 @@
+Mengerjakan Soal Query SQL dari soal yang dibuat teman
+Mengerjakan Soal SQL SubQueries dari Website
+
+- Soal dan Jawaban dari Teman Teman.txt
+- SQL SubQueries.txt
