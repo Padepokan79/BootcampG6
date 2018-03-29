@@ -1,0 +1,2 @@
+Add file di folder Query
+	-LatQuery.txt
