@@ -1,0 +1,214 @@
+1. select soccer_venue.venue_name , soccer_city.city
+   from match_mast
+   left join soccer_venue on match_mast.venue_id = soccer_venue.venue_id
+   left join soccer_city on soccer_venue.city_id = soccer_city.city_id
+   where match_mast.play_stage = 'F';
+
+2. select match_details.match_no, soccer_country.country_name, match_details.goal_score
+   from match_details left join soccer_country  
+   on match_details.team_id = soccer_country.country_id 
+   where match_details.decided_by = 'N';
+
+3. select distinct player_mast.player_name, soccer_country.country_name, count(*)
+   from goal_details left join player_mast
+   on goal_details.player_id = player_mast.player_id
+   left join soccer_country
+   on goal_details.team_id = soccer_country.country_id
+   where goal_details.goal_schedule = 'NT'
+   group by player_name, country_name
+   order by count(*) desc;
+
+4. select player_mast.player_name, soccer_country.country_name, count(*) as goal_score
+   from goal_details left join player_mast
+   on goal_details.player_id = player_mast.player_id
+   left join soccer_country
+   on goal_details.team_id = soccer_country.country_id
+   group by player_name, country_name
+   order by count(*) desc
+   limit 1;
+
+5. select player_mast.jersey_no, player_mast.player_name, soccer_country.country_name
+   from goal_details left join player_mast 
+   on goal_details.player_id = player_mast.player_id
+   left join soccer_country
+   on goal_details.team_id = soccer_country.country_id
+   where goal_details.play_stage = 'F';
+
+6. select distinct soccer_country.country_name
+   from soccer_venue left join soccer_city
+   on soccer_venue.city_id = soccer_city.city_id
+   left join soccer_country
+   on soccer_city.country_id = soccer_country.country_id;
+
+7. select player_mast.player_name, soccer_country.country_name
+   from goal_details left join player_mast
+   on goal_details.player_id = player_mast.player_id
+   left join soccer_country
+   on goal_details.team_id = soccer_country.country_id
+   where goal_details.goal_id = 1;
+
+8. select referee_mast.referee_name, soccer_country.country_name
+   from match_mast left join referee_mast
+   on match_mast.referee_id = referee_mast.referee_id
+   left join soccer_country
+   on referee_mast.country_id = soccer_country.country_id
+   where match_mast.match_no = 1;
+
+9. select referee_mast.referee_name, soccer_country.country_name
+   from match_mast left join referee_mast
+   on match_mast.referee_id = referee_mast.referee_id
+   left join soccer_country
+   on referee_mast.country_id = soccer_country.country_id
+   where match_mast.play_stage = 'F';
+
+10. select asst_referee_mast.ass_ref_name, soccer_country.country_name
+    from match_details left join asst_referee_mast
+    on match_details.ass_ref = asst_referee_mast.ass_ref_id
+    left join soccer_country
+    on asst_referee_mast.country_id = soccer_country.country_id
+    where match_details.match_no = 1;
+
+11. select asst_referee_mast.ass_ref_name, soccer_country.country_name
+    from match_details left join asst_referee_mast
+    on match_details.ass_ref = asst_referee_mast.ass_ref_id
+    left join soccer_country
+    on asst_referee_mast.country_id = soccer_country.country_id
+    where match_details.play_stage = 'F';
+
+12. select soccer_city.city
+    from match_mast left join soccer_venue
+    on match_mast.venue_id = soccer_venue.venue_id
+    left join soccer_city
+    on soccer_venue.city_id = soccer_city.city_id
+    where match_mast.match_no = 1;
+
+13. select soccer_venue.venue_name, soccer_city.city, soccer_venue.aud_capacity, match_mast.audence
+    from match_mast left join soccer_venue
+    on match_mast.venue_id = soccer_venue.venue_id
+    left join soccer_city
+    on soccer_venue.city_id = soccer_city.city_id
+    where match_mast.play_stage = 'F';
+
+14. select soccer_venue.venue_name, soccer_city.city, count(*)
+    from match_mast left join soccer_venue
+    on match_mast.venue_id = soccer_venue.venue_id
+    left join soccer_city
+    on soccer_venue.city_id = soccer_city.city_id
+    group by venue_name, city;
+
+15. select player_mast.player_name
+    from player_booked left join player_mast
+    on player_booked.player_id = player_mast.player_id
+    where player_booked.sent_off ='Y'
+    limit 1;
+
+16. select soccer_country.country_name, soccer_team.goal_diff
+    from soccer_team left join soccer_country
+    on soccer_team.team_id = soccer_country.country_id
+    where soccer_team.goal_diff = 1;
+
+17. select distinct soccer_country.country_name
+    from player_booked left join soccer_country
+    on player_booked.team_id = soccer_country.country_id
+    where not player_booked.sent_off= 'Y';
+
+18. select soccer_venue.venue_name, sum(match_details.goal_score)
+    from match_mast left join match_details
+    on match_mast.match_no = match_details.match_no
+    left join soccer_venue
+    on match_mast.venue_id = soccer_venue.venue_id
+    group by venue_name;
+
+19. select soccer_country.country_name
+    from match_mast left join match_details
+    on match_mast.match_no = match_details.match_no
+    left join soccer_country
+    on match_details.team_id = soccer_country.country_id
+    where match_mast.stop1_sec = 0;
+
+20. select soccer_country.country_name, soccer_team.goal_for
+    from soccer_team left join soccer_country
+    on soccer_team.team_id = soccer_country.country_id
+    order by soccer_team.goal_for desc
+    limit 1;
+
+21. select soccer_country.country_name
+    from match_mast left join match_details
+    on match_mast.match_no = match_details.match_no
+    left join soccer_country
+    on match_details.team_id = soccer_country.country_id
+    order by stop2_sec desc
+    limit 2;
+
+22. select match_details.match_no, soccer_country.country_name
+    from match_details left join soccer_country
+    on match_details.team_id = soccer_country.country_id
+    where match_details.win_lose ='D';
+
+23. select sc.country_name
+    from match_mast as mm left join match_details as md on mm.match_no=md.match_no
+    left join soccer_country as sc 
+    on md.team_id=sc.country_id
+    where (2-1) = (select count(distinct(mm2.stop2_sec))
+                   from match_mast as mm2
+                   where mm2.stop2_sec > mm.stop2_sec);
+
+24. select sc.country_name , pm.player_name, count(*)
+    from match_details as md left join player_mast as pm
+    on md.player_gk = pm.player_id
+    left join soccer_country as sc 
+    on md.team_id = sc.country_id
+    group by country_name , player_name;
+
+25. select sv.venue_name, count(gd.match_no)
+    from match_mast as mm left join goal_details as gd
+    on mm.match_no = gd.match_no
+    left join soccer_venue as sv
+    on mm.venue_id = sv.venue_id
+    group by venue_name
+    order by count(*) desc
+    limit 1;
+
+26. select sc.country_name, pm.player_name, pm.age
+    from player_mast as pm left join soccer_country as sc
+    on pm.team_id = sc.country_id
+    order by pm.age desc
+    limit 1;
+
+27. select md.match_no, sc.country_name
+    from match_details as md left join soccer_country as sc
+    on md.team_id = sc.country_id
+    where md.goal_score = 3 and md.win_lose ='D';
+
+28. select sc.country_name
+    from soccer_team as st left join soccer_country as sc
+    on st.team_id = sc.country_id
+    where st.goal_agnst =4 and st.group_position = 4;
+
+29. select sc.country_name, pm.player_name
+    from match_details as md left join soccer_country as sc
+    on md.team_id = sc.country_id
+    left join player_mast as pm
+    on pm.team_id = sc.country_id
+    where md.play_stage = 'F' and pm.playing_club = 'Lyon';
+
+30. select sc.country_name
+    from match_details as md left join soccer_country as sc
+    on md.team_id = sc.country_id
+    where md.play_stage = 'F';
+
+31. select sc.country_name, pm.player_name
+    from match_captain as mc left join player_mast as pm
+    on mc.player_captain = pm.player_id
+    left join soccer_country as sc
+    on pm.team_id = sc.country_id
+    where mc.match_no in (48, 49);
+
+32. select mc.match_no, sc.country_name, pm.player_name as captain
+    from match_captain as mc left join player_mast as pm
+    on mc.player_captain = pm.player_id
+    left join soccer_country as sc
+    on pm.team_id = sc.country_id
+    order by mc.match_no;
+
+33.
