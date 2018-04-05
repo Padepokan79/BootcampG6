@@ -1,0 +1,390 @@
+Soccer DataBase
+
+1. Write a query in SQL to find the name of the venue with city where the EURO cup 2016 
+final match was played.
+
+2. Write a query in SQL to find the number of goal scored by each team in every match 
+within normal play schedule.
+
+3. Write a query in SQL to find the total number of goals scored by each player within 
+normal play schedule and arrange the result set according to the heighest to lowest scorer.
+
+4. Write a query in SQL to find the highest individual scorer in EURO cup 2016.
+
+5. Write a query in SQL to find the scorer of only goal along with his country and 
+jersey number in the final of EURO cup 2016.
+
+6. Write a query in SQL to find the country where Football EURO cup 2016 held. 
+
+7. Write a query in SQL to find the player who socred first goal of EURO cup 2016. 
+
+8. Write a query in SQL to find the name and country of the referee who managed the opening match.
+
+9. Write a query in SQL to find the name and country of the referee who managed the final match. 
+
+10. Write a query in SQL to find the name and country of the referee who assisted the referee in 
+the opening match.
+
+11. Write a query in SQL to find the name and country of the referee who assisted the 
+referee in the final match.
+
+12. Write a query in SQL to find the city where the opening match of EURO cup 2016 played. 
+
+13. Write a query in SQL to find the stadium hosted the final match of EURO cup 2016 along 
+with the capacity, and audance for that match.
+
+14. Write a query in SQL to compute a report that contain the number of matches played
+in each venue along with their city.
+
+15. Write a query in SQL to find the player who was the first player to be sent off 
+at the tournament EURO cup 2016.
+
+16. Write a query in SQL to find the teams that scored only one goal to the torunament.
+
+17. Write a query in SQL to find the yellow cards received by each country.
+
+18. Write a query in SQL to find the venue with number of goals that has seen.
+
+19. Write a query in SQL to find the match where no stoppage time added in 1st half of play.
+
+20. Write a query in SQL to find the team(s) who conceded the most goals in EURO cup 2016.
+
+21. Write a query in SQL to find the match where highest stoppege time added in 2nd half of play.
+
+22. Write a query in SQL to find the matchs ending with a goalless draw in group stage of play.
+
+23. Write a query in SQL to find the match no. and the teams played in that match where the 2nd 
+highest stoppage time had been added in the 2nd half of play.
+
+24. Write a query in SQL to find the player and his team and how many matches he kept 
+goal for his team.
+
+25. Write a query in SQL to find the venue that has seen the most goals.
+
+26. Write a query in SQL to find the oldest player to have appeared in a EURO cup 2016 match. 
+
+27.  Write a query in SQL to find those two teams which scored three goals in a 
+single game at this tournament.
+
+28. Write a query in SQL to find the teams with other information that finished bottom of their 
+respective groups after conceding four times in three games.
+
+29. Write a query in SQL to find those three players with other information, who contracted to 
+Lyon participated in the EURO cup 2016 Finals
+
+30. Write a query in SQL to find the final four teams in the tournament.
+
+31. Write a query in SQL to find the captains for the top four teams with other information 
+which participated in the semifinals (match 48 and 49) in the tournament.
+
+32. Write a query in SQL to find the captains with other information for all the matches 
+in the tournament.
+
+33. Write a query in SQL to find the captain and goal keeper with other information for 
+all the matches for all the team.
+
+34. Write a query in SQL to find the player who was selected for the Man of the Match Award 
+in the finals of EURO cup 2016.
+
+35. Write a query in SQL to find the substitute players who came into the field in the 
+first half of play within normal play schedule.
+
+36. Write a query in SQL to prepare a list for the player of the match against each match.
+
+37. Write a query in SQL to find the player along with his country who taken the penalty 
+shot number 26.
+
+38. Write a query in SQL to find the team against which the penalty shot number 26 had been taken. 
+
+39. Write a query in SQL to find the captain who was also the goalkeeper.
+
+1.
+SELECT soccer_venue.venue_name AS VenueName, soccer_city.city
+FROM match_mast
+LEFT JOIN soccer_venue ON match_mast.venue_id = soccer_venue.venue_id
+LEFT JOIN soccer_city ON soccer_venue.city_id = soccer_city.city_id
+WHERE play_stage = 'F'
+
+2.
+SELECT match_details.match_no, soccer_country.country_name, match_details.goal_score
+FROM match_details
+INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+
+3.
+SELECT pm.player_name AS Name, COUNT(gd.player_id) AS goal, sc.country_name
+FROM goal_details AS gd
+LEFT JOIN player_mast AS pm ON gd.player_id = pm.player_id
+LEFT JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+WHERE gd.goal_schedule = 'NT'
+GROUP BY pm.player_name, sc.country_name
+ORDER BY COUNT(gd.player_id) DESC
+
+4.
+SELECT pm.player_name AS Name, COUNT(gd.player_id) AS goal, sc.country_name
+FROM goal_details AS gd
+LEFT JOIN player_mast AS pm ON gd.player_id = pm.player_id
+LEFT JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+GROUP BY pm.player_name, sc.country_name
+ORDER BY COUNT(gd.player_id) DESC
+LIMIT 1
+
+5.
+SELECT pm.player_name AS Name, sc.country_name AS country, pm.jersey_no AS No
+FROM goal_details AS gd
+LEFT JOIN player_mast AS pm ON gd.player_id = pm.player_id
+LEFT JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+WHERE gd.match_no = 51
+
+6.
+SELECT DISTINCT sco.country_name AS country
+FROM soccer_venue AS sv
+INNER JOIN soccer_city AS sci ON sv.city_id = sci.city_id
+INNER JOIN soccer_country AS sco ON sci.country_id = sco.country_id
+
+7.
+SELECT pm.player_name AS Name, COUNT(gd.player_id) AS goal, sc.country_name AS country
+FROM goal_details AS gd
+LEFT JOIN player_mast AS pm ON gd.player_id = pm.player_id
+LEFT JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+WHERE gd.goal_id = 1
+GROUP BY pm.player_name, sc.country_name
+
+8.
+SELECT fm.referee_name AS name, sc.country_name AS country
+FROM match_mast AS mm
+INNER JOIN referee_mast AS fm ON mm.referee_id = fm.referee_id
+INNER JOIN soccer_country AS sc ON fm.country_id = sc.country_id
+WHERE mm.match_no = 1
+
+9.
+SELECT fm.referee_name AS name, sc.country_name AS country
+FROM match_mast AS mm
+INNER JOIN referee_mast AS fm ON mm.referee_id = fm.referee_id
+INNER JOIN soccer_country AS sc ON fm.country_id = sc.country_id
+WHERE mm.play_stage = 'F'
+
+10.
+SELECT asi.ass_ref_name AS assReferee, sc.country_name AS country
+FROM match_details AS md
+INNER JOIN asst_referee_mast AS asi ON md.ass_ref = asi.ass_ref_id
+INNER JOIN soccer_country AS sc ON asi.country_id = sc.country_id
+WHERE md.match_no = 1
+
+11.
+SELECT asi.ass_ref_name AS assReferee, sc.country_name AS country
+FROM match_details AS md
+INNER JOIN asst_referee_mast AS asi ON md.ass_ref = asi.ass_ref_id
+INNER JOIN soccer_country AS sc ON asi.country_id = sc.country_id
+WHERE md.play_stage = 'F'
+
+12.
+SELECT sc.city
+FROM soccer_city AS sc
+INNER JOIN soccer_venue AS sv ON sc.city_id = sv.city_id
+INNER JOIN match_mast AS mm ON sv.venue_id = mm.venue_id
+WHERE mm.match_no = 1
+
+13.
+SELECT sv.venue_name, sv.aud_capacity, mm.audence
+FROM soccer_city AS sc
+INNER JOIN soccer_venue AS sv ON sc.city_id = sv.city_id
+INNER JOIN match_mast AS mm ON sv.venue_id = mm.venue_id
+WHERE mm.play_stage = 'F'
+
+14.
+SELECT sv.venue_name AS Stadium, COUNT(mm.venue_id) AS match, sc.city
+FROM soccer_city AS sc
+INNER JOIN soccer_venue AS sv ON sc.city_id = sv.city_id
+INNER JOIN match_mast AS mm ON sv.venue_id = mm.venue_id
+GROUP BY sv.venue_name, sc.city
+
+15.
+SELECT pm.player_name, pb.booking_time, sc.country_name
+FROM player_booked AS pb
+JOIN player_mast AS pm ON pb.player_id = pm.player_id
+JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+WHERE pb.sent_off = 'Y' AND pb.match_no = 1
+
+16.
+SELECT sc.country_name, st.goal_for
+FROM soccer_team AS st
+JOIN soccer_country AS sc ON st.team_id = sc.country_id
+WHERE st.goal_for = 1
+
+17.
+SELECT sc.country_name, COUNT (pb.booking_time)
+FROM soccer_country AS sc
+JOIN player_booked AS pb ON sc.country_id = pb.team_id
+GROUP BY sc.country_name
+ORDER BY COUNT(pb.booking_time) DESC
+
+18.
+SELECT sv.venue_name, SUM(md.goal_score) AS NOmberOfGoals
+FROM soccer_venue AS sv
+JOIN match_mast AS mm ON sv.venue_id = mm.venue_id
+JOIN match_details AS md ON mm.match_no = md.match_no
+GROUP BY sv.venue_name
+ORDER BY SUM(md.goal_score) DESC
+
+19.
+SELECT md.match_no, sc.country_name, mm.stop1_sec
+FROM match_mast AS mm
+JOIN match_details AS md ON mm.match_no = md.match_no
+JOIN soccer_country AS sc ON md.team_id = sc.country_id
+WHERE mm.stop1_sec = 0
+
+20.
+SELECT sc.country_name AS name, SUM(st.goal_agnst) AS Goal
+FROM soccer_team AS st
+JOIN soccer_country AS sc ON st.team_id = sc.country_id
+GROUP BY name
+ORDER BY goal desc
+LIMIT 1
+
+21.
+SELECT md.match_no, sc.country_name, mm.stop2_sec
+FROM match_mast AS mm
+JOIN match_details AS md ON mm.match_no = md.match_no
+JOIN soccer_country AS sc ON md.team_id = sc.country_id
+ORDER BY mm.stop2_sec
+LIMIT 2
+
+22.
+SELECT md.match_no AS match, sc.country_name AS name, md.win_lose AS WinLose, md.goal_score AS goal
+FROM match_details AS md
+JOIN soccer_country AS sc ON md.team_id = sc.country_id
+WHERE md.win_lose = 'D' 
+  AND md.goal_score = 0
+
+23.
+SELECT md.match_no, sc.country_name, mm.stop2_sec
+FROM match_mast AS mm
+LEFT JOIN match_details AS md ON mm.match_no = md.match_no
+LEFT JOIN soccer_country AS sc ON md.team_id = sc.country_id
+ORDER BY mm.stop2_sec DESC
+LIMIT 2
+
+24.
+SELECT pm.player_name, COUNT(md.match_no) AS match, sc.country_name
+FROM match_details AS md
+JOIN player_mast AS pm ON md.player_gk = pm.player_id
+JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+GROUP BY pm.player_name, sc.country_name
+ORDER BY COUNT(md.match_no) DESC
+
+25.
+SELECT sv.venue_name, COUNT(gd.goal_id) AS goals
+FROM goal_details AS gd
+JOIN soccer_country AS sc ON gd.team_id = sc.country_id
+JOIN match_mast AS mm ON gd.match_no = mm.match_no
+JOIN soccer_venue AS sv ON mm.venue_id = sv.venue_id
+GROUP BY sv.venue_name
+ORDER BY COUNT(gd.goal_id) DESC
+LIMIT 1
+
+26.
+SELECT pm.player_name, pm.age, sc.country_name
+FROM player_mast AS pm
+JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+ORDER BY pm.age DESC
+LIMIT 2
+
+27.
+SELECT md.match_no, sc.country_name, md.goal_score
+FROM match_details AS md
+JOIN soccer_country AS sc ON md.team_id = sc.country_id
+WHERE md.goal_score = 3 AND md.win_lose = 'D'
+
+28.
+SELECT sc.country_name, st.points, st.group_position
+FROM soccer_team AS st
+JOIN soccer_country AS sc ON st.team_id = sc.country_id
+WHERE st.group_position = 4 AND st.goal_agnst = 3
+
+29.
+SELECT pm.player_name AS name, sc.country_name AS nation, pm.playing_club AS club
+FROM player_mast AS pm
+JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+JOIN match_details AS md ON sc.country_id = md.team_id
+WHERE pm.playing_club = 'Lyon' AND md.play_stage = 'F'
+
+30.
+SELECT md.play_stage AS match, sc.country_name AS team
+FROM soccer_country AS sc
+JOIN match_details AS md ON sc.country_id = md.team_id
+WHERE md.play_stage = 'S'
+
+31.
+SELECT sc.country_name AS national, pm.player_name AS name,pm.posi_to_play AS position, pm.jersey_no AS no
+FROM soccer_country AS sc
+JOIN match_captain AS mc ON sc.country_id = mc.team_id
+JOIN player_mast AS pm ON mc.player_captain = pm.player_id
+WHERE mc.match_no IN(48,49)
+
+32.
+SELECT mc.match_no AS match,sc.country_name AS national, pm.player_name AS captain,pm.posi_to_play AS position, pm.jersey_no AS no
+FROM soccer_country AS sc
+JOIN match_captain AS mc ON sc.country_id = mc.team_id
+JOIN player_mast AS pm ON mc.player_captain = pm.player_id
+ORDER BY mc.match_no ASC
+
+33.
+SELECT DISTINCT mc.match_no AS match,sc.country_name AS national, pm.player_name AS captain,pm.posi_to_play AS position, pm.jersey_no AS no
+FROM soccer_country AS sc
+JOIN match_captain AS mc ON sc.country_id = mc.team_id
+JOIN player_mast AS pm ON mc.player_captain = pm.player_id
+JOIN match_details AS md ON mc.player_captain = md.player_gk
+ORDER BY mc.match_no ASC
+
+34.
+SELECT mm.play_stage AS match,sc.country_name AS national, pm.player_name AS MVP, pm.jersey_no AS no
+FROM match_mast AS mm
+JOIN player_mast AS pm ON mm.plr_of_match = pm.player_id
+JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+WHERE mm.play_stage = 'F'
+
+35.
+SELECT pm.player_name AS name, sc.country_name AS National, pi.in_out AS status, pi.time_in_out AS time
+FROM player_in_out AS pi
+JOIN player_mast AS pm ON pi.player_id = pm.player_id 
+  AND pi.play_half = 1  AND pi.play_schedule = 'NT'
+JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+ORDER BY pi.time_in_out ASC
+
+36.
+SELECT mm.match_no AS "Match" , sc.country_name AS "National", pm.player_name AS "MVP",pm.posi_to_play AS "Position", pm.jersey_no AS "Numbers"
+FROM match_mast AS mm
+JOIN player_mast AS pm ON mm.plr_of_match = pm.player_id
+JOIN soccer_country AS sc ON pm.team_id = sc.country_id 
+ORDER BY mm.match_no ASC
+
+37.
+SELECT ps.kick_id AS "Penalty Shoot Numbers", pm.player_name AS "Name", pm.jersey_no AS "Numbers", sc.country_name As "National", ps.score_goal AS "Goal Status"
+FROM penalty_shootout AS ps
+JOIN player_mast AS pm ON ps.player_id = pm.player_id 
+  AND ps.kick_id = 26
+JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+
+38.
+SELECT ps.match_no AS "Match",sc.country_name As "National"
+FROM penalty_shootout AS ps
+JOIN soccer_country AS sc ON ps.team_id = sc.country_id
+WHERE ps.match_no = 
+    (SELECT ps.match_no
+    FROM penalty_shootout AS ps
+    WHERE ps.kick_id = 26)
+  AND sc.country_name !=
+    (SELECT sc.country_name
+     FROM soccer_country AS sc
+     WHERE sc.country_id =
+        (SELECT ps.team_id
+         FROM penalty_shootout AS ps
+         WHERE kick_id = 26))
+GROUP BY ps.match_no, sc.country_name
+
+39.
+SELECT DISTINCT pm.player_name AS "Name", sc.country_name AS "Natrional", pm.posi_to_play AS "Position"
+FROM match_captain AS mc
+JOIN player_mast AS pm ON mc.player_captain = pm.player_id 
+  AND pm.posi_to_play = 'GK'
+JOIN soccer_country AS sc ON pm.team_id = sc.country_id
