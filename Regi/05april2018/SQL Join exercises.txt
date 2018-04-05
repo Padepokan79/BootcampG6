@@ -1,0 +1,311 @@
+No 1
+
+SELECT soccer_venue.venue_name, soccer_city.city
+FROM soccer_venue
+INNER JOIN soccer_city ON soccer_venue.city_id = soccer_city.city_id
+INNER JOIN match_mast ON match_mast.venue_id = soccer_venue.venue_id
+AND match_mast.play_stage = 'F';
+
+
+No 2
+
+SELECT soccer_country.country_name, match_details.goal_score
+FROM match_details
+INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+WHERE match_details.decided_by = 'N';
+
+
+No 3
+
+SELECT player_mast.player_name, COUNT (goal_details.goal_id) AS total_goal, soccer_country.country_name
+FROM goal_details
+INNER JOIN player_mast ON goal_details.player_id = player_mast.player_id
+INNER JOIN soccer_country ON goal_details.team_id = soccer_country.country_id
+GROUP BY player_mast.player_name, soccer_country.country_name
+ORDER BY total_goal DESC;
+
+
+No 4
+
+SELECT player_mast.player_name, COUNT (goal_details.goal_id) AS total_goal, soccer_country.country_name
+FROM goal_details
+INNER JOIN player_mast ON goal_details.player_id = player_mast.player_id
+INNER JOIN soccer_country ON goal_details.team_id = soccer_country.country_id
+GROUP BY player_mast.player_name, soccer_country.country_name
+ORDER BY total_goal DESC
+LIMIT 1;
+
+
+No 5
+
+SELECT player_mast.player_name, soccer_country.country_name, player_mast.jersey_no
+FROM goal_details
+INNER JOIN player_mast ON goal_details.player_id = player_mast.player_id
+INNER JOIN soccer_country ON goal_details.team_id = soccer_country.country_id
+WHERE goal_details.play_stage = 'F';
+
+
+No 6
+
+SELECT soccer_country.country_name
+FROM soccer_country
+INNER JOIN soccer_city ON soccer_country.country_id = soccer_city.country_id
+INNER JOIN soccer_venue ON soccer_city.city_id = soccer_venue.city_id
+GROUP BY soccer_country.country_name;
+
+
+No 7
+
+SELECT player_mast.player_name
+FROM player_mast
+INNER JOIN goal_details ON goal_details.player_id = player_mast.player_id
+INNER JOIN soccer_country ON goal_details.team_id = soccer_country.country_id
+WHERE goal_details.goal_id = 1;
+
+
+No 8
+
+SELECT referee_mast.referee_name, soccer_country.country_name
+FROM match_mast
+INNER JOIN referee_mast ON match_mast.referee_id = referee_mast.referee_id
+INNER JOIN soccer_country ON referee_mast.country_id = soccer_country.country_id
+WHERE match_mast.match_no = 1;
+
+
+No 9
+
+SELECT referee_mast.referee_name, soccer_country.country_name
+FROM match_mast
+INNER JOIN referee_mast ON match_mast.referee_id = referee_mast.referee_id
+INNER JOIN soccer_country ON referee_mast.country_id = soccer_country.country_id
+WHERE match_mast.play_stage = 'F';
+
+
+No 10
+
+SELECT asst_referee_mast.ass_ref_name, soccer_country.country_name
+FROM asst_referee_mast
+INNER JOIN match_details ON asst_referee_mast.ass_ref_id = match_details.ass_ref
+INNER JOIN soccer_country ON asst_referee_mast.country_id = soccer_country.country_id
+WHERE match_details.match_no = 1;
+
+
+No 11
+
+SELECT asst_referee_mast.ass_ref_name, soccer_country.country_name
+FROM asst_referee_mast
+INNER JOIN match_details ON asst_referee_mast.ass_ref_id = match_details.ass_ref
+INNER JOIN soccer_country ON asst_referee_mast.country_id = soccer_country.country_id
+WHERE match_details.play_stage = 'F';
+
+
+No 12
+
+SELECT soccer_city.city
+FROM soccer_city
+INNER JOIN soccer_venue ON soccer_city.city_id = soccer_venue.city_id
+INNER JOIN match_mast ON soccer_venue.venue_id = match_mast.venue_id
+WHERE match_mast.match_no = 1;
+
+
+No 13
+
+SELECT soccer_venue.venue_name, soccer_city.city, soccer_venue.aud_capacity, match_mast.audence
+FROM soccer_venue
+INNER JOIN soccer_city ON soccer_venue.city_id = soccer_city.city_id
+INNER JOIN match_mast ON soccer_venue.venue_id = match_mast.venue_id
+WHERE match_mast.play_stage = 'F';
+
+
+No 14
+
+SELECT soccer_venue.venue_name, soccer_city.city, count(match_mast.match_no) AS matches_played 
+FROM soccer_venue
+INNER JOIN soccer_city ON soccer_venue.city_id = soccer_city.city_id
+INNER JOIN match_mast ON soccer_venue.venue_id = match_mast.venue_id
+GROUP BY soccer_venue.venue_name, soccer_city.city
+ORDER BY matches_played DESC;
+
+
+No 15
+
+SELECT player_mast.player_name
+FROM player_booked
+INNER JOIN player_mast ON player_booked.player_id = player_mast.player_id
+WHERE player_booked.match_no = 1
+AND player_booked.sent_off = 'Y';
+
+
+No 16
+
+SELECT soccer_country.country_name, soccer_team.goal_for
+FROM soccer_team
+INNER JOIN soccer_country ON soccer_team.team_id = soccer_country.country_id
+WHERE soccer_team.goal_for = 1;
+
+
+No 17
+
+SELECT soccer_country.country_name, count(player_booked.sent_off) AS yellow_card
+FROM soccer_country
+INNER JOIN player_booked ON soccer_country.country_id = player_booked.team_id
+WHERE NOT player_booked.sent_off = 'Y'
+GROUP BY soccer_country.country_name
+ORDER BY yellow_card DESC;
+
+
+No 18
+
+SELECT soccer_venue.venue_name, count(soccer_venue.venue_name) AS number_of_goals
+FROM goal_details
+INNER JOIN match_mast ON goal_details.match_no = match_mast.match_no
+INNER JOIN soccer_venue ON match_mast.venue_id = soccer_venue.venue_id
+GROUP BY soccer_venue.venue_name
+ORDER BY number_of_goals DESC;
+
+
+No 19
+
+SELECT soccer_country.country_name, match_mast.stop1_sec 
+FROM match_mast
+INNER JOIN match_details ON match_mast.match_no = match_details.match_no
+INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+WHERE match_mast.stop1_sec = 0;
+
+
+No 20
+
+SELECT soccer_country.country_name, soccer_team.goal_agnst
+FROM soccer_team
+INNER JOIN soccer_country ON soccer_team.team_id = soccer_country.country_id
+ORDER BY soccer_team.goal_agnst DESC
+LIMIT 1;
+
+
+No 21
+
+SELECT soccer_country.country_name, match_mast.stop2_sec
+FROM match_mast
+INNER JOIN match_details ON match_mast.match_no = match_details.match_no
+INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+ORDER BY match_mast.stop2_sec DESC
+LIMIT 2;
+
+
+No 22
+
+SELECT match_details.match_no, soccer_country.country_name
+FROM match_details
+INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+WHERE match_details.play_stage = 'G'
+AND match_details.win_lose = 'D'
+AND match_details.goal_score = 0
+ORDER BY match_details.match_no;
+
+
+No 23
+
+SELECT match_mast.match_no, soccer_country.country_name, match_mast.stop2_sec
+FROM match_mast
+INNER JOIN match_details ON match_mast.match_no = match_details.match_no
+INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+WHERE (2-1) = (
+SELECT COUNT(DISTINCT(b.stop2_sec))
+FROM match_mast b
+WHERE b.stop2_sec > match_mast.stop2_sec);
+
+
+No 24
+
+SELECT player_mast.player_name, soccer_country.country_name, COUNT(match_details.player_gk) AS matches
+FROM match_details
+INNER JOIN player_mast ON match_details.player_gk = player_mast.player_id
+INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+GROUP BY soccer_country.country_name, player_mast.player_name
+ORDER BY matches DESC;
+
+
+No 25
+
+SELECT soccer_venue.venue_name, count(soccer_venue.venue_name) AS goals
+FROM goal_details
+INNER JOIN soccer_country ON goal_details.team_id = soccer_country.country_id
+INNER JOIN match_mast ON goal_details.match_no = match_mast.match_no
+INNER JOIN soccer_venue ON match_mast.venue_id = soccer_venue.venue_id
+GROUP BY soccer_venue.venue_name
+ORDER BY goals DESC
+LIMIT 1;
+
+
+No 26
+
+SELECT player_mast.player_name, player_mast.age, soccer_country.country_name
+FROM soccer_country
+INNER JOIN player_mast ON soccer_country.country_id = player_mast.team_id 
+ORDER BY player_mast.age DESC
+LIMIT 2;
+
+
+No 27
+
+SELECT soccer_country.country_name, match_details.goal_score
+FROM match_details
+INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+WHERE match_details.goal_score = 3
+AND match_details.win_lose = 'D';
+
+
+No 28
+
+SELECT soccer_country.country_name, soccer_team.team_group, soccer_team.match_played, soccer_team.goal_agnst, soccer_team.group_position
+FROM soccer_country
+INNER JOIN soccer_team ON soccer_country.country_id = soccer_team.team_id
+WHERE soccer_team.match_played = 3
+AND soccer_team.goal_agnst = 4
+AND soccer_team.group_position = 4
+ORDER BY soccer_team.team_group ASC;
+
+
+No 29
+
+SELECT player_mast.player_name, soccer_country.country_name, player_mast.playing_club
+FROM player_mast
+INNER JOIN soccer_country ON player_mast.team_id = soccer_country.country_id
+INNER JOIN match_details ON player_mast.team_id = match_details.team_id
+WHERE player_mast.playing_club = 'Lyon'
+AND match_details.play_stage = 'F';
+
+
+No 30
+
+SELECT soccer_country.country_name
+FROM match_details
+INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+WHERE match_details.play_stage = 'S';
+
+
+No 31
+
+SELECT player_mast.player_name, soccer_country.country_name
+FROM match_captain
+INNER JOIN soccer_country ON match_captain.team_id = soccer_country.country_id
+INNER JOIN player_mast ON match_captain.player_captain = player_mast.player_id
+WHERE match_captain.match_no IN (48,49);
+
+
+No 32
+
+SELECT match_captain.match_no, player_mast.player_name, soccer_country.country_name
+FROM match_captain
+INNER JOIN soccer_country ON match_captain.team_id = soccer_country.country_id
+INNER JOIN player_mast ON match_captain.player_captain = player_mast.player_id
+ORDER BY match_captain.match_no ASC;
+
+
+No 33
+
+SELECT match_captain.match_no, player_mast.player_name, soccer_country.country_name
+FROM match_captain
+INNER JOIN soccer_country ON match_captain.team_id = soccer_country.country_id
+INNER JOIN player_mast ON match_captain.player_captain = player_mast.player_id
+ORDER BY match_captain.match_no ASC;
