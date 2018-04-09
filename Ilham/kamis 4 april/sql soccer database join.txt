@@ -1,0 +1,244 @@
+1. Write a query in SQL to find the name of the venue with city where the EURO cup 2016 final match was played.
+	SELECT DISTINCT sv.venue_name, sc.city
+	FROM soccer_venue AS sv
+	INNER JOIN soccer_city AS sc ON sv.city_id = sc.city_id
+	INNER JOIN match_mast AS mm ON sv.venue_id = mm.venue_id
+	WHERE mm.play_stage = 'F'
+	
+2. Write a query in SQL to find the number of goal scored by each team in every match within normal play schedule.
+	SELECT md.match_no, sc.country_name, md.goal_score
+	FROM match_details AS md
+	INNER JOIN soccer_country AS sc ON md.team_id = sc.country_id
+	
+3. Write a query in SQL to find the total number of goals scored by each player within normal play schedule and arrange the result set according to the heighest to lowest scorer.
+	SELECT pm.player_name, sc.country_name, COUNT(gd.goal_id) AS NumberOfGoals
+	FROM (goal_details AS gd
+	RIGHT JOIN player_mast AS pm ON gd.player_id = pm.player_id)
+	INNER JOIN soccer_country AS sc ON gd.team_id = sc.country_id
+	GROUP BY pm.player_name, sc.country_name
+	ORDER BY COUNT(gd.goal_id) DESC, pm.player_name ASC
+	
+4. Write a query in SQL to find the highest individual scorer in EURO cup 2016.
+	SELECT pm.player_name, sc.country_name, COUNT(gd.goal_id) AS NumberOfGoals
+	FROM (goal_details AS gd
+	RIGHT JOIN player_mast AS pm ON gd.player_id = pm.player_id)
+	INNER JOIN soccer_country AS sc ON gd.team_id = sc.country_id
+	GROUP BY pm.player_name, sc.country_name
+	ORDER BY COUNT(gd.goal_id) DESC, pm.player_name ASC
+	LIMIT 1
+	
+5. Write a query in SQL to find the scorer of only goal along with his country and jersey number in the final of EURO cup 2016.
+	SELECT pm.player_name, pm.jersey_no, sc.country_name
+	FROM goal_details AS gd
+	INNER JOIN player_mast AS pm ON gd.player_id = pm.player_id
+	INNER JOIN soccer_country AS sc ON gd.team_id = sc.country_id
+	WHERE gd.match_no = 51
+
+6. Write a query in SQL to find the country where Football EURO cup 2016 held.
+	SELECT DISTINCT sc.country_name
+	FROM soccer_city as sci
+	INNER JOIN soccer_venue as sv ON sci.city_id = sv.city_id
+	INNER JOIN soccer_country as sc ON sci.country_id = sc.country_id
+	
+7. Write a query in SQL to find the player who socred first goal of EURO cup 2016.
+	SELECT pm.player_name, pm.jersey_no, sc.country_name
+	FROM goal_details AS gd
+	INNER JOIN player_mast AS pm ON gd.player_id = pm.player_id
+	INNER JOIN soccer_country AS sc ON gd.team_id = sc.country_id
+	WHERE gd.goal_id = 1 
+	
+8. Write a query in SQL to find the name and country of the referee who managed the opening match.
+	SELECT rm.referee_name, sc.country_name
+	FROM referee_mast as rm
+	INNER JOIN match_mast as mm ON mm.referee_id = rm.referee_id
+	INNER JOIN soccer_country as sc ON sc.country_id = rm.country_id
+	WHERE mm.match_no = '1'
+	
+9. Write a query in SQL to find the name and country of the referee who managed the final match.
+	SELECT rm.referee_name, sc.country_name
+	FROM referee_mast as rm
+	INNER JOIN match_mast as mm ON mm.referee_id = rm.referee_id
+	INNER JOIN soccer_country as sc ON sc.country_id = rm.country_id
+	WHERE mm.match_no = '51'
+	
+10. Write a query in SQL to find the name and country of the referee who assisted the referee in the opening match.
+	SELECT arm.ass_ref_name, sc.country_name
+	FROM asst_referee_mast as arm
+	INNER JOIN match_details as md ON md.ass_ref = arm.ass_ref_id
+	INNER JOIN soccer_country as sc ON sc.country_id = arm.country_id
+	WHERE md.match_no = '1'
+	
+11. Write a query in SQL to find the name and country of the referee who assisted the referee in the final match.
+	SELECT arm.ass_ref_name, sc.country_name
+	FROM asst_referee_mast as arm
+	INNER JOIN match_details as md ON md.ass_ref = arm.ass_ref_id
+	INNER JOIN soccer_country as sc ON sc.country_id = arm.country_id
+	WHERE md.match_no = '51'
+	
+12. Write a query in SQL to find the city where the opening match of EURO cup 2016 played. 
+	SELECT sci.city
+	FROM soccer_venue as sv
+	INNER JOIN soccer_city as sci ON sci.city_id = sv.city_id
+	INNER JOIN match_mast as mm ON mm.venue_id = sv.venue_id
+	WHERE mm.match_no = '1'
+	
+13. Write a query in SQL to find the stadium hosted the final match of EURO cup 2016 along with the capacity, and audance for that match. 
+	SELECT sv.venue_name, mm.audence, sv.aud_capacity, sci.city
+	FROM soccer_venue as sv
+	INNER JOIN soccer_city as sci ON sci.city_id = sv.city_id
+	INNER JOIN match_mast as mm ON mm.venue_id = sv.venue_id
+	WHERE mm.match_no = '51'
+	
+14. Write a query in SQL to compute a report that contain the number of matches played in each venue along with their city.
+	SELECT sc.city, COUNT(mm.match_no)
+	FROM soccer_venue as sv
+	INNER JOIN soccer_city as sc ON sc.city_id = sv.city_id
+	INNER JOIN match_mast as mm ON mm.venue_id = sv.venue_id
+	GROUP BY sc.city
+	
+15. Write a query in SQL to find the player who was the first player to be sent off at the tournament EURO cup 2016.
+	SELECT pm.player_name, sc.country_name
+	FROM player_booked as pb
+	INNER JOIN player_mast as pm ON pm.player_id = pb.player_id
+	INNER JOIN soccer_country as sc ON pb.team_id = sc.country_id
+	WHERE pb.sent_off = 'Y'
+	ORDER BY pb.match_no ASC, booking_time ASC
+	LIMIT 1
+	
+16. Write a query in SQL to find the teams that scored only one goal to the torunament.
+	SELECT sc.country_name
+	FROM soccer_country as sc
+	INNER JOIN soccer_team as st ON st.team_id = sc.country_id
+	WHERE goal_for = '1'
+	
+17. Write a query in SQL to find the yellow cards received by each country.
+	SELECT sc.country_name, COUNT(pb.match_no)
+	FROM soccer_country as sc
+	INNER JOIN player_booked as pb ON pb.team_id = sc.country_id
+	WHERE pb.sent_off != 'Y'
+	GROUP BY sc.country_name
+	
+18. Write a query in SQL to find the venue with number of goals that has seen.
+	SELECT sv.venue_name, SUM(md.goal_score) AS Goals
+	FROM match_mast as mm
+	INNER JOIN soccer_venue as sv ON mm.venue_id = sv.venue_id
+	INNER JOIN match_details as md ON mm.match_no = md.match_no
+	GROUP BY sv.venue_name
+	
+19. Write a query in SQL to find the match where no stoppage time added in 1st half of play. 
+	SELECT mm.match_no, mm.play_date, mm.goal_score
+	FROM match_mast as mm
+	WHERE mm.stop1_sec = '0'
+	
+20. Write a query in SQL to find the team(s) who conceded the most goals in EURO cup 2016.
+	SELECT sc.country_name, st.goal_agnst
+	FROM soccer_team as st
+	INNER JOIN soccer_country as sc ON sc.country_id = st.team_id
+	WHERE st.goal_agnst = (SELECT MAX(goal_agnst) FROM soccer_team)
+	
+21. Write a query in SQL to find the match where highest stoppege time added in 2nd half of play.
+	SELECT *
+	FROM match_mast
+	WHERE stop2_sec = (SELECT MAX(stop2_sec) FROM match_mast)
+	
+22. Write a query in SQL to find the matchs ending with a goalless draw in group stage of play. 
+	SELECT md.match_no, sc.country_name, md.goal_score
+	FROM match_details as md
+	INNER JOIN soccer_country as sc ON md.team_id = sc.country_id
+	WHERE md.win_lose = 'D' and goal_score = '0'
+	
+23.
+
+24. Write a query in SQL to find the player and his team and how many matches he kept goal for his team.
+	SELECT pm.player_name, sc.country_name, COUNT(md.player_gk) as PlayMatch
+	FROM match_details as md
+	INNER JOIN player_mast as pm ON pm.player_id = md.player_gk
+	INNER JOIN soccer_country as sc ON pm.team_id = sc.country_id
+	GROUP BY pm.player_name, sc.country_name
+	ORDER BY sc.country_name ASC, pm.player_name ASC, PlayMatch DESC
+
+25. Write a query in SQL to find the venue that has seen the most goals.
+	SELECT venue_name, COUNT(gd.goal_id) as Goals
+	FROM match_mast as mm 
+	INNER JOIN soccer_venue as sv ON mm.venue_id = sv.venue_id
+	INNER JOIN goal_details as gd ON mm.match_no = gd.match_no
+	GROUP BY sv.venue_id
+	ORDER BY goals DESC
+	LIMIT 1
+	
+26. Write a query in SQL to find the oldest player to have appeared in a EURO cup 2016 match.
+	SELECT pm.player_name, pm.posi_to_play, pm.age, sc.country_name
+	FROM player_mast as pm
+	INNER JOIN soccer_country as sc ON pm.team_id = sc.country_id
+	WHERE pm.age = (SELECT MAX(age) FROM player_mast)
+	
+27. Write a query in SQL to find those two teams which scored three goals in a single game at this tournament.
+	SELECT sc.country_name, md.goal_score, md.match_no
+	FROM soccer_country sc
+	INNER JOIN match_details as md ON sc.country_id = md.team_id
+	WHERE md.goal_score = 3 AND md.win_lose = 'D'
+
+28. Write a query in SQL to find the teams with other information that finished bottom of their respective groups after conceding four times in three games.
+	SELECT sc.country_name, st.team_group, st.goal_for, st.goal_agnst, st.points
+	FROM soccer_country as sc
+	INNER JOIN soccer_team as st ON sc.country_id = st.team_id
+	WHERE st.goal_agnst = 4 AND st.group_position = 4
+	
+29. Write a query in SQL to find those three players with other information, who contracted to Lyon participated in the EURO cup 2016 Finals
+	SELECT pm.player_name, pm.posi_to_play, pm.age, pm.playing_club, sc.country_name
+	FROM player_mast AS pm
+	INNER JOIN match_details AS md ON pm.team_id = md.team_id
+	INNER JOIN soccer_country AS sc ON pm.team_id = sc.country_id
+	WHERE md.play_stage = 'F' AND pm.playing_club = 'Lyon'
+	Limit 3
+	
+30. Write a query in SQL to find the final four teams in the tournament.
+	SELECT sc.country_name
+	FROM soccer_country as sc
+	INNER JOIN match_details as md ON sc.country_id = md.team_id
+	WHERE md.play_stage = 'S'
+	
+31. Write a query in SQL to find the captains for the top four teams with other information which participated in the semifinals (match 48 and 49) in the tournament.
+	SELECT pm.player_name
+	FROM player_mast as pm
+	INNER JOIN soccer_country as sc ON pm.team_id = sc.country_id
+	INNER JOIN match_captain as mc ON pm.player_id = mc.player_captain
+	WHERE mc.match_no = 49 OR mc.match_no = 48
+	
+32. Write a query in SQL to find the captains with other information for all the matches in the tournament.
+	SELECT pm.player_name, sc.country_name, mc.match_no
+	FROM player_mast as pm
+	INNER JOIN soccer_country as sc ON pm.team_id = sc.country_id
+	INNER JOIN match_captain as mc ON pm.player_id = mc.player_captain
+	ORDER BY mc.match_no ASC
+	
+33. Write a query in SQL to find the captain and goal keeper with other information for all the matches for all the team.
+	SELECT pm.player_name, sc.country_name, pm.posi_to_play, mc.match_no
+	FROM player_mast as pm
+	INNER JOIN soccer_country as sc ON pm.team_id = sc.country_id
+	INNER JOIN match_captain as mc ON pm.player_id = mc.player_captain
+	WHERE pm.posi_to_play = 'GK'
+	ORDER BY mc.match_no ASC
+	
+34. Write a query in SQL to find the player who was selected for the Man of the Match Award in the finals of EURO cup 2016.
+	SELECT pm.player_name
+	FROM player_mast as pm
+	INNER JOIN match_mast as mm ON pm.player_id = mm.plr_of_match
+	INNER JOIN soccer_country as sc ON pm.team_id = sc.country_id
+	WHERE mm.play_stage = 'F'
+	
+35. Write a query in SQL to find the substitute players who came into the field in the first half of play within normal play schedule.
+	SELECT pm.player_name, pio.time_in_out, pio.play_half, sc.country_name
+	FROM player_mast as pm
+	INNER JOIN player_in_out as pio ON pm.player_id = pio.player_id
+	INNER JOIN soccer_country as sc ON pm.team_id = sc.country_id
+	WHERE pio.in_out='I' AND pio.play_half = 1 AND pio.play_schedule = 'NT'
+	
+36. Write a query in SQL to prepare a list for the player of the match against each match.
+	SELECT pm.player_name, sc.country_name, mm.match_no
+	FROM player_mast as pm
+	INNER JOIN match_mast as mm ON pm.player_id = mm.plr_of_match
+	INNER JOIN soccer_country as sc ON pm.team_id = sc.country_id
+	ORDER BY mm.match_no ASC
+	
+37. Write a query in SQL to find the player along with his country who taken the penalty shot number 26.
