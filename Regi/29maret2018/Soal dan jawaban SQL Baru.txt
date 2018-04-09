@@ -1,0 +1,173 @@
+Regi
+
+No 1
+
+SELECT fgaji_01.NIP, fgaji_01.NAMA, pangkat_tbl.NMPANGKAT, eselon_tbl.URAIAN
+FROM fgaji_01
+INNER JOIN pangkat_tbl ON fgaji_01.KDPANGKAT = pangkat_tbl.KDPANGKAT
+INNER JOIN eselon_tbl ON fgaji_01.KDESELON = eselon_tbl.KDESELON
+WHERE NOT eselon_tbl.URAIAN = 'NON ESELON'
+AND fgaji_01.NAMA LIKE '%ani%'
+ORDER BY fgaji_01.NAMA ASC
+LIMIT 10;
+
+No 2
+
+SELECT fgaji_01.NIP, fgaji_01.NAMA, stapeg_tbl.NMSTAPEG, fgaji_01.GAPOK
+FROM fgaji_01
+LEFT JOIN stapeg_tbl ON fgaji_01.KDSTAPEG = stapeg_tbl.KDSTAPEG
+LEFT JOIN eselon_tbl ON fgaji_01.KDESELON = eselon_tbl.KDESELON
+WHERE fgaji_01.GAPOK BETWEEN 2000000 AND 2500000
+ORDER BY fgaji_01.NAMA ASC
+LIMIT 10;
+
+=================================================================
+
+Lena
+
+No 1
+
+Tampilkan NIP, nama, pangkat, dan pendidikannya, untuk pegawai, yang memiliki, pendidikan akhir SLTA dan Diploma
+Limit 100
+
+No 1
+
+SELECT mstpegawai_02.NIP, mstpegawai_02.NAMA, pangkat_tbl.NMPANGKAT, mstpegawai_02.PENDIDIKAN
+FROM mstpegawai_02, pangkat_tbl
+WHERE mstpegawai_02.KDPANGKAT = pangkat_tbl.KDPANGKAT
+AND mstpegawai_02.PENDIDIKAN IN ('SLTA', 'Diploma') 
+LIMIT 100;
+
+No 2
+
+Tampilkan nip, nama, jenis pegawai, dan data fotonya, bagi pegawai yang sudah memilikinya
+
+No 2
+
+
+
+No 3
+
+Tampilkan NIP, nama pegawai, jumlah dan keterangan hutangnya, urutkan dari yg terbesar, limit = 100
+HINT : cari tabel yg ada data pendidikannya, SLTA dan Diploma
+
+No 3
+
+
+
+=================================================================
+
+Yudhis
+
+No 1
+
+Tampilkan nama pegawai, dan gaji bersihnya, untuk pegawai yg berada di satuan kerja sekretariat dinas pekerjaan umum dan penataan ruang, yg sudah menikah dan memiliki 2 anak atau lebih
+
+No 1
+
+SELECT fgaji.NAMA, fgaji.BERSIH
+FROM fgaji, satker_tbl, stawin_tbl
+WHERE fgaji.KDSATKER = satker_tbl.KDSATKER
+AND fgaji.KDSTAWIN = stawin_tbl.kdstawin
+AND satker_tbl.NMSATKER = 'SEKRETARIAT DINAS PEKERJAAN UMUM DAN PENATAAN RUANG'
+AND fgaji.KDSTAWIN = 2
+AND fgaji.JISTRI = 1
+AND fgaji.JANAK >= 2
+LIMIT 10;
+
+No 2
+
+Tampilkan NIP, nama, status kawin, status pegawai, pangkat, nama guru, untuk pegawai yg belum menikah, dan laki laki yg bertugas sbg pembina utama muda
+
+No 2
+
+SELECT fgaji.NIP, fgaji.NAMA, stawin_tbl.nmstawin, stapeg_tbl.NMSTAPEG, pangkat_tbl.NMPANGKAT, guru_tbl.NMGURU
+FROM fgaji, stawin_tbl, stapeg_tbl, pangkat_tbl, guru_tbl
+WHERE fgaji.KDSTAWIN = stawin_tbl.kdstawin
+AND fgaji.KDSTAPEG = stapeg_tbl.KDSTAPEG
+AND fgaji.KDPANGKAT = pangkat_tbl.KDPANGKAT
+AND fgaji.KDGURU = guru_tbl.KDGURU
+AND fgaji.KDSTAWIN = 1
+AND fgaji.KDJENKEL = 1
+AND pangkat_tbl.NMPANGKAT = 'Pembina Utama Muda'
+LIMIT 10;
+
+No 3
+
+Tampilkan nip, nama, status kawin, status pegawai, pangkat, nama guru, untuk pegawai perempuan yg merupakan anggota dprd yg sudah memiliki anak
+
+
+
+=================================================================
+
+Fahreja
+
+No 1
+
+Tampilkan NIP, nama, Rp Eselon, untuk kode 4A
+
+No 1
+
+SELECT fgaji_01.NIP, fgaji_01.NAMA, eselon_tbl.KDESELON, eselon_tbl.RP_ESELON
+FROM fgaji_01, eselon_tbl
+WHERE fgaji_01.KDESELON = eselon_tbl.KDESELON
+AND fgaji_01.KDESELON = '4A'
+LIMIT 10;
+
+No 2
+
+Tampilkan nama anak kedua dari nip "195604081985031005"
+
+No 2
+
+
+
+No 3
+
+Tampilkan nip, nama, hubungan keluarga, nama keluarga, nip suami istri berdasarkan nip suami istri yg terisi
+
+
+
+=================================================================
+
+Irin
+
+No 1
+
+Carilah daftar pegawai dgn penghasilan bersih sebulan kurang dari 2,5 juta 
+tampilkan : nip, nama, tgl lahir, status kawin, jumlah anak, nama pangkat, ph bersih
+
+No 2
+
+tampilkan pegawai dengan kode pangkat 2c yang bekerja kurang dari 10 tahun dan pegawai dgn kode pangkat 1D, 
+yg bekerja lebih dari 10 tahun, urutkan kode pangkat dari yg terkecil
+tampilan : nip, nama, kode pangkat, nama pangkat, masa kerja
+
+No 3
+
+tampilkan nama pegawai wanita dan status kawinnya serta jabatannya (nama pangkat) urutkan nama pegawai nya sesuai abjad
+
+
+
+=================================================================
+
+Ilham
+
+No 1
+
+Tampilkan nama pegawai yang memiliki jumlah hutang kurang dari 1000000 dengan kategori hutang kelebihan bayar gaji maks 50, 
+urut berdasarkan jumlah hutang terkecil
+
+No 2
+
+Tampilkan data pegawai yang memiliki status cerai maks 50
+
+No 3
+
+Tampilkan Nama pegawai yang memiliki status pegawai (Pegawai Tetap) (PNS) sudah menikah mask 50
+
+
+
+=================================================================
+
+

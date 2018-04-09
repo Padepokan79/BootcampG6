@@ -1,0 +1,3 @@
+Mengerjakan Soal Query SQL Join exercises dari web 
+
+- SQL Join exercises.txt
