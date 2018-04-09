@@ -1,0 +1,168 @@
+No.1 (Fahreja)
+Tampilkan NIP, Nama, Rp_selon untuk kode '4A'
+| NIP | NAMA | KODE SELON | RP |
+
+SELECT fg.NIP, fg.NAMA, es.KDESELON, es.RP_ESELON
+FROM fgaji_01 AS fg 
+	LEFT JOIN eselon_tbl AS es ON fg.KDESELON = es.KDESELON
+WHERE es.KDESELON = '4A'
+LIMIT 100;
+
+No.2 (Fahreja)
+Tampilkan nama dan tanggal tahir anak kedua dari nip "195604081985031005"
+
+
+No.3 (Fahreja)
+Tampilkan 
+| NIP | Nama Hubungan Keluarga | Nama Keluarga | NIP SUAMI ISTRI |
+
+No.4 (Kang Hendra)
+| NIP | Nama Pegawai | Status Pegawai | Kode Pangkat | Nama Pangkat | Nama Istri/Suami | Gaji Bersih |
+
+No.5 (Ilham)
+Tampilkan nama pegawai yang memiliki jumlah hutang kurang dari 1.000.000 dengan kategori hutang
+kelebihan bayar gaji maks 50, urut berdasarkan jumlah hutang dari yang terkecil
+| Nama Pegawai | Jumlah Hutang |
+
+SELECT pg.NAMA, ht.JMLHUTANG
+FROM mstpegawai AS pg 
+	LEFT JOIN hutang AS ht ON pg.NIP = ht.NIP
+WHERE ht.JMLHUTANG < 1000000
+ORDER BY ht.JMLHUTANG ASC
+LIMIT 50;
+
+No.6 (Ilham)
+Tampilkan data pegawai yang memiliki status cerai maks 50
+| NIP | Nama | Tgl Cerai |
+
+SELECT pg.NIP ,pg.NAMA, klg.TGLCERAI
+FROM mstpegawai AS pg 
+	LEFT JOIN keluarga AS klg ON pg.NIP = klg.NIP
+WHERE klg.TGLCERAI IS NOT NULL
+LIMIT 50;
+
+No.7 (Ilham)
+Tampilkan nama pegawai yang memiliki status pegawai tetap dan sudah menikah maks 50
+
+SELECT pg.NIP ,pg.NAMA, st.NMSTAPEG, kw.nmstawin
+FROM mstpegawai AS pg 
+	LEFT JOIN stapeg_tbl AS st ON pg.KDSTAPEG = st.KDSTAPEG
+	LEFT JOIN stawin_tbl AS kw ON pg.KDSTAWIN = kw.kdstawin
+WHERE st.KDSTAPEG = 4
+	AND kw.kdstawin = 2
+LIMIT 50;
+
+No.8 (Teh Irin)
+Carilah daftar pegawai dengan penghasilan penghasilan bersih kurang dari 2,5 juta
+Tampilkan
+| NIP | Nama | Tanggal Lahir | Status Kawin | Jumlah anak | Nama Pangkat | Penghasilan Bersih
+
+SELECT pg.NIP ,pg.NAMA, kw.nmstawin AS 'STATUS KAWIN', pg.JANAK AS 'JUMLAH ANAK', png.NMPANGKAT AS 'NAMA PANGKAT', gj.BERSIH AS 'GAJI BERSIH'
+FROM mstpegawai AS pg 
+	LEFT JOIN pangkat_tbl AS png ON pg.KDPANGKAT = png.KDPANGKAT
+	LEFT JOIN stawin_tbl AS kw ON pg.KDSTAWIN = kw.kdstawin
+	LEFT JOIN fgaji_01 AS gj ON pg.NIP = gj.NIP
+WHERE gj.BERSIH < 2500000	
+LIMIT 50;
+
+No.9 (Teh Irin)
+Tampilkan pegawai dengan kode pangkat 2C yang bekerja kurang dari 10 tahun dan pegawai dengan kode
+pangkat 1D yang bekerja lebih dari 10 tahun. Urutkan kode pangkat dari yang terkecil 
+Tampilkan
+| NIP | Nama | Kode Pangkat | Nama Pangkat | Masa Kerja |
+
+SELECT pg.NIP ,pg.NAMA, pg.KDPANGKAT AS 'KODE PANGKAT', png.NMPANGKAT AS 'NAMA PANGKAT', pg.MASKER AS'MASA KERJA'
+FROM mstpegawai AS pg 
+	LEFT JOIN pangkat_tbl AS png ON pg.KDPANGKAT = png.KDPANGKAT
+WHERE png.KDPANGKAT = '2C'
+	AND pg.MASKER < 10 
+	OR png.KDPANGKAT = '1D'
+	AND pg.MASKER  > 10
+ORDER BY pg.MASKER DESC
+LIMIT 50;
+
+No.10 (Teh Irin)
+Tampilkan nama pegawai wanita dan status kawinnya serta jabantannya (nama pangkat) urutkan nama pegawai
+nya sesuai dengan abjad 
+
+SELECT pg.NIP ,pg.NAMA, kw.nmstawin AS 'STATUS KAWIN', png.NMPANGKAT AS 'NAMA PANGKAT', pg.KDJENKEL AS 'JENIS KELAMIN'
+FROM mstpegawai AS pg 
+	INNER JOIN pangkat_tbl AS png ON pg.KDPANGKAT = png.KDPANGKAT
+	INNER JOIN stawin_tbl AS kw ON pg.KDSTAWIN = kw.kdstawin
+WHERE pg.KDJENKEL = '2' 
+	AND pg.NAMA NOT LIKE ' %'
+ORDER BY pg.NAMA ASC
+LIMIT 50;
+
+
+No.11 (SISKA)
+Tampilkan 
+| NIP | Nama | Status | Satker name | SKPD name | Nama kepala  SKPD |
+Nama pegawai di urut asc
+limit 100
+
+SELECT pg.NIP ,pg.NAMA, st.NMSTAPEG AS 'STATUS', sat.NMSATKER AS 'SATUAN KERJA', skpd.NMSKPD AS 'NAMA SKPD', skpd.NMKEPALA AS 'NAMA KEPALA SKPD'
+FROM (((mstpegawai AS pg 
+	INNER JOIN satker_tbl AS sat ON pg.KDSATKER = sat.KDSATKER)
+	INNER JOIN skpd_tbl AS skpd ON pg.KDSKPD = skpd.KDSKPD)
+	INNER JOIN stapeg_tbl AS st ON pg.KDSTAPEG = st.KDSTAPEG)
+WHERE pg.NAMA NOT LIKE ' %'
+ORDER BY pg.NAMA ASC
+LIMIT 100;
+
+
+
+No.12 (SISKA)
+| NIP | Nama Pegawai | Status | Pangkat | Nama Satker | Gaji Bersih |
+yang sudah menikah, pangkat 4A, limit 100, urut nama asc
+
+SELECT pg.NIP ,pg.NAMA, kw.nmstawin AS 'STATUS KAWIN', png.KDPANGKAT AS 'PANGKAT', sat.NMSATKER AS 'SATUAN KERJA', gj.BERSIH AS 'GAJI BERSIH'
+FROM mstpegawai AS pg 
+	INNER JOIN pangkat_tbl AS png ON pg.KDPANGKAT = png.KDPANGKAT
+	INNER JOIN stawin_tbl AS kw ON pg.KDSTAWIN = kw.kdstawin
+	INNER JOIN satker_tbl AS sat ON pg.KDSATKER = sat.KDSATKER
+	INNER JOIN fgaji_01 AS gj ON pg.NIP = gj.NIP
+WHERE pg.KDSTAWIN = 2
+	AND pg.KDPANGKAT = '4A'
+	AND pg.NAMA NOT LIKE ' %'
+ORDER BY pg.NAMA ASC
+LIMIT 100;
+
+No.13 (SISKA)
+Tampilkan 3 yang dapat potongan terbanyak 
+| NIP | Nama Pegawai | SKPD name | Gapok | Potongan | Gaji Bersih |
+Potongan di urut dari yang terbesar
+
+SELECT pg.NIP ,pg.NAMA, skpd.NMSKPD AS 'NAMA SKPD', gj.GAPOK AS 'GAJI POKOK', gj.POTONGAN AS 'POTONGAN', gj.BERSIH AS 'GAJI BERSIH'
+FROM mstpegawai AS pg 
+	INNER JOIN skpd_tbl AS skpd ON pg.KDSKPD = skpd.KDSKPD
+	INNER JOIN fgaji_01 AS gj ON pg.NIP = gj.NIP
+	AND pg.NAMA NOT LIKE ' %'
+ORDER BY gj.POTONGAN DESC
+LIMIT 3;
+
+No.14 (Kang Regi)
+Tampilkan nama pegawai, nama pangkat, uraian eselon (uraian eselon selain "Non Eselon") urutkan ASC
+berdasarkan nama pegawai yang mengandung kata "ani"
+(Gunakan inner Join) limit 10
+
+SELECT pg.NAMA, png.NMPANGKAT AS 'NAMA PANGKAT', es.URAIAN AS 'URAIAN ESELON'
+FROM mstpegawai AS pg 
+	INNER JOIN pangkat_tbl AS png ON pg.KDPANGKAT = png.KDPANGKAT
+	INNER JOIN eselon_tbl AS es ON pg.KDESELON = es.KDESELON
+WHERE es.URAIAN NOT LIKE '%NON%'
+	AND pg.NAMA LIKE '%ani%'
+ORDER BY pg.NAMA ASC
+LIMIT 10;
+
+
+No.15 (Kang Regi)
+Tampilkan NIP, nama pegawai uraian eselon, status pegawai, gapok, gapok antara 2jt -2,5jt urut
+ASC berdasarkan nama (Gunakan left join) limit 10
+
+
+
+No.16 (Kang Regi)
+Tampilkan NIP, nama pegawai, nama guru, nama istri/suami, (nama pegawai & nama suami/istri sama"
+berawal dari huruf A)
+
