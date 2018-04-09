@@ -1,0 +1,231 @@
+1. SELECT soccer_venue.venue_name AS VenueName, soccer_city.city AS City
+	FROM soccer_venue
+	LEFT JOIN match_mast ON soccer_venue.venue_id = match_mast.venue_id
+	LEFT JOIN soccer_city ON soccer_venue.city_id = soccer_city.city_id
+	WHERE match_mast.play_stage = 'F';
+
+2. SELECT SUM (match_details.goal_score) AS GoalScored, 
+	soccer_country.country_name AS CountryName
+	FROM match_details
+	LEFT JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+	GROUP BY soccer_country.country_name
+	ORDER BY soccer_country.country_name;
+
+3. SELECT player_mast.player_name AS PlayerName, soccer_country.country_name AS Country, COUNT (goal_details.goal_id) AS GoalScored 
+	FROM player_mast
+	LEFT JOIN goal_details ON player_mast.player_id = goal_details.player_id
+	LEFT JOIN soccer_country ON player_mast.team_id = soccer_country.country_id
+	WHERE goal_details.goal_type = 'N'
+	GROUP BY PlayerName, Country
+	ORDER BY GoalScored DESC;
+
+4. SELECT player_mast.player_name AS PlayerName, soccer_country.country_name AS Country, COUNT (goal_details.goal_id) AS GoalScored 
+	FROM player_mast
+	LEFT JOIN goal_details ON player_mast.player_id = goal_details.player_id
+	LEFT JOIN soccer_country ON player_mast.team_id = soccer_country.country_id
+	GROUP BY PlayerName, Country
+	ORDER BY GoalScored DESC;
+	LIMIT 1;
+
+5. SELECT player_mast.player_name AS GoalScorer, soccer_country.country_name AS Country, player_mast.jersey_no AS JerseyNumber
+	FROM goal_details
+	LEFT JOIN player_mast ON goal_details.player_id = player_mast.player_id
+	LEFT JOIN soccer_country ON goal_details.team_id = soccer_country.country_id
+	WHERE goal_details.play_stage = 'F';
+
+6. SELECT soccer_country.country_name AS CountryName
+	FROM soccer_country
+	INNER JOIN soccer_city ON soccer_country.country_id = soccer_city.country_id
+	INNER JOIN soccer_venue ON soccer_city.city_id = soccer_venue.city_id
+	GROUP BY soccer_country.country_id;
+
+7. SELECT goal_details.goal_time AS GoalTime, goal_details.match_no AS MatchNumber, player_mast.player_name, soccer_country.country_name
+	FROM goal_details
+	INNER JOIN player_mast ON goal_details.player_id = player_mast.player_id
+	INNER JOIN soccer_country ON goal_details.team_id = soccer_country.country_id
+	WHERE goal_details.match_no = 1
+	ORDER BY goal_details.goal_time
+	LIMIT 1;
+
+8. SELECT match_mast.match_no AS GameNumber, referee_mast.referee_name AS RefereeName, soccer_country.country_name AS Country
+	FROM match_mast
+	INNER JOIN referee_mast ON match_mast.referee_id = referee_mast.referee_id
+	INNER JOIN soccer_country ON referee_mast.country_id = soccer_country.country_id
+	WHERE match_mast.match_no = 1;
+
+9. SELECT match_mast.match_no AS GameNumber, match_mast.play_stage AS GameStage, referee_mast.referee_name AS RefereeName, soccer_country.country_name AS Country
+	FROM match_mast
+	INNER JOIN referee_mast ON match_mast.referee_id = referee_mast.referee_id
+	INNER JOIN soccer_country ON referee_mast.country_id = soccer_country.country_id
+	WHERE match_mast.play_stage = 'F';
+
+10. SELECT match_details.match_no AS GameNumber, asst_referee_mast.ass_ref_name AS AssRefName, soccer_country.country_name AS Country
+	FROM match_details
+	INNER JOIN asst_referee_mast ON match_details.ass_ref = asst_referee_mast.ass_ref_id 
+	INNER JOIN soccer_country ON asst_referee_mast.country_id = soccer_country.country_id 
+	WHERE match_details.match_no = 1;
+
+11. SELECT match_details.match_no AS GameNumber, match_details.play_stage AS GameStage, asst_referee_mast.ass_ref_name AS AssRefName, soccer_country.country_name AS Country
+	FROM match_details
+	INNER JOIN asst_referee_mast ON match_details.ass_ref = asst_referee_mast.ass_ref_id 
+	INNER JOIN soccer_country ON asst_referee_mast.country_id = soccer_country.country_id 
+	WHERE match_details.play_stage = 'F';
+
+12. SELECT match_mast.match_no AS GameNumber, soccer_venue.venue_name AS VenueName, soccer_city.city AS City
+	FROM match_mast
+	INNER JOIN soccer_venue ON match_mast.venue_id = soccer_venue.venue_id
+	INNER JOIN soccer_city ON soccer_venue.city_id = soccer_city.city_id
+	WHERE match_mast.match_no = 1;
+
+13. SELECT match_mast.match_no AS GameNumber, match_mast.play_stage AS GameStage, soccer_venue.venue_name AS VenueName, soccer_city.city AS City, soccer_venue.aud_capacity AS AudCapacity, match_mast.audence AS Audence
+	FROM match_mast
+	INNER JOIN soccer_venue ON match_mast.venue_id = soccer_venue.venue_id
+	INNER JOIN soccer_city ON soccer_venue.city_id = soccer_city.city_id
+	WHERE match_mast.play_stage = 'F';
+
+14. SELECT soccer_venue.venue_name AS VenueName, soccer_city.city AS City, COUNT (*) AS GamePlayed
+	FROM match_mast
+	INNER JOIN soccer_venue ON match_mast.venue_id = soccer_venue.venue_id
+	INNER JOIN soccer_city ON soccer_venue.city_id = soccer_city.city_id
+	GROUP BY VenueName, City;
+
+15. SELECT player_booked.match_no AS GameNumber, player_mast.player_name AS PlayerName, soccer_country.country_name AS Country
+	FROM player_booked
+	INNER JOIN player_mast ON player_booked.player_id = player_mast.player_id
+	INNER JOIN soccer_country ON player_mast.team_id = soccer_country.country_id
+	WHERE player_booked.sent_off = 'Y'
+	ORDER BY match_no
+	LIMIT 1;
+
+16. SELECT soccer_country.country_name AS Country, soccer_team.goal_for AS GoalFor
+	FROM soccer_team
+	INNER JOIN soccer_country ON soccer_team.team_id = soccer_country.country_id
+	WHERE soccer_team.goal_for = 1;
+
+17. SELECT soccer_country.country_name AS CountryName, COUNT (*) AS YellowCards
+	FROM player_booked
+	LEFT JOIN soccer_country ON player_booked.team_id = soccer_country.country_id
+	WHERE player_booked.sent_off NOT LIKE 'Y'
+	GROUP BY CountryName;
+
+18. SELECT soccer_venue.venue_name AS VenueName, COUNT (*) AS GoalSeen
+	FROM goal_details
+	INNER JOIN match_mast ON goal_details.match_no = match_mast.match_no
+	INNER JOIN soccer_venue ON match_mast.venue_id = soccer_venue.venue_id
+	GROUP BY VenueName;
+
+19. SELECT match_details.match_no AS GameNumber, soccer_country.country_name AS Country
+	FROM match_details
+	INNER JOIN match_mast ON match_details.match_no = match_mast.match_no
+	INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+	WHERE match_mast.stop1_sec = 0;
+
+20. SELECT soccer_country.country_name AS Country, soccer_team.goal_agnst AS GoalAgainst
+	FROM soccer_team
+	LEFT JOIN soccer_country ON soccer_team.team_id = soccer_country.country_id
+	WHERE soccer_team.goal_agnst = (SELECT MAX (goal_agnst) FROM soccer_team);
+
+21. SELECT match_details.match_no AS GameNumber, soccer_country.country_name AS Country, match_details.win_lose AS Results, match_mast.stop2_sec AS StoppageTime2nd
+	FROM match_details
+	INNER JOIN match_mast ON match_details.match_no = match_mast.match_no
+	INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+	WHERE match_mast.stop2_sec = (SELECT MAX (stop2_sec) FROM match_mast);
+
+22. SELECT match_details.match_no AS GameNumber, soccer_country.country_name AS Country, match_details.goal_score AS GoalScored
+	FROM match_details
+	INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+	WHERE match_details.win_lose = 'D'
+	AND match_details.goal_score = 0;
+
+23. SELECT match_details.match_no AS GameNumber, soccer_country.country_name AS Country, match_mast.stop2_sec AS StoppageTime2nd
+	FROM match_details
+	INNER JOIN match_mast ON match_details.match_no = match_mast.match_no
+	INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+	WHERE match_mast.stop2_sec = (SELECT MAX (stop2_sec) FROM match_mast);
+
+24. SELECT player_mast.player_name AS PlayerName, player_mast.posi_to_play AS Position, COUNT (*) AS GamesPlayed
+	FROM match_details
+	INNER JOIN player_mast ON match_details.player_gk = player_mast.player_id
+	GROUP BY PlayerName, Position;
+
+25. SELECT soccer_venue.venue_name AS Venue, COUNT (*) AS GoalSeen
+	FROM goal_details
+	INNER JOIN match_mast ON goal_details.match_no = match_mast.match_no
+	INNER JOIN soccer_venue ON match_mast.venue_id = soccer_venue.venue_id
+	GROUP BY Venue
+	ORDER BY GoalSeen DESC
+	LIMIT 1;
+
+26. SELECT player_mast.player_name AS PlayerName, player_mast.age AS PlayerAge
+	FROM player_mast
+	WHERE player_mast.age = (SELECT MAX(age) FROM player_mast);
+
+27. SELECT soccer_country.country_name AS Country, match_details.goal_score AS GoalScored
+	FROM match_details
+	INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+	WHERE match_details.goal_score = 3 
+	AND match_details.win_lose = 'D';
+
+28. SELECT soccer_country.country_name AS Country, soccer_team.*
+	FROM soccer_team
+	INNER JOIN soccer_country ON soccer_team.team_id = soccer_country.country_id
+	WHERE soccer_team.goal_agnst = 4
+	AND soccer_team.group_position = 4;
+
+29. SELECT match_details.play_stage AS GameStage, soccer_country.country_name AS Country, player_mast.*
+	FROM player_mast
+	INNER JOIN soccer_country ON player_mast.team_id = soccer_country.country_id
+	INNER JOIN match_details ON player_mast.team_id = match_details.team_id
+	WHERE player_mast.playing_club = 'Lyon'
+	AND match_details.play_stage = 'F';
+
+30. SELECT match_details.play_stage AS GameStage, soccer_country.country_name AS Country
+	FROM match_details
+	INNER JOIN soccer_country ON match_details.team_id = soccer_country.country_id
+	WHERE match_details.play_stage = 'S';
+
+31. SELECT match_captain.match_no AS GameNumber, player_mast.player_name AS PlayerName, soccer_country.country_name AS Country
+	FROM match_captain
+	INNER JOIN player_mast ON match_captain.player_captain = player_mast.player_id
+	INNER JOIN soccer_country ON match_captain.team_id = soccer_country.country_id
+	WHERE match_captain.match_no = 49 
+	OR match_captain.match_no = 50;
+
+32. SELECT soccer_country.country_name AS Country, player_mast.*
+	FROM player_mast
+	INNER JOIN match_captain ON player_mast.player_id = match_captain.player_captain
+	INNER JOIN soccer_country ON player_mast.team_id = soccer_country.country_id;
+
+33. SELECT a.match_no,c.player_name as "Captain", 
+	d.player_name as "Goal Keeper",e.country_name
+	FROM match_captain a
+	NATURAL JOIN match_details b
+	JOIN soccer_country e ON b.team_id=e.country_id
+	JOIN player_mast c ON a.player_captain=c.player_id
+	JOIN player_mast d ON b.player_gk=d.player_id;
+
+34. SELECT player_mast.player_name AS ManOfTheMatch, soccer_country.country_name AS Country
+	FROM match_mast
+	INNER JOIN player_mast ON match_mast.plr_of_match = player_mast.player_id
+	INNER JOIN soccer_country ON player_mast.team_id = soccer_country.country_id
+	WHERE match_mast.play_stage = 'F';
+
+35. SELECT player_mast.player_name, soccer_country.country_name, player_in_out.in_out, player_in_out.time_in_out, player_in_out.play_schedule, player_in_out.play_half
+	FROM player_in_out
+	INNER JOIN player_mast ON player_in_out.player_id = player_mast.player_id
+	INNER JOIN soccer_country ON player_in_out.team_id = soccer_country.country_id
+	WHERE player_in_out.play_schedule = 'NT'
+	AND player_in_out.play_half = 1;
+
+36. SELECT match_mast.match_no, match_mast.play_date, soccer_country.country_name, player_mast.player_name AS PlayerOfTheMatch, player_mast.jersey_no
+	FROM match_mast
+	INNER JOIN player_mast ON match_mast.plr_of_match = player_mast.player_id 
+	INNER JOIN soccer_country ON player_mast.team_id = soccer_country.country_id;
+
+37. SELECT penalty_shootout.match_no, player_mast.player_name
+	FROM penalty_shootout, soccer_country.country_name
+	INNER JOIN player_mast ON penalty_shootout.player_id = player_mast.player_id
+	INNER JOIN soccer_country ON player_mast.team_id = soccer_country.country_id
+	WHERE kick_id = 26;
+
+38. 
