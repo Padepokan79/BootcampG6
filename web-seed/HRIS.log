@@ -1,0 +1,690 @@
+Environment variable ACTIVE_ENV not provided, defaulting to 'development'
+ActiveWeb: starting the app in environment: development
+================ New request: Tue Apr 10 08:41:11 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@e5751d
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@e5751d. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.auth.TokenController.index, session: null
+Load models from: file:/C:/Users/Ideki-SCL/Downloads/web-seed/web-seed1/target/classes/activejdbc_models.properties
+Registered model: class app.models.EmpDataPeg
+Registered model: class app.models.MdAgama
+Registered model: class app.models.core.master.MasterUser
+Failed to retrieve metadata for table: 'emp_data_peg'. Are you sure this table exists? For some databases table names are case sensitive.
+Fetched metadata for table: master_user
+Fetched metadata for table: MD_AGAMA
+Association found: MdAgama  ----------<  EmpDataPeg, type: has-many
+Association found: EmpDataPeg  >----------  MdAgama, type: belongs-to
+Query: "SELECT * FROM master_user WHERE username = ? LIMIT 1", with parameters: <ICHIONE>, took: 58 milliseconds
+Processed request in: 2604 milliseconds, path: /auth/token, method: POST
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@e5751d
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@e5751d
+================ New request: Tue Apr 10 08:41:31 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@148a32c
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@148a32c. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.auth.TokenController.index, session: null
+Query: "SELECT * FROM master_user WHERE username = ? LIMIT 1", with parameters: <ICHIONE>, took: 2 milliseconds
+Processed request in: 27 milliseconds, path: /auth/token, method: POST
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@148a32c
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@148a32c
+================ New request: Tue Apr 10 08:42:45 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@b29f2f
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@b29f2f. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.auth.TokenController.index, session: null
+Query: "SELECT * FROM master_user WHERE username = ? LIMIT 1", with parameters: <ICHIONE>, took: 2 milliseconds
+Processed request in: 1309 milliseconds, path: /auth/token, method: POST
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@b29f2f
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@b29f2f
+ActiveWeb 404 WARNING: 
+Request properties: Request URL: http://localhost:7979/example/CostumCRUD/readAll
+ContextPath: 
+Query String: null
+URI Full Path: /example/CostumCRUD/readAll
+URI Path: /example/CostumCRUD/readAll
+Method: GET
+
+Request parameters: {}
+Request headers: {Authorization=bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjMzMjQ1NjUsInN1YiI6IklDSElPTkUiLCJpc3MiOiJpbyIsImV4cCI6MTUyMzQxMDk2NX0.xrzF1vf1AlfmzXuBqrV3Me3FC9lShFa62AWIVcJ89Zk, Cookie=JSESSIONID=1eop2bs0cse8o1w0j5qgy2173t, Cache-Control=no-cache, Accept=*/*, User-Agent=PostmanRuntime/7.1.1, Connection=keep-alive, Postman-Token=4e2d8289-4eb1-4345-821c-a907a6334a6b, Host=localhost:7979, Accept-Encoding=gzip, deflate}
+org.javalite.activeweb.ClassLoadException: java.lang.ClassNotFoundException: app.controllers.example.CostumCRUDController
+found 'session' value set by controller. It is reserved by ActiveWeb and will be overwritten.
+rendering template: '/system/404' with layout: '/layouts/default_layout', session: 1bxtjwnawpechsr593h0etloq
+Current location: C:\Users\Ideki-SCL\Downloads\web-seed\web-seed1
+ActiveWeb internal error: 
+org.javalite.activeweb.ViewMissingException: Failed to render template: '/system/404.ftl', with layout: '/layouts/default_layout'; Template "/system/404.ftl" not found.
+	at org.javalite.activeweb.freemarker.FreeMarkerTemplateManager.merge(FreeMarkerTemplateManager.java:122)
+	at org.javalite.activeweb.RenderTemplateResponse.doProcess(RenderTemplateResponse.java:88)
+	at org.javalite.activeweb.ControllerResponse.process(ControllerResponse.java:67)
+	at org.javalite.activeweb.RequestDispatcher.renderSystemError(RequestDispatcher.java:300)
+	at org.javalite.activeweb.RequestDispatcher.doFilter(RequestDispatcher.java:223)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:581)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1158)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:511)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1090)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:213)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:119)
+	at org.eclipse.jetty.server.Server.handle(Server.java:517)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:306)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:248)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:75)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:213)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:147)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: Template "/system/404.ftl" not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:742)
+	at freemarker.template.Configuration.getTemplate(Configuration.java:665)
+	at org.javalite.activeweb.freemarker.FreeMarkerTemplateManager.merge(FreeMarkerTemplateManager.java:93)
+	... 31 more
+java.lang.IllegalStateException: WRITER
+java.lang.IllegalStateException: WRITER
+	at org.eclipse.jetty.server.Response.getOutputStream(Response.java:874)
+	at org.javalite.activeweb.RequestDispatcher.renderSystemError(RequestDispatcher.java:310)
+	at org.javalite.activeweb.RequestDispatcher.doFilter(RequestDispatcher.java:223)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:581)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1158)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:511)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1090)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:213)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:119)
+	at org.eclipse.jetty.server.Server.handle(Server.java:517)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:306)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:248)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:75)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:213)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:147)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:748)
+ActiveWeb 404 WARNING: 
+Request properties: Request URL: http://localhost:7979/example/CostumCRUD/readAll
+ContextPath: 
+Query String: null
+URI Full Path: /example/CostumCRUD/readAll
+URI Path: /example/CostumCRUD/readAll
+Method: GET
+
+Request parameters: {}
+Request headers: {Authorization=bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjMzMjQ1NjUsInN1YiI6IklDSElPTkUiLCJpc3MiOiJpbyIsImV4cCI6MTUyMzQxMDk2NX0.xrzF1vf1AlfmzXuBqrV3Me3FC9lShFa62AWIVcJ89Zk, Cookie=JSESSIONID=1bxtjwnawpechsr593h0etloq, Cache-Control=no-cache, Accept=*/*, User-Agent=PostmanRuntime/7.1.1, Connection=keep-alive, Postman-Token=0ea04219-df01-4997-b89f-cf6e916aa039, Host=localhost:7979, Accept-Encoding=gzip, deflate}
+org.javalite.activeweb.ClassLoadException: java.lang.ClassNotFoundException: app.controllers.example.CostumCRUDController
+found 'session' value set by controller. It is reserved by ActiveWeb and will be overwritten.
+rendering template: '/system/404' with layout: '/layouts/default_layout', session: 1bxtjwnawpechsr593h0etloq
+Current location: C:\Users\Ideki-SCL\Downloads\web-seed\web-seed1
+ActiveWeb internal error: 
+org.javalite.activeweb.ViewMissingException: Failed to render template: '/system/404.ftl', with layout: '/layouts/default_layout'; Template "/system/404.ftl" not found.
+	at org.javalite.activeweb.freemarker.FreeMarkerTemplateManager.merge(FreeMarkerTemplateManager.java:122)
+	at org.javalite.activeweb.RenderTemplateResponse.doProcess(RenderTemplateResponse.java:88)
+	at org.javalite.activeweb.ControllerResponse.process(ControllerResponse.java:67)
+	at org.javalite.activeweb.RequestDispatcher.renderSystemError(RequestDispatcher.java:300)
+	at org.javalite.activeweb.RequestDispatcher.doFilter(RequestDispatcher.java:223)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:581)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1158)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:511)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1090)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:213)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:119)
+	at org.eclipse.jetty.server.Server.handle(Server.java:517)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:306)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:248)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:75)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:213)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:147)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: Template "/system/404.ftl" not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:742)
+	at freemarker.template.Configuration.getTemplate(Configuration.java:665)
+	at org.javalite.activeweb.freemarker.FreeMarkerTemplateManager.merge(FreeMarkerTemplateManager.java:93)
+	... 31 more
+java.lang.IllegalStateException: WRITER
+java.lang.IllegalStateException: WRITER
+	at org.eclipse.jetty.server.Response.getOutputStream(Response.java:874)
+	at org.javalite.activeweb.RequestDispatcher.renderSystemError(RequestDispatcher.java:310)
+	at org.javalite.activeweb.RequestDispatcher.doFilter(RequestDispatcher.java:223)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:581)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1158)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:511)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1090)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:213)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:119)
+	at org.eclipse.jetty.server.Server.handle(Server.java:517)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:306)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:248)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:75)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:213)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:147)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:748)
+================ New request: Tue Apr 10 08:45:39 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@121b3cd
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@121b3cd. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: 1bxtjwnawpechsr593h0etloq
+Processed request in: 107 milliseconds, path: /example/CustomCRUD/readAll, method: GET, session: 1bxtjwnawpechsr593h0etloq
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@121b3cd
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@121b3cd
+================ New request: Tue Apr 10 08:47:57 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@1f002f5
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@1f002f5. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: 1bxtjwnawpechsr593h0etloq
+Processed request in: 59 milliseconds, path: /example/CustomCRUD/readAll, method: GET, session: 1bxtjwnawpechsr593h0etloq
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@1f002f5
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@1f002f5
+Environment variable ACTIVE_ENV not provided, defaulting to 'development'
+ActiveWeb: starting the app in environment: development
+================ New request: Tue Apr 10 08:51:07 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@185d884
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@185d884. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.auth.TokenController.index, session: null
+Load models from: file:/C:/Users/Ideki-SCL/Downloads/web-seed/web-seed1/target/classes/activejdbc_models.properties
+Registered model: class app.models.EmpDataPeg
+Registered model: class app.models.MdAgama
+Registered model: class app.models.core.master.MasterUser
+Failed to retrieve metadata for table: 'emp_data_peg'. Are you sure this table exists? For some databases table names are case sensitive.
+Fetched metadata for table: master_user
+Fetched metadata for table: MD_AGAMA
+Association found: MdAgama  ----------<  EmpDataPeg, type: has-many
+Association found: EmpDataPeg  >----------  MdAgama, type: belongs-to
+Query: "SELECT * FROM master_user WHERE username = ? LIMIT 1", with parameters: <ICHIONE>, took: 49 milliseconds
+Processed request in: 2919 milliseconds, path: /auth/token, method: POST
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@185d884
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@185d884
+================ New request: Tue Apr 10 08:51:22 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@6b2112
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@6b2112. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Processed request in: 173 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@6b2112
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@6b2112
+================ New request: Tue Apr 10 08:52:29 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@1152a55
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@1152a55. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Query: "SELECT * FROM master_user ORDER BY user_id,user_id", took: 53 milliseconds
+Query: "SELECT COUNT(*) FROM master_user", took: 1 milliseconds
+Processed request in: 145 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@1152a55
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@1152a55
+================ New request: Tue Apr 10 08:55:02 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@5e5ac5
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@5e5ac5. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Processed request in: 106 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@5e5ac5
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@5e5ac5
+================ New request: Tue Apr 10 09:00:47 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@175738d
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@175738d. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Query: "SELECT * FROM master_user ORDER BY user_id,user_id", took: 3 milliseconds
+Query: "SELECT COUNT(*) FROM master_user", took: 1 milliseconds
+Processed request in: 79 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@175738d
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@175738d
+Environment variable ACTIVE_ENV not provided, defaulting to 'development'
+ActiveWeb: starting the app in environment: development
+================ New request: Tue Apr 10 09:14:28 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@1be5919
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@1be5919. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.auth.TokenController.index, session: null
+Load models from: file:/C:/Users/Ideki-SCL/Downloads/web-seed/web-seed1/target/classes/activejdbc_models.properties
+Registered model: class app.models.EmpDataPeg
+Registered model: class app.models.MdAgama
+Registered model: class app.models.core.master.MdAgama
+Failed to retrieve metadata for table: 'emp_data_peg'. Are you sure this table exists? For some databases table names are case sensitive.
+Fetched metadata for table: master_user
+Fetched metadata for table: MD_AGAMA
+Association found: MdAgama  ----------<  EmpDataPeg, type: has-many
+Association found: EmpDataPeg  >----------  MdAgama, type: belongs-to
+Query: "SELECT * FROM master_user WHERE username = ? LIMIT 1", with parameters: <ICHIONE>, took: 49 milliseconds
+Processed request in: 2265 milliseconds, path: /auth/token, method: POST
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@1be5919
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@1be5919
+================ New request: Tue Apr 10 09:14:44 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@881df0
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@881df0. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Query: "SELECT * FROM master_user ORDER BY user_id,user_id", took: 2 milliseconds
+Query: "SELECT COUNT(*) FROM master_user", took: 0 milliseconds
+Processed request in: 124 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@881df0
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@881df0
+================ New request: Tue Apr 10 09:15:13 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@12b7c7f
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@12b7c7f. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Query: "SELECT * FROM master_user WHERE username = ? and is_active = ? ORDER BY user_id,user_id", with parameters: <Ichione>, <1>, took: 3 milliseconds
+Query: "SELECT COUNT(*) FROM master_user WHERE username = ? and is_active = ?", with parameters: <Ichione>, <1>, took: 1 milliseconds
+Processed request in: 81 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@12b7c7f
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@12b7c7f
+================ New request: Tue Apr 10 09:15:18 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@d84a5d
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@d84a5d. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Query: "SELECT * FROM master_user WHERE username = ? and is_active = ? ORDER BY user_id,user_id", with parameters: <Ichione>, <1>, took: 3 milliseconds
+Query: "SELECT COUNT(*) FROM master_user WHERE username = ? and is_active = ?", with parameters: <Ichione>, <1>, took: 1 milliseconds
+Processed request in: 81 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@d84a5d
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@d84a5d
+================ New request: Tue Apr 10 09:16:13 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@1883ab0
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@1883ab0. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Query: "SELECT * FROM master_user WHERE username = ? and is_active = ? ORDER BY user_id,user_id", with parameters: <Ichione>, <1>, took: 3 milliseconds
+Query: "SELECT COUNT(*) FROM master_user WHERE username = ? and is_active = ?", with parameters: <Ichione>, <1>, took: 2 milliseconds
+Processed request in: 79 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@1883ab0
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@1883ab0
+================ New request: Tue Apr 10 09:18:52 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@1c0c32c
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@1c0c32c. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Query: "SELECT * FROM master_user WHERE username = ? and is_active = ? ORDER BY user_id,user_id", with parameters: <Ichione>, <1>, took: 3 milliseconds
+Query: "SELECT COUNT(*) FROM master_user WHERE username = ? and is_active = ?", with parameters: <Ichione>, <1>, took: 1 milliseconds
+Processed request in: 77 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@1c0c32c
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@1c0c32c
+================ New request: Tue Apr 10 09:18:56 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@8840c
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@8840c. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Query: "SELECT * FROM master_user WHERE username = ? and is_active = ? ORDER BY user_id,user_id", with parameters: <Ichione>, <1>, took: 2 milliseconds
+Query: "SELECT COUNT(*) FROM master_user WHERE username = ? and is_active = ?", with parameters: <Ichione>, <1>, took: 1 milliseconds
+Processed request in: 81 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@8840c
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@8840c
+Environment variable ACTIVE_ENV not provided, defaulting to 'development'
+ActiveWeb: starting the app in environment: development
+================ New request: Tue Apr 10 09:22:05 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@104598c
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@104598c. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.auth.TokenController.index, session: null
+Load models from: file:/C:/Users/Ideki-SCL/Downloads/web-seed/web-seed1/target/classes/activejdbc_models.properties
+Registered model: class app.models.EmpDataPeg
+Registered model: class app.models.MdAgama
+Registered model: class app.models.core.master.MdAgama
+Failed to retrieve metadata for table: 'emp_data_peg'. Are you sure this table exists? For some databases table names are case sensitive.
+Fetched metadata for table: master_user
+Fetched metadata for table: MD_AGAMA
+Association found: MdAgama  ----------<  EmpDataPeg, type: has-many
+Association found: EmpDataPeg  >----------  MdAgama, type: belongs-to
+Query: "SELECT * FROM master_user WHERE username = ? LIMIT 1", with parameters: <ICHIONE>, took: 48 milliseconds
+Processed request in: 2422 milliseconds, path: /auth/token, method: POST
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@104598c
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@104598c
+================ New request: Tue Apr 10 09:22:21 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@fe03df
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@fe03df. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Query: "SELECT * FROM master_user WHERE username = ? and is_active = ? ORDER BY user_id,user_id", with parameters: <Ichione>, <1>, took: 3 milliseconds
+Query: "SELECT COUNT(*) FROM master_user WHERE username = ? and is_active = ?", with parameters: <Ichione>, <1>, took: 1 milliseconds
+Processed request in: 100 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@fe03df
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@fe03df
+================ New request: Tue Apr 10 09:23:41 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@3d9e9d
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@3d9e9d. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.auth.TokenController.index, session: null
+Query: "SELECT * FROM master_user WHERE username = ? LIMIT 1", with parameters: <ICHIONE>, took: 2 milliseconds
+Processed request in: 32 milliseconds, path: /auth/token, method: POST
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@3d9e9d
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@3d9e9d
+================ New request: Tue Apr 10 09:23:54 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@decf99
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@decf99. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomCRUDController.readAll, session: null
+Query: "SELECT * FROM master_user WHERE is_active = ? ORDER BY user_id,user_id", with parameters: <1>, took: 3 milliseconds
+Query: "SELECT COUNT(*) FROM master_user WHERE is_active = ?", with parameters: <1>, took: 2 milliseconds
+Processed request in: 29 milliseconds, path: /example/CustomCRUD/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@decf99
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@decf99
+ActiveWeb 404 WARNING: 
+Request properties: Request URL: http://localhost:7979/api/masterdata/CsMdAgama/readAll
+ContextPath: 
+Query String: null
+URI Full Path: /api/masterdata/CsMdAgama/readAll
+URI Path: /api/masterdata/CsMdAgama/readAll
+Method: GET
+
+Request parameters: {}
+Request headers: {Authorization=bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjMzMjcwMjEsInN1YiI6IklDSElPTkUiLCJpc3MiOiJpbyIsImV4cCI6MTUyMzQxMzQyMX0.iLQE_5dwwWz6siYemYXT8QkctklDxdnwxr6DxD5HPLg, Cookie=JSESSIONID=1bxtjwnawpechsr593h0etloq, Cache-Control=no-cache, Accept=*/*, User-Agent=PostmanRuntime/7.1.1, Connection=keep-alive, Postman-Token=de3861b2-6a12-48c7-beda-4af78108f3e7, Host=localhost:7979, Accept-Encoding=gzip, deflate}
+org.javalite.activeweb.ClassLoadException: java.lang.ClassNotFoundException: app.controllers.api.masterdata.CsMdAgamaController
+found 'session' value set by controller. It is reserved by ActiveWeb and will be overwritten.
+rendering template: '/system/404' with layout: '/layouts/default_layout', session: 1xeqgi9ykjr121r2usmdcbpnob
+Current location: C:\Users\Ideki-SCL\Downloads\web-seed\web-seed1
+ActiveWeb internal error: 
+org.javalite.activeweb.ViewMissingException: Failed to render template: '/system/404.ftl', with layout: '/layouts/default_layout'; Template "/system/404.ftl" not found.
+	at org.javalite.activeweb.freemarker.FreeMarkerTemplateManager.merge(FreeMarkerTemplateManager.java:122)
+	at org.javalite.activeweb.RenderTemplateResponse.doProcess(RenderTemplateResponse.java:88)
+	at org.javalite.activeweb.ControllerResponse.process(ControllerResponse.java:67)
+	at org.javalite.activeweb.RequestDispatcher.renderSystemError(RequestDispatcher.java:300)
+	at org.javalite.activeweb.RequestDispatcher.doFilter(RequestDispatcher.java:223)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:581)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1158)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:511)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1090)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:213)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:119)
+	at org.eclipse.jetty.server.Server.handle(Server.java:517)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:306)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:248)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:75)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:213)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:147)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: Template "/system/404.ftl" not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:742)
+	at freemarker.template.Configuration.getTemplate(Configuration.java:665)
+	at org.javalite.activeweb.freemarker.FreeMarkerTemplateManager.merge(FreeMarkerTemplateManager.java:93)
+	... 31 more
+java.lang.IllegalStateException: WRITER
+java.lang.IllegalStateException: WRITER
+	at org.eclipse.jetty.server.Response.getOutputStream(Response.java:874)
+	at org.javalite.activeweb.RequestDispatcher.renderSystemError(RequestDispatcher.java:310)
+	at org.javalite.activeweb.RequestDispatcher.doFilter(RequestDispatcher.java:223)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:581)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1158)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:511)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1090)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:213)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:119)
+	at org.eclipse.jetty.server.Server.handle(Server.java:517)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:306)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:248)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:75)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:213)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:147)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:748)
+Environment variable ACTIVE_ENV not provided, defaulting to 'development'
+ActiveWeb: starting the app in environment: development
+================ New request: Tue Apr 10 09:33:59 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@e26855
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@e26855. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.auth.TokenController.index, session: null
+Load models from: file:/C:/Users/Ideki-SCL/Downloads/web-seed/web-seed1/target/classes/activejdbc_models.properties
+Registered model: class app.models.EmpDataPeg
+Registered model: class app.models.MdAgama
+Registered model: class app.models.core.master.MasterUser
+Failed to retrieve metadata for table: 'emp_data_peg'. Are you sure this table exists? For some databases table names are case sensitive.
+Fetched metadata for table: master_user
+Fetched metadata for table: MD_AGAMA
+Association found: MdAgama  ----------<  EmpDataPeg, type: has-many
+Association found: EmpDataPeg  >----------  MdAgama, type: belongs-to
+Query: "SELECT * FROM master_user WHERE username = ? LIMIT 1", with parameters: <ICHIONE>, took: 55 milliseconds
+Processed request in: 3084 milliseconds, path: /auth/token, method: POST
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@e26855
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@e26855
+================ New request: Tue Apr 10 09:34:19 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@7b266e
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@7b266e. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.api.masterdata.CsMdAgamaController.readAll, session: null
+Query: "SELECT * FROM MD_AGAMA ORDER BY id,id", took: 4 milliseconds
+Query: "SELECT COUNT(*) FROM MD_AGAMA", took: 1 milliseconds
+Processed request in: 102 milliseconds, path: /api/masterdata/CsMdAgama/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@7b266e
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@7b266e
+================ New request: Tue Apr 10 09:36:05 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@11b1510
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@11b1510. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+
+core.io.exception.UnAuthorizedException
+	at app.filters.AuthorizationFilter.before(AuthorizationFilter.java:37)
+	at org.javalite.activeweb.ControllerRunner.filterBefore(ControllerRunner.java:243)
+	at org.javalite.activeweb.ControllerRunner.run(ControllerRunner.java:54)
+	at org.javalite.activeweb.RequestDispatcher.doFilter(RequestDispatcher.java:213)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:581)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1158)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:511)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1090)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:213)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:119)
+	at org.eclipse.jetty.server.Server.handle(Server.java:517)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:306)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:248)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:75)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:213)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:147)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:748)
+Processed request in: 117 milliseconds, path: /example/CustomLOV/readAll, method: GET
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@11b1510
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@11b1510
+================ New request: Tue Apr 10 09:36:12 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@1da8302
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@1da8302. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+ActiveWeb 404 WARNING: 
+Request properties: Request URL: http://localhost:7979/example/CustomLOV/readAll
+ContextPath: 
+Query String: null
+URI Full Path: /example/CustomLOV/readAll
+URI Path: /example/CustomLOV/readAll
+Method: GET
+
+Request parameters: {}
+Request headers: {Authorization=bearer eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjMzMjc2NDIsInN1YiI6IklDSElPTkUiLCJpc3MiOiJpbyIsImV4cCI6MTUyMzQxNDA0Mn0.LDLLwqQqpJQLSnOt9CheB9DbOuLbZ-qF5KNs1cWG0PY, Cookie=JSESSIONID=1xeqgi9ykjr121r2usmdcbpnob, Cache-Control=no-cache, Accept=*/*, User-Agent=PostmanRuntime/7.1.1, Connection=keep-alive, Postman-Token=a31c3855-c9f3-48b2-88be-d021a2a92e9d, Host=localhost:7979, Accept-Encoding=gzip, deflate}
+org.javalite.activeweb.ActionNotFoundException: java.lang.NoSuchMethodException: app.controllers.example.CustomLOVController.readAll(); app.controllers.example.CustomLOVController.readAll()
+found 'session' value set by controller. It is reserved by ActiveWeb and will be overwritten.
+rendering template: '/system/404' with layout: '/layouts/default_layout', session: 16unjgpf3p1za1ulfr1evyod0f
+Current location: C:\Users\Ideki-SCL\Downloads\web-seed\web-seed1
+ActiveWeb internal error: 
+org.javalite.activeweb.ViewMissingException: Failed to render template: '/system/404.ftl', with layout: '/layouts/default_layout'; Template "/system/404.ftl" not found.
+	at org.javalite.activeweb.freemarker.FreeMarkerTemplateManager.merge(FreeMarkerTemplateManager.java:122)
+	at org.javalite.activeweb.RenderTemplateResponse.doProcess(RenderTemplateResponse.java:88)
+	at org.javalite.activeweb.ControllerResponse.process(ControllerResponse.java:67)
+	at org.javalite.activeweb.RequestDispatcher.renderSystemError(RequestDispatcher.java:300)
+	at org.javalite.activeweb.RequestDispatcher.doFilter(RequestDispatcher.java:223)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:581)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1158)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:511)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1090)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:213)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:119)
+	at org.eclipse.jetty.server.Server.handle(Server.java:517)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:306)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:248)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:75)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:213)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:147)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.FileNotFoundException: Template "/system/404.ftl" not found.
+	at freemarker.template.Configuration.getTemplate(Configuration.java:742)
+	at freemarker.template.Configuration.getTemplate(Configuration.java:665)
+	at org.javalite.activeweb.freemarker.FreeMarkerTemplateManager.merge(FreeMarkerTemplateManager.java:93)
+	... 31 more
+java.lang.IllegalStateException: WRITER
+java.lang.IllegalStateException: WRITER
+	at org.eclipse.jetty.server.Response.getOutputStream(Response.java:874)
+	at org.javalite.activeweb.RequestDispatcher.renderSystemError(RequestDispatcher.java:310)
+	at org.javalite.activeweb.RequestDispatcher.doFilter(RequestDispatcher.java:223)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.handle(CrossOriginFilter.java:308)
+	at org.eclipse.jetty.servlets.CrossOriginFilter.doFilter(CrossOriginFilter.java:262)
+	at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1668)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:581)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143)
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:548)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:226)
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1158)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:511)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:185)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1090)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:213)
+	at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:119)
+	at org.eclipse.jetty.server.Server.handle(Server.java:517)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:306)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:242)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:248)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:95)
+	at org.eclipse.jetty.io.SelectChannelEndPoint$2.run(SelectChannelEndPoint.java:75)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.produceAndRun(ExecuteProduceConsume.java:213)
+	at org.eclipse.jetty.util.thread.strategy.ExecuteProduceConsume.run(ExecuteProduceConsume.java:147)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:654)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:572)
+	at java.lang.Thread.run(Thread.java:748)
+CONNECTION LEAK DETECTED ... and AVERTED!!! You left connections opened:[default]. ActiveWeb is closing all active connections for you...
+Closed connection: com.mysql.jdbc.JDBC4Connection@1da8302
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@1da8302
+================ New request: Tue Apr 10 09:36:51 ICT 2018 ================
+Opened connection: com.mysql.jdbc.JDBC4Connection@b1cfae
+Attached connection named: default: to current thread: com.mysql.jdbc.JDBC4Connection@b1cfae. Extra info: jdbc:mysql://10.10.10.56:3000/test
+Transaction opened
+Executing controller: app.controllers.example.CustomLOVController.index, session: 16unjgpf3p1za1ulfr1evyod0f
+Query: "SELECT * FROM master_user WHERE username = ? and is_active = ? ORDER BY user_id", with parameters: <Ichione>, <1>, took: 3 milliseconds
+Processed request in: 34 milliseconds, path: /example/CustomLOV, method: GET, session: 16unjgpf3p1za1ulfr1evyod0f
+Transaction committed
+Closed connection: com.mysql.jdbc.JDBC4Connection@b1cfae
+Detached connection named: default from current thread: com.mysql.jdbc.JDBC4Connection@b1cfae
