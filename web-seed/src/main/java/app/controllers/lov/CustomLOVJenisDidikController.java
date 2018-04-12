@@ -1,24 +1,24 @@
-package app.controllers.api.masterdata;
+package app.controllers.lov;
 
 import java.util.List;
 import java.util.Map;
 
-import app.models.MdAkuntbl;
+import app.models.MdJenisDidik;
 import core.io.model.LOVModel;
 import core.io.model.PagingParams;
 import core.javalite.controllers.LOVController;
 
-public class CustomLOVMdAkuntblController extends LOVController<MdAkuntbl>{
-	@Override
+public class CustomLOVJenisDidikController extends LOVController<MdJenisDidik> {
+	
 	public void initListOfValueModel(LOVModel model) {
-		// TODO Auto-generated method stub
-		model.setLovKey("kdtrans");
-		model.setLovValues("nmakun");
+		model.setLovKey("jnsdidik");
+		model.setLovValues("nmjenisdidik");
 	}
 	
-	@Override
 	public List<Map<String, Object>> customOnLoad(PagingParams params) throws Exception {
-		// TODO Auto-generated method stub
+		params.setFilter("jnsdidik < ?", 8);
+		params.setOrderBy("nmjenisdidik");
+		
 		return super.customOnLoad(params);
 	}
 }

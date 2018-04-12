@@ -14,7 +14,7 @@ public class CustomCRUDController extends CRUDController<MasterUser> {
 		
 	@Override
 	public List<Map<String, Object>> customOnLoad(PagingParams params) throws Exception {
-		params.setFilter("is_active = ?", 1);
+		params.setFilter("is_active = ?", 0);
 		params.setOrderBy("user_id");
 
 		return super.customOnLoad(params);
@@ -22,7 +22,7 @@ public class CustomCRUDController extends CRUDController<MasterUser> {
 	
 	@Override
 	public CorePage customOnReadAll(PagingParams params) throws Exception {
-		params.setFilter("is_active = ?", 1);
+		params.setFilter("is_active = ?", 0);
 		params.setOrderBy("user_id");
 		
 		return super.customOnReadAll(params);

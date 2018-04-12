@@ -1,4 +1,4 @@
-package app.controllers.api.masterdata;
+package app.controllers.lov;
 
 import java.util.List;
 import java.util.Map;
