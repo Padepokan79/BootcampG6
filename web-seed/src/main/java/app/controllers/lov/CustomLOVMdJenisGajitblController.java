@@ -1,22 +1,22 @@
-package app.controllers.api.masterdata;
+package app.controllers.lov;
 
 import java.util.List;
 import java.util.Map;
 
-import app.models.MdHutangtbl;
+import app.models.MdJenisGajitbl;
 import core.io.model.LOVModel;
 import core.io.model.PagingParams;
 import core.javalite.controllers.LOVController;
 
-public class CustomLOVMdHutangtblController extends LOVController<MdHutangtbl> {
+public class CustomLOVMdJenisGajitblController extends LOVController<MdJenisGajitbl> {
 	
 	public void initListOfValueModel(LOVModel model) {
-		model.setLovKey("kdhutang");
-		model.setLovValues("nmhutang");
+		model.setLovKey("kdgaji");
+		model.setLovValues("nmgaji");
 	}
 	
 	public List<Map<String, Object>> CustomOnload(PagingParams params) throws Exception {
-		params.setFilter("kdhutang = ?", 2);
+		params.setFilter("kdgaji < ", 5);
 		
 		return super.customOnLoad(params);
 	}

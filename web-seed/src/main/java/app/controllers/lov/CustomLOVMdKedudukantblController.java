@@ -1,27 +1,24 @@
-package app.controllers.api.masterdata;
+package app.controllers.lov;
 
 import java.util.List;
 import java.util.Map;
 
-import app.models.MdStapeg;
+import app.models.MdKedudukantbl;
 import core.io.model.LOVModel;
 import core.io.model.PagingParams;
 import core.javalite.controllers.LOVController;
 
-public class CustomLOVMdStapegController extends LOVController<MdStapeg> {
-	
+public class CustomLOVMdKedudukantblController extends LOVController<MdKedudukantbl>{
 	@Override
 	public void initListOfValueModel(LOVModel model) {
 		// TODO Auto-generated method stub
-		model.setLovKey("kdstapeg");
-		model.setLovValues("nmstapeg");
+		model.setLovKey("kddudukan");
+		model.setLovValues("nmdudukan");
 	}
 	
 	@Override
 	public List<Map<String, Object>> customOnLoad(PagingParams params) throws Exception {
-		params.setFilter("kd_jns_peg = ?", 2);
-		params.setOrderBy("nmstapeg");
-		
+		// TODO Auto-generated method stub
 		return super.customOnLoad(params);
 	}
 }
