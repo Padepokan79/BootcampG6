@@ -7,7 +7,7 @@ import org.javalite.common.Util;
 
 import com.Ostermiller.util.MD5;
 
-import app.models.core.master.MasterUser;
+import app.models.core.master.Users;
 import app.util.Lib;
 import core.io.enums.HttpResponses;
 import core.io.helper.JsonHelper;
@@ -28,9 +28,9 @@ public class TokenController extends CommonController {
 			@SuppressWarnings("rawtypes")
 			Map mapRequestBody = JsonHelper.toMap(requestBody);
 
-			String username = mapRequestBody.get("username").toString().toUpperCase();
+			String username = mapRequestBody.get("nama_login").toString().toUpperCase();
 			
-			MasterUser dataUser = MasterUser.findFirst("username = ?", username);
+			Users dataUser = Users.findFirst("nama_login = ?", username);
 			
 			if (dataUser != null) {
 				String password = MD5.getHashString(mapRequestBody.get("password").toString());
@@ -94,7 +94,7 @@ public class TokenController extends CommonController {
 			@SuppressWarnings("rawtypes")
 			Map mapRequest = JsonHelper.toMap(request);
 
-			MasterUser user = new MasterUser();
+			Users user = new Users();
 			user.fromMap(mapRequest);
 			user.validate();
 
